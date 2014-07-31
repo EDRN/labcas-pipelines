@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pgeConfig>
+   <!-- How to run the PGE -->
+   <exe dir="[JobDir]" shell="/bin/bash">
+        </exe>
+        
+	<!-- Files to ingest -->
+	<output>
+        <!-- one or more of these -->
+        <dir path="[ResultsDir]" createBeforeExe="false">
+            
+            <!-- one or more of these ** regExp or name can be used-->
+				<files regExp=".*\.db\.fasta" metFileWriterClass="gov.nasa.jpl.edrn.proteome.workflows.pge.met.FilenameMetExtractorWriter" args="[PGE_ROOT]/extractors/tabblab/proteome.db.extractor.config.xml"/>
+                <files regExp=".*\.cntms\.fasta" metFileWriterClass="gov.nasa.jpl.edrn.proteome.workflows.pge.met.FilenameMetExtractorWriter" args="[PGE_ROOT]/extractors/tabblab/proteome.cntms.extractor.config.xml"/>
+                <files regExp=".*\.myrimatch\.cfg" metFileWriterClass="gov.nasa.jpl.edrn.proteome.workflows.pge.met.FilenameMetExtractorWriter" args="[PGE_ROOT]/extractors/tabblab/proteome.myrimatch-cfg.extractor.config.xml"/>
+				<files regExp="TargetDB-reverse.fasta" metFileWriterClass="gov.nasa.jpl.edrn.proteome.workflows.pge.met.FilenameMetExtractorWriter" args="[PGE_ROOT]/extractors/tabblab/proteome.targetdb.extractor.config.xml"/>
+                <files regExp=".*\.mzML" metFileWriterClass="gov.nasa.jpl.edrn.proteome.workflows.pge.met.FilenameMetExtractorWriter" args="[PGE_ROOT]/extractors/tabblab/proteome.mzml.extractor.config.xml"/>
+                <files regExp=".*\.pepXML" metFileWriterClass="gov.nasa.jpl.edrn.proteome.workflows.pge.met.FilenameMetExtractorWriter" args="[PGE_ROOT]/extractors/tabblab/proteome.pepxml.extractor.config.xml"/>	
+				<files regExp=".*\.idpXML" metFileWriterClass="gov.nasa.jpl.edrn.proteome.workflows.pge.met.FilenameMetExtractorWriter" args="[PGE_ROOT]/extractors/tabblab/proteome.idpxml.extractor.config.xml"/>
+                <files regExp=".*\.tar" metFileWriterClass="gov.nasa.jpl.edrn.proteome.workflows.pge.met.FilenameMetExtractorWriter" args="[PGE_ROOT]/extractors/tabblab/proteome.idpickeragglomerative.extractor.config.xml"/>
+	</dir>
+    </output>        
+        
+   <!-- Custom metadata to add to output files -->
+   <customMetadata>
+      <!-- helpful keys -->
+      <metadata key="ResultsDir" val="/Users/rverma/TestEnv/EDRN/proteome/data/job/2e4aa4ba-db55-41b2-b00f-edac9f3a0d9e" workflowMet="true"/>
+   </customMetadata>
+</pgeConfig>

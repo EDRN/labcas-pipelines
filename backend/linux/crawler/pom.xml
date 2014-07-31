@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<!-- Copyright 2012 California Institute of Technology. ALL RIGHTS RESERVED. 
+	U.S. Government Sponsorship acknowledged. Author: Rishi Verma <rishi.verma@jpl.nasa.gov> 
+	$Id$ -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+	 <groupId>gov.nasa.jpl.edrn.labcas</groupId>
+	 <artifactId>backend-linux</artifactId>
+	 <version>0.0.2</version>
+	 <relativePath>../pom.xml</relativePath>
+	</parent>	
+	<groupId>gov.nasa.jpl.edrn.labcas</groupId>
+	<artifactId>proteome-crawler-linux</artifactId>
+	<packaging>jar</packaging>
+	<version>0.0.2-dev</version>
+	<name>Proteome Crawler Linux</name>
+
+	<properties>
+		<target.directory>proteome-crawler-linux</target.directory>
+	</properties>
+
+	<repositories>
+		<repository>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<id>oodt-m2-repository</id>
+			<name>OODT Maven 2.x Repository</name>
+			<url>http://oodt.jpl.nasa.gov/download/private</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.2</version>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<forkMode>pertest</forkMode>
+					<useSystemClassLoader>false</useSystemClassLoader>
+					<forkedProcessTimeoutInSeconds>0</forkedProcessTimeoutInSeconds>
+					<redirectTestOutputToFile>true</redirectTestOutputToFile>
+					<includes>
+						<include>**/*Test*.java</include>
+					</includes>
+				</configuration>
+			</plugin>
+		  <plugin>
+			<groupId>org.apache.oodt</groupId>
+			<artifactId>maven-cas-install-plugin</artifactId>
+			<version>0.2</version>
+			<configuration/>
+			<executions>
+			  <execution>
+				<id>install-crawler</id>
+				<goals>
+				  <goal>install</goal>
+				</goals>
+				<phase>install</phase> 
+				<configuration>
+				  <casDistributionFile>src/main/conf/dist/cas-crawler-0.3.tar.gz</casDistributionFile>
+				  <customBinScripts/>
+				  <customPolicyDirs/>
+				  <customConfigurationDir>src/main/conf/configuration</customConfigurationDir>
+				  <casInstallationDir>${install.directory}/${project.artifactId}</casInstallationDir>
+				  <customLibs>
+					<param>target/${project.artifactId}-${project.version}.jar</param>
+				  </customLibs>
+				  <envVarReplaceFiles>
+				   <param>
+					 <filepath>${install.directory}/${project.artifactId}/etc/logging.properties</filepath>
+				   </param>
+				  </envVarReplaceFiles>
+				</configuration>  
+			  </execution>
+			</executions>
+		  </plugin>			
+			
+		</plugins>
+	</build>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.oodt</groupId>
+			<artifactId>cas-crawler</artifactId>
+			<version>0.3</version>
+		</dependency>
+	</dependencies>
+
+</project>

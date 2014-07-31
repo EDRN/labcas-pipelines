@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <input>
+    
+    <group name="CommonMetadata">
+        <!--  can now use environment variable replacement in any of the values for 
+             scalars or vectors, just use CAS bracket style [ENV VAR NAME]
+         
+             Also can use vector to indicate multiple values for a particular met field.
+        -->
+        <scalar name="InstrumentDetails">idpQonvert (Linux x86) - IDPickerQonvert 2.6.271 (2011-5-31)</scalar>
+        <scalar name="DataStage">N/A</scalar>
+        <scalar name="ProductDescription">IDPicker XML report providing protein database search analysis</scalar>
+        <scalar name="ProductTitle">IDPicker XML report</scalar>
+        <scalar name="RecommendedSoftware">An XML file viewer</scalar>
+        <!-- RunID automatically added by PGE -->
+        <!-- InputProduct automatically added by PGE -->
+        <scalar name="ProductFunction">To present confident protein identifications from raw peptide identifications</scalar>
+        <!-- SpecimenType automatically added by PGE -->
+        <scalar name="MethodDetails">IDPicker infers score thresholds to achieve target false discovery rates (FDR) among peptide identifications. The software can remove artifactual proteins for more parsimonious protein reporting. IDPicker's HTML protein reports cluster indiscernible proteins and those that share peptides, making it far easier to learn the biological lessons presented by each sample. It applies a user-specified experimental hierarchy to collections of peptide identifications and enables users to track the number of spectra or peptides observed for a given protein across multiple experiments.</scalar>
+    </group>
+    
+</input>

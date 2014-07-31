@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  $Id$
+  
+  Author: rverma
+  Description: Performs the following actions:
+  				1. Deploys the Linux configuration bashrc file
+  				2. Creates a directory for pipeline-tools
+  				3. Moves over a txt file listing tools to download and place under pipeline-tools
+  				4. Create a root directory for job files during a pipeline run (very important!)
+  				5. Create cas run directory to place pid files
+  				6. Create a bootstrap data directory for directions on ingesting files to test pipeline with
+  deployment skeleton.
+  				7. Deploy LabCAS Pipeline service start and stop scripts
+  				8. Make LabCAS Pipeline scripts executable
+-->
+<project name="install_linux-config" default="all">
+  <target name="all">
+	<copy file="src/main/conf/.bashrc" todir="${user.directory}" overwrite="true"/>
+	<mkdir dir="${install.directory}/pipeline-tools"/>
+	<copy file="src/main/conf/pipeline-tools.txt" todir="${install.directory}/pipeline-tools"/>
+	<mkdir dir="${install.directory}/data/job"/>
+	<mkdir dir="${install.directory}/run"/>
+	<copy todir="${install.directory}/bootstrap">
+		<fileset dir="src/main/conf/bootstrap"/>
+	</copy>
+    <copy file="src/main/bin/start.sh"
+    	todir="${install.directory}" overwrite="true"/>
+    <copy file="src/main/bin/stop.sh"
+    	todir="${install.directory}" overwrite="true"/>    	
+	<chmod dir="${install.directory}" perm="+x"
+		includes="**/*.sh"/>	
+</target>
+</project>

@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<cas:metadata xmlns:cas="http://oodt.jpl.nasa.gov/1.0/cas">
+   <keyval>
+      <key>InstrumentDetail</key>
+      <val>Unknown</val>
+   </keyval>
+   <keyval>
+      <key>DataStage</key>
+      <val>Unknown</val>
+   </keyval>
+   <keyval>
+      <key>ProductDescription</key>
+      <val>RAW MS/MS e.coli sample</val>
+   </keyval>
+   <keyval>
+      <key>RecommendedSoftware</key>
+      <val>msconvert - ProteoWizard release: 2.2.2929</val>
+      <val>MyriMatch 2.0.85%2B</val>
+      <val>IDPickerReport 2.6.123.0%2B</val>
+   </keyval>
+   <keyval>
+      <key>ProductFunction</key>
+      <val>Unknown</val>
+   </keyval>
+   <keyval>
+      <key>SpecimenType</key>
+      <val>e.coli</val>
+   </keyval>
+   <keyval>
+      <key>MethodDetails</key>
+      <val>Generation of RAW sample e.coli products based on Tandem Mass Spectrography (MS/MS) technique. All initial samples were reduced, alkylated and in-gel digested. These samples were also spiked with known concentrations of BSA</val>
+   </keyval>
+   <keyval>
+      <key>ProtocolID</key>
+      <val>1001</val>
+   </keyval>
+   <keyval>
+      <key>ProtocolName</key>
+      <val>VUMC Participation in ABRF iPRG2009 Study</val>
+   </keyval>
+   <keyval>
+      <key>DatasetName</key>
+      <val>iPRG2009 RAW</val>
+   </keyval>
+   <keyval>
+      <key>DatasetDate</key>
+      <val>2009-02-08T00:00:00.000Z</val>
+   </keyval>
+   <keyval>
+      <key>DatsetDescription</key>
+      <val>VUMC RAW MS/MS e.coli sample collection for ABRF iPRG2009 Protein Differentiation Tool Analysis Study</val>
+   </keyval>
+   <keyval>
+      <key>CPTACClassification</key>
+      <val>Raw</val>
+   </keyval>
+   <keyval>
+      <key>LeadPI</key>
+      <val>David Tabb</val>
+   </keyval>
+   <keyval>
+      <key>SiteID</key>
+      <val>598</val>
+   </keyval>
+   <keyval>
+      <key>SiteName</key>
+      <val>Vanderbilt University Medical Center</val>
+   </keyval>
+   <keyval>
+      <key>DataCustodianName</key>
+      <val>David Tabb</val>
+   </keyval>
+   <keyval>
+      <key>DataCustodianEmail</key>
+      <val>david.l.tabb@vanderbilt.edu</val>
+   </keyval>
+   <keyval>
+      <key>OrganSites</key>
+      <val>N/A</val>
+   </keyval>
+   <keyval>
+      <key>OrganCollaborativeGroup</key>
+      <val>N/A</val>
+   </keyval>
+   <keyval>
+      <key>PubMedID</key>
+      <val>Unknown</val>
+   </keyval>
+   <keyval>
+      <key>MethodDetails</key>
+      <val>Generation of RAW sample e.coli products based on Tandem Mass Spectrography (MS/MS) technique. All initial samples were reduced, alkylated and in-gel digested. These samples were also spiked with known concentrations of BSA</val>
+   </keyval>
+   <keyval>
+      <key>AnalyticResultsAndConclusions</key>
+      <val>Unknown</val>
+   </keyval>
+</cas:metadata>

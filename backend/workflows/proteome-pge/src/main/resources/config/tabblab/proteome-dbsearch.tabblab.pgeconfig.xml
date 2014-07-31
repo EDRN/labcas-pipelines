@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pgeConfig>
+
+        <!-- How to run the PGE -->
+        <exe dir="[JobDir]" shell="/bin/bash">
+          <cmd>cd [JobDir]</cmd>
+          <cmd>[PROTEOME_HOME]/pipeline-tools/tabblab/myrimatch -cfg [MyrimatchCfg] -ProteinDatabase [TargetDB] [MZML]</cmd>
+        </exe>
+
+        <!-- Custom metadata to add to output files -->
+        <customMetadata>
+        
+                <metadata key="MZML" val="[JobDir]/*.mzML"/>
+                <metadata key="TargetDB" val="[JobDir]/TargetDB-reverse.fasta"/>
+                <metadata key="MyrimatchCfg" val="[JobDir]/*.myrimatch.cfg"/>
+                
+      </customMetadata>
+
+</pgeConfig>
+

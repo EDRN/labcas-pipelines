@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pgeConfig>
+   <!-- How to run the PGE -->
+   <exe dir="[JobDir]" shell="/bin/bash">
+        </exe>
+        
+        
+   <!-- Custom metadata to add to output files -->
+   <customMetadata>
+      <!-- helpful keys -->
+      <metadata key="RAWFiles" val="4198b590-60da-11e2-ae3c-4b87464561e9" workflowMet="true"/>
+   </customMetadata>
+</pgeConfig>

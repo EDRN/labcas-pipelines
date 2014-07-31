@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pgeConfig>
+
+		<!-- NOTE: This PGE in configured to run on a Windows machine -->
+
+        <!-- How to run the PGE -->
+        <exe dir="[CygwinJobDir]" shell="C:\cygwin\Cygwin.bat">
+          <cmd>[PROTEOME_HOME]/pipeline-tools/idpicker/idpReport.exe [CygwinJobDir]/[IDPickerHTMLReportsPrefix] [CygwinJobDir]/*.idpXML</cmd>
+          <cmd>mv [CygwinJobDir]/[IDPickerHTMLReportsPrefix]-* [CygwinJobDir]/[IDPickerHTMLReportsPrefix]/</cmd>
+        </exe>
+
+        <!-- Custom metadata to add to output files -->
+        <customMetadata>
+        		<metadata key="IDPickerHTMLReportsPrefix" val="idpicker_html_reports" workflowMet="true"/>
+        </customMetadata>
+
+</pgeConfig>

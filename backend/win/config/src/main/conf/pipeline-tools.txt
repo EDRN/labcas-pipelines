@@ -1,0 +1,195 @@
+Required tools to install:
+1. dbreverser.exe
+2. idpReport.exe v2.6.123.0 (5/31/2011)
+3. msconvert.exe
+
+Directory structure to create:
+.
+├── dbreverser.exe
+├── idpicker
+│   ├── -C
+│   ├── BDal.CXt.Lc.Factory.dll
+│   ├── BDal.CXt.Lc.Interfaces.dll
+│   ├── BDal.CXt.Lc.UntU2.dll
+│   ├── BDal.CXt.Lc.dll
+│   ├── BLL.dll
+│   ├── BaseCommon.dll
+│   ├── BaseDataAccess.dll
+│   ├── BaseError.dll
+│   ├── BaseTof.dll
+│   ├── Common.dll
+│   ├── Common.dll.config
+│   ├── CompassXtractMS.dll
+│   ├── DataGridViewAutoFilter.dll
+│   ├── DigitalRune.Windows.Docking.dll
+│   ├── EULA.MHDAC
+│   ├── EULA.MSFileReader
+│   ├── ICSharpCode.SharpZipLib.dll
+│   ├── IDPickerPresentation.dll
+│   ├── IDPickerWorkspace.dll
+│   ├── IdPickerGui.exe
+│   ├── IdPickerGui.exe.config
+│   ├── IdPickerGui.exe.manifest
+│   ├── Interop.DataExplorer.dll
+│   ├── Interop.EDAL.SxS.manifest
+│   ├── Interop.EDAL.dll
+│   ├── Interop.MSFileReaderLib.dll
+│   ├── MODEL.dll
+│   ├── MSFileReader.XRawfile2.SxS.manifest
+│   ├── MSFileReader.XRawfile2.dll
+│   ├── MSGraph.dll
+│   ├── MassSpecDataReader.dll
+│   ├── NTB-vc80-mt-4_3_61.dll
+│   ├── Native.Common.manifest
+│   ├── Native.IDPickerPresentation.manifest
+│   ├── Native.IDPickerWorkspace.manifest
+│   ├── STL_Containers.XML
+│   ├── STL_Containers.dll
+│   ├── STL_Containers.dll.config
+│   ├── TargetDB-reverse.fasta
+│   ├── ZedGraph.dll
+│   ├── agtsampleinforw.dll
+│   ├── boost_regex-vc80-mt-1_33_1-BDAL_20070424.dll
+│   ├── boost_thread-vc80-mt-1_33_1-BDAL_20070424.dll
+│   ├── fileio.dll
+│   ├── fregistry.dll
+│   ├── generateSubsetFasta.exe
+│   ├── generateSubsetFasta.exe.manifest
+│   ├── idpAssemble.exe
+│   ├── idpAssemble.exe.manifest
+│   ├── idpQonvert.exe
+│   ├── idpReport.exe
+│   ├── idpReport.exe.manifest
+│   ├── idpicker-2-1-cli.html
+│   ├── idpicker-2-1-gui.html
+│   ├── idpicker-2-1-gui_files
+│   │   ├── image001.gif
+│   │   ├── image001.png
+│   │   ├── image002.gif
+│   │   ├── image002.jpg
+│   │   ├── image003.gif
+│   │   ├── image004.gif
+│   │   ├── image005.gif
+│   │   ├── image006.gif
+│   │   ├── image007.gif
+│   │   ├── image008.gif
+│   │   ├── image009.jpg
+│   │   └── themedata.thmx
+│   ├── idpicker.html
+│   ├── idpicker_html_reports.tar
+│   ├── libfftw3-3.dll
+│   ├── libfftw3f-3.dll
+│   ├── overview-1-2.pdf
+│   ├── pwiz.Common.dll
+│   ├── pwiz_bindings_cli.dll
+│   ├── report_test
+│   │   ├── idpicker-scripts.js
+│   │   ├── idpicker-style.css
+│   │   ├── index.html
+│   │   ├── report_test-cluster1.html
+│   │   ├── report_test-cluster2.html
+│   │   ├── report_test-cluster3.html
+│   │   ├── report_test-cluster4.html
+│   │   ├── report_test-cluster5.html
+│   │   ├── report_test-cluster6.html
+│   │   ├── report_test-cluster7.html
+│   │   ├── report_test-cluster8.html
+│   │   ├── report_test-groups.html
+│   │   ├── report_test-index-by-modification.html
+│   │   ├── report_test-index-by-protein.html
+│   │   ├── report_test-index-by-spectrum.html
+│   │   ├── report_test-nav.html
+│   │   ├── report_test-processing.html
+│   │   ├── report_test-sequences-per-protein-by-group.html
+│   │   ├── report_test-sequences.svg
+│   │   ├── report_test-spectra-per-peptide-by-group.html
+│   │   ├── report_test-spectra-per-protein-by-group.html
+│   │   └── report_test-summary.html
+│   ├── seems.exe
+│   ├── seems.exe.config
+│   └── seems.exe.manifest
+└── proteowizard
+    ├── BDal.CXt.Lc.Factory.dll
+    ├── BDal.CXt.Lc.Interfaces.dll
+    ├── BDal.CXt.Lc.UntU2.dll
+    ├── BDal.CXt.Lc.dll
+    ├── BaseCommon.dll
+    ├── BaseDataAccess.dll
+    ├── BaseError.dll
+    ├── BaseTof.dll
+    ├── Clearcore2.Data.AnalystDataProvider.dll
+    ├── Clearcore2.Data.CommonInterfaces.dll
+    ├── Clearcore2.Data.WiffReader.dll
+    ├── Clearcore2.Data.dll
+    ├── Clearcore2.InternalRawXYProcessing.dll
+    ├── Clearcore2.ProjectUtilities.dll
+    ├── Clearcore2.StructuredStorage.dll
+    ├── Clearcore2.Utility.dll
+    ├── CompassXtractMS.dll
+    ├── CustomDataSourceDialog.dll
+    ├── CustomDataSourceDialog.dll.config
+    ├── DataGridViewAutoFilter.dll
+    ├── DigitalRune.Windows.Docking.dll
+    ├── DigitalRune.Windows.Docking.xml
+    ├── EULA.MHDAC
+    ├── EULA.MSFileReader
+    ├── FlexVariableTable.xml
+    ├── HSReadWrite.dll
+    ├── ICRVariableTable.xml
+    ├── Interop.DataExplorer.dll
+    ├── Interop.EDAL.SxS.manifest
+    ├── Interop.EDAL.dll
+    ├── Interop.HSREADWRITELib.SxS.manifest
+    ├── Interop.HSREADWRITELib.dll
+    ├── Interop.MSFileReaderLib.dll
+    ├── MSConvertGUI.exe
+    ├── MSConvertGUI.exe.manifest
+    ├── MSFileReader.XRawfile2.SxS.manifest
+    ├── MSFileReader.XRawfile2.dll
+    ├── MSGraph.dll
+    ├── MassLynxRaw.dll
+    ├── MassSpecDataReader.dll
+    ├── MathNet.Iridium.dll
+    ├── NTB-vc80-mt-1_5_97.dll
+    ├── STL_Containers.dll
+    ├── STL_Containers.xml
+    ├── ZedGraph.dll
+    ├── ZedGraph.xml
+    ├── agtsampleinforw.dll
+    ├── bgd.dll
+    ├── boost_date_time-vc80-mt-1_33_1-BDAL_20070424.dll
+    ├── boost_regex-vc80-mt-1_33_1-BDAL_20070424.dll
+    ├── boost_thread-vc80-mt-1_33_1-BDAL_20070424.dll
+    ├── chainsaw.exe
+    ├── fileio.dll
+    ├── fregistry.dll
+    ├── hello_analyzer.exe
+    ├── hello_analyzer_2.exe
+    ├── hello_msdata.exe
+    ├── hello_ramp.exe
+    ├── idcat.exe
+    ├── idconvert.exe
+    ├── libfftw3-3.dll
+    ├── libfftw3f-3.dll
+    ├── msaccess.exe
+    ├── msbenchmark.exe
+    ├── mscat.exe
+    ├── msconvert.exe
+    ├── msdiff.exe
+    ├── msdir.exe
+    ├── msistats.exe
+    ├── mspicture.exe
+    ├── peakaboo.exe
+    ├── pepcat.exe
+    ├── pepsum.exe
+    ├── pwiz.Common.dll
+    ├── pwiz_bindings_cli.dll
+    ├── seems.exe
+    ├── seems.exe.config
+    ├── seems.exe.manifest
+    ├── sldout.exe
+    ├── txt2mzml.exe
+    ├── write_example_files.exe
+    ├── write_mzid_example_files.exe
+    ├── write_proteome_example_files.exe
+    └── write_traml_example_files.exe

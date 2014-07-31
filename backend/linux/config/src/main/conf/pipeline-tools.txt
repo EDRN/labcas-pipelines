@@ -1,0 +1,39 @@
+Required tools to install:
+1. QuasiTel.R
+2. ProteoWizard v3.0.6510
+3. idpQonvert v3.1.567 (2014-04-14)
+4. myrimatch v2.2.140 (2014-4-4)
+
+Directory structure to create:
+.
+|-- QuasiTel.R
+|-- pipeline-tools.txt
+|-- proteowizard
+|   |-- pwiz-bin
+|   |   |-- chainsaw
+|   |   |-- hello_analyzer
+|   |   |-- hello_analyzer_2
+|   |   |-- hello_msdata
+|   |   |-- hello_ramp
+|   |   |-- idcat
+|   |   |-- idconvert
+|   |   |-- msaccess
+|   |   |-- msbenchmark
+|   |   |-- mscat
+|   |   |-- msconvert
+|   |   |-- msdiff
+|   |   |-- msdir
+|   |   |-- msistats
+|   |   |-- mspicture
+|   |   |-- peakaboo
+|   |   |-- pepcat
+|   |   |-- pepsum
+|   |   |-- sldout
+|   |   |-- txt2mzml
+|   |   |-- write_example_files
+|   |   |-- write_mzid_example_files
+|   |   |-- write_proteome_example_files
+|   |   `-- write_traml_example_files
+`-- tabblab
+    |-- idpQonvert 
+    `-- myrimatch 

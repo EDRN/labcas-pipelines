@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <input>
+    
+    <group name="CommonMetadata">
+        <!--  can now use environment variable replacement in any of the values for 
+             scalars or vectors, just use CAS bracket style [ENV VAR NAME]
+         
+             Also can use vector to indicate multiple values for a particular met field.
+        -->
+        <scalar name="InstrumentDetails">myrimatch (Linux x86) - MyriMatch 2.0.85 (2011-3-11)</scalar>
+        <scalar name="DataStage">N/A</scalar>
+        <scalar name="ProductDescription">MyriMatch search results obtained from comparing RAW peptide products against a known database of of proteins</scalar>
+        <scalar name="ProductTitle">MyriMatch spectra search results</scalar>
+        <vector name="RecommendedSoftware">
+        	<element>IDPickerQonvert 2.6.271+</element>
+        	<element>IDPickerReport 2.6.123.0+</element>
+        </vector>
+        <!-- RunID automatically added by PGE -->
+        <!-- InputProduct automatically added by PGE -->
+        <scalar name="ProductFunction">To compare spectra against sequences in a known database of proteins, based off of experimental data from shotgun proteomics experiments</scalar>
+        <!-- SpecimenType automatically added by PGE -->
+        <scalar name="MethodDetails">Utilizes MyriMatch - a tool designed to take experimental data from shotgun proteomics experiments and compare those spectra against sequences in a known database of proteins. Whether the program is being run in a single-computer environment or across an entire cluster of processing nodes, it is able to optimally divide work in a much more efficient way than many other database search programs. This is because it only generates candidate sequences from the known database once for the entire set of spectra instead of once for every spectrum. Thus, for each candidate sequence generated, it is compared against every spectrum. The spectra keep a certain (user-defined) number of candidate sequences that had the highest scores.</scalar>
+    </group>
+    
+</input>

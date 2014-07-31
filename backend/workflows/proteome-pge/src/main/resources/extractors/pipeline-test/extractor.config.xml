@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <input>
+    
+    <group name="CommonMetadata">
+        <!--  can now use environment variable replacement in any of the values for 
+             scalars or vectors, just use CAS bracket style [ENV VAR NAME]
+         
+             Also can use vector to indicate multiple values for a particular met field.
+        -->
+    </group>
+    
+</input>

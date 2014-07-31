@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  $Id$
+  
+  Author: rverma
+  Description: Performs the following actions:
+  				1. Deploys and extracts the proteome fmbrowser war (web-application)
+				2. Env replaces the fmbrowser webapp context.xml
+				3. Copy the replaced context.xml to tomcat's conf container
+-->
+<project name="install_proteome-fmbrowser-war" default="all">
+  <target name="all">
+	<unwar src="target/proteome-fmbrowser-${project.version}.war" dest="${tomcat.directory}/webapps/${target.directory}"/>
+	<replace
+		file="${tomcat.directory}/webapps/${target.directory}/META-INF/context.xml"
+		token="[PROTEOME_FILEMGR_URL]"
+		value="${env.PROTEOME_FILEMGR_URL}"/> 
+	<copy file="${tomcat.directory}/webapps/${target.directory}/META-INF/context.xml"
+		tofile="${tomcat.directory}/conf/Catalina/localhost/${target.directory}.xml"
+		overwrite="true"/>
+  </target>
+</project>

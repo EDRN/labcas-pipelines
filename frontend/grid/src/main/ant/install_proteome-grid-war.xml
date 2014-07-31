@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  $Id$
+  
+  Author: rverma
+  Description: Performs the following actions:
+  				1. Deploys and extracts the proteome grid war (web-application) to tomcat
+  				2. Deploys the grid OFSN configuration file
+  				3. Deploys the grid WEB-INF/config.xml file
+  deployment skeleton.
+-->
+<project name="install_proteome-grid-war" default="all">
+  <target name="all">
+	<unwar src="src/main/conf/dist/web-grid-${oodt.version}.war" dest="${tomcat.directory}/webapps/${target.directory}"/>	
+	<copy file="src/main/conf/configuration/proteome-grid-ofsn-ps.xml" todir="${tomcat.directory}/conf"/>
+	<replace
+		file="${tomcat.directory}/conf/proteome-grid-ofsn-ps.xml"
+		token="[PROTEOME_HOME]"
+		value="${install.directory}"/> 
+	<copy file="src/main/conf/configuration/config.xml" todir="${tomcat.directory}/webapps/${target.directory}/WEB-INF" overwrite="true"/>
+	<replace
+		file="${tomcat.directory}/webapps/${target.directory}/WEB-INF/config.xml"
+		token="[TOMCAT_DIR]"
+		value="${tomcat.directory}"/>
+  </target>
+</project>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  $Id$
+  
+  Author: rverma
+  Description: Performs the following actions:
+  				1. Deploys and extracts the proteome wmservice war (web-application)
+				2. Env replaces the wmservice webapp context.xml
+				3. Copy the replaced context.xml to tomcat's conf container
+-->
+<project name="install_wmservice-webapp" default="all">
+  <target name="all">
+	<unwar src="target/${project.artifactId}-${project.version}.war" dest="${env.PROTEOME_HOME}/tomcat/webapps/wmservice"/>
+	<replace
+		file="${env.PROTEOME_HOME}/tomcat/webapps/wmservice/META-INF/context.xml"
+		token="[WM_URL]"
+		value="${env.PROTEOME_WORKFLOW_URL}"/>
+  </target>
+</project>

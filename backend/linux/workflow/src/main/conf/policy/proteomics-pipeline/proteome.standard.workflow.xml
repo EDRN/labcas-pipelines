@@ -1,0 +1,16 @@
+    <cas:workflow xmlns:cas="http://oodt.jpl.nasa.gov/1.0/cas"
+      name="ProteomeStandardWorkflow"
+      id="urn:edrn:ProteomeStandardWorkflow">
+
+      <tasks>
+        <task id="urn:edrn:ProteomeDownloadInputFiles"/>
+		<task id="urn:edrn:ProteomeJobStartNotify"/>
+		<task id="urn:edrn:ProteomePipelineConfigStandard"/>
+        <task id="urn:edrn:ProteomePreprocessingStandard"/>
+        <task id="urn:edrn:ProteomeDBSearchStandard"/>
+        <task id="urn:edrn:ProteomeFiltering1Standard"/>
+	<task id="urn:edrn:ProteomeFiltering2Standard"/>
+        <task id="urn:edrn:ProteomePostprocessingStandard"/>
+        <task id="urn:edrn:ProteomeJobEndNotify"/>
+      </tasks>
+    </cas:workflow>

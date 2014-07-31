@@ -1,0 +1,12 @@
+    <cas:workflow xmlns:cas="http://oodt.jpl.nasa.gov/1.0/cas"
+      name="PipelineTest"
+      id="urn:edrn:PipelineTest">
+
+      <tasks>
+      	<task id="urn:edrn:CreateJobDir"/>
+        <task id="urn:edrn:LinuxTest"/>
+        <task id="urn:edrn:WinTest"/>
+        <task id="urn:edrn:PipelineWinMetTest"/>
+        <task id="urn:edrn:FilemgrCrawlerTest"/>
+      </tasks>
+    </cas:workflow>

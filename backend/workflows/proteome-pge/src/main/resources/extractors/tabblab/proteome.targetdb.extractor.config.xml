@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <input>
+    
+    <group name="CommonMetadata">
+        <!--  can now use environment variable replacement in any of the values for 
+             scalars or vectors, just use CAS bracket style [ENV VAR NAME]
+         
+             Also can use vector to indicate multiple values for a particular met field.
+        -->
+        <scalar name="InstrumentDetails">dbreverser.exe (Win 32)</scalar>
+        <scalar name="DataStage">N/A</scalar>
+        <scalar name="ProductDescription">Replica of FASTA database with a reversed version of each protein sequence</scalar>
+        <scalar name="ProductTitle">FASTA reversed database</scalar>
+        <scalar name="RecommendedSoftware">MyriMatch 2.0.85+</scalar>
+        <!-- RunID automatically added by PGE -->
+        <!-- InputProduct automatically added by PGE -->
+        <scalar name="ProductFunction">To double the size of a sequence database by adding a reversed version of each sequence to the database</scalar>
+        <!-- SpecimenType automatically added by PGE -->
+        <scalar name="MethodDetails">Unknown</scalar>
+    </group>
+    
+</input>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pgeConfig>
+
+		<!-- NOTE: This PGE in configured to run on a Windows machine -->
+
+        <!-- How to run the PGE -->
+        <exe dir="[CygwinJobDir]" shell="C:\cygwin\Cygwin.bat">
+          <!-- cd to PGE root -->
+          <cmd>cd [PGE_ROOT_CYGWIN]</cmd>
+          <cmd>cat [FastaDB] [ContaminantsDB] >> [TargetDB]</cmd>
+          <cmd>[PROTEOME_HOME]/pipeline-tools/dbreverser.exe [TargetDB]</cmd>
+        </exe>
+
+        <!-- Custom metadata to add to output files -->
+        <customMetadata>
+        
+				<metadata key="RAW" val="[CygwinJobDir]/*.RAW"/>
+				<metadata key="FastaDB" val="[CygwinJobDir]/*.db.fasta"/>
+				<metadata key="ContaminantsDB" val="[CygwinJobDir]/*.cntms.fasta"/>
+				<metadata key="TargetDB" val="[CygwinJobDir]/TargetDB.fasta"/>
+			
+      </customMetadata>
+
+</pgeConfig>

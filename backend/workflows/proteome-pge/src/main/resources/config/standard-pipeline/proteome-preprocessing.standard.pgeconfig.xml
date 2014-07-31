@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pgeConfig>
+
+		<!-- NOTE: This PGE in configured to run on a Windows machine -->
+
+        <!-- How to run the PGE -->
+        <exe dir="[CygwinJobDir]" shell="C:\cygwin\Cygwin.bat">
+          <!-- cd to PGE root -->
+          <cmd>cd [PGE_ROOT_CYGWIN]</cmd>
+          <cmd>cat [FastaDB] [ContaminantsDB] >> [TargetDB]</cmd>
+          <cmd>[PROTEOME_HOME]/pipeline-tools/dbreverser.exe [TargetDB]</cmd>
+          <cmd>[PROTEOME_HOME]/pipeline-tools/proteowizard/msconvert [MSConvertOpts] [RAW]</cmd>
+        </exe>
+
+        <!-- Custom metadata to add to output files -->
+        <customMetadata>
+        
+				<metadata key="RAW" val="[PGE_ROOT_CYGWIN]/files/[RunID]/*.RAW"/>
+				<metadata key="FastaDB" val="[PGE_ROOT_CYGWIN]/files/[RunID]/DB.fasta"/>
+				<metadata key="ContaminantsDB" val="[PGE_ROOT_CYGWIN]/files/[RunID]/Cntms.fasta"/>
+				<metadata key="TargetDB" val="[CygwinJobDir]/TargetDB.fasta"/>
+				
+				<!-- msconvert metadata -->
+				<metadata key="MSConvertFilterOpt" val="--32 -z --filter 'peakPicking true [1,2]'" envReplace="false"/>
+				<metadata key="MSConvertOpts" val="-o [CygwinJobDir] [MSConvertFilterOpt]"/>
+				
+      </customMetadata>
+
+</pgeConfig>

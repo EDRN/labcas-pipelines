@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pgeConfig>
+
+
+        <!-- How to run the PGE -->
+        <exe dir="[JobDir]" shell="/bin/bash">
+        </exe>
+
+        <!-- Custom metadata to add to output files -->
+        <customMetadata>
+                <!-- helpful keys -->
+                <metadata key="LessThan" val="&#x3C;" workflowMet="true"/>
+                <metadata key="LessThanOrEqualTo" val="[LessThan]=" workflowMet="true"/>
+                <metadata key="GreaterThan" val="&#x3E;" workflowMet="true"/>
+                <metadata key="GreaterThanOrEqualTo" val="[GreaterThan]=" workflowMet="true"/>
+                <metadata key="Exclamation" val="&#33;" workflowMet="true"/>
+                <metadata key="Ampersand" val="&#38;" workflowMet="true"/>
+                <metadata key="NotEqualTo" val="[Ampersand]=" workflowMet="true"/>
+                <metadata key="LogicalAnd" val="[Ampersand][Ampersand]" workflowMet="true"/>
+                <metadata key="CshPipeToStdOutAndError" val="[GreaterThan][Ampersand][Exclamation]" workflowMet="true"/>
+               
+               <!-- Pipeline met -->
+                <metadata key="JobDir" val="[PGE_ROOT]/output/jobs/[RunID]" workflowMet="true"/>
+				<metadata key="CygwinJobDir" val="[PGE_ROOT_CYGWIN]/output/jobs/[RunID]" workflowMet="true"/>   
+                <metadata key="URLBasePath" val ="http://biomarker-public.jpl.nasa.gov/grid/prod?q=OFSN=/job" workflowMet="true"/>
+                
+      </customMetadata>
+
+</pgeConfig>
+

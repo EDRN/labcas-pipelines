@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  $Id$
+  
+  Author: rverma
+  Description: Performs the following actions:
+  				1. Deploys the Windows cygwin configuration bashrc file
+  				2. Creates a directory for pipeline-tools
+  				3. Moves over a txt file listing tools to download and place under pipeline-tools
+  				4. Create cas run directory to place pid files
+  				5. Deploy LabCAS Pipeline service start and stop scripts
+  				6. Make LabCAS Pipeline scripts executable
+  deployment skeleton.
+-->
+<project name="install_win-config" default="all">
+  <target name="all">
+	<copy file="src/main/conf/.bashrc" todir="${user.directory}" overwrite="true"/>
+	<mkdir dir="${install.directory}/pipeline-tools"/>
+	<copy file="src/main/conf/pipeline-tools.txt" todir="${install.directory}/pipeline-tools"/>
+	<mkdir dir="${install.directory}/run"/>
+    <copy file="src/main/bin/start.sh"
+    	todir="${install.directory}" overwrite="true"/>
+    <copy file="src/main/bin/stop.sh"
+    	todir="${install.directory}" overwrite="true"/>    	
+	<chmod dir="${install.directory}" perm="+x"
+		includes="**/*.sh"/>	
+  </target>
+</project>

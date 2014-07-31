@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  $Id$
+  
+  Author: rverma
+  Description: Performs the following actions:
+  				1. Deploys and extracts the proteome wmonitor war (web-application)
+				2. Env replaces the wmonitor webapp context.xml
+				3. Copy the replaced context.xml to tomcat's conf container
+-->
+<project name="install_proteome-wmonitor-war" default="all">
+  <target name="all">
+	<unwar src="target/proteome-wmonitor-${project.version}.war" dest="${tomcat.directory}/webapps/${target.directory}"/>
+	<replace
+		file="${tomcat.directory}/webapps/${target.directory}/META-INF/context.xml"
+		token="[PROTEOME_WORKFLOW_URL]"
+		value="${env.PROTEOME_WORKFLOW_URL}"/>
+	<replace
+		file="${tomcat.directory}/webapps/${target.directory}/META-INF/context.xml"
+		token="[PROTEOME_WORKFLOW_HOME]"
+		value="${env.PROTEOME_WORKFLOW_HOME}"/> 		 
+	<copy file="${tomcat.directory}/webapps/${target.directory}/META-INF/context.xml"
+		tofile="${tomcat.directory}/conf/Catalina/localhost/${target.directory}.xml"
+		overwrite="true"/>
+  </target>
+</project>

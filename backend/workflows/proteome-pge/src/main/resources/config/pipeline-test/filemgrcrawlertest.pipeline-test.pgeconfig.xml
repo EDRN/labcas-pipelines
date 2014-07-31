@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pgeConfig>
+   <!-- How to run the PGE -->
+   <exe dir="[JobDir]" shell="/bin/bash">
+		</exe>
+   <!-- Files to ingest -->
+   <output>
+      <!-- one or more of these -->
+      <dir path="[JobDir]" createBeforeExe="false">
+         <!-- one or more of these ** regExp or name can be used-->
+         <files regExp=".*\.output" metFileWriterClass="gov.nasa.jpl.edrn.proteome.workflows.pge.met.FilenameMetExtractorWriter" args="[PGE_ROOT]/extractors/pipeline-test/extractor.config.xml"/>
+      </dir>
+   </output>
+</pgeConfig>

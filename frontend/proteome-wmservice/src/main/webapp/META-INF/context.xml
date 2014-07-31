@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Context>
+	<!-- SAMPLE Parameter
+  <Parameter name="filemgr.url" value="[FILEMGR_URL]" override="false" />
+   -->
+   <Parameter name="gov.nasa.jpl.edrn.labcas.wmservice.wmurl" value="[WM_URL]"/>
+</Context>

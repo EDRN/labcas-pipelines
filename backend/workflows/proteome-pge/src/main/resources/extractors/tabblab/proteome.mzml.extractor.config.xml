@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <input>
+    
+    <group name="CommonMetadata">
+        <!--  can now use environment variable replacement in any of the values for 
+             scalars or vectors, just use CAS bracket style [ENV VAR NAME]
+         
+             Also can use vector to indicate multiple values for a particular met field.
+        -->
+        <scalar name="InstrumentDetails">msconvert (Win 32) - ProteoWizard release: 2.2.2929 (2011-8-9)</scalar>
+        <scalar name="DataStage">N/A</scalar>
+        <scalar name="ProductDescription">XML version of RAW sample product</scalar>
+        <scalar name="ProductTitle">XML RAW sample product</scalar>
+        <scalar name="RecommendedSoftware">MyriMatch 2.0.85+</scalar>
+        <!-- RunID automatically added by PGE -->
+        <!-- InputProduct automatically added by PGE -->
+        <scalar name="ProductFunction">N/A</scalar>
+        <!-- SpecimenType automatically added by PGE -->
+        <scalar name="MethodDetails">Conversion from RAW format to mzML format</scalar>
+    </group>
+    
+</input>

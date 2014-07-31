@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pgeConfig>
+
+        <!-- How to run the PGE -->
+        <exe dir="[JobDir]" shell="/bin/bash">
+          <cmd>cd [JobDir]</cmd>
+          <cmd>idpQonvert *.pepXML</cmd>
+        </exe>
+
+        <!-- Custom metadata to add to output files -->
+        <customMetadata>
+                
+      </customMetadata>
+
+</pgeConfig>
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <input>
+    
+    <group name="CommonMetadata">
+        <!--  can now use environment variable replacement in any of the values for 
+             scalars or vectors, just use CAS bracket style [ENV VAR NAME]
+         
+             Also can use vector to indicate multiple values for a particular met field.
+        -->
+        <scalar name="InstrumentDetails">idpReport.exe (Win32) - IDPickerReport 2.6.123.0 (5/31/2011)</scalar>
+        <scalar name="DataStage">N/A</scalar>
+        <scalar name="ProductDescription">IDPicker Agglomerative (HTML) reports providing protein database search analysis</scalar>
+        <scalar name="ProductTitle">IDPicker Agglomerative (HTML) reports</scalar>
+        <vector name="RecommendedSoftware">
+        	<element>Unix TAR</element>
+        	<element>Mozilla Firefox 2.0+</element>
+        	<element>Internet Explorer 6.0+</element>
+        	<element>Google Chrome 17.0+</element>
+        </vector>
+        <!-- RunID automatically added by PGE -->
+        <!-- InputProduct automatically added by PGE -->
+        <scalar name="ProductFunction">To present confident protein identifications from raw peptide identifications</scalar>
+        <!-- SpecimenType automatically added by PGE -->
+        <scalar name="MethodDetails">IDPicker infers score thresholds to achieve target false discovery rates (FDR) among peptide identifications. The software can remove artifactual proteins for more parsimonious protein reporting. IDPicker's HTML protein reports cluster indiscernible proteins and those that share peptides, making it far easier to learn the biological lessons presented by each sample. It applies a user-specified experimental hierarchy to collections of peptide identifications and enables users to track the number of spectra or peptides observed for a given protein across multiple experiments.</scalar>
+    </group>
+    
+</input>

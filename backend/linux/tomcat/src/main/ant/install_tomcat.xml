@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  $Id$
+  
+  Author: rverma
+  Description: Performs the following actions:
+  				1. Deploys and extracts the apache-tomcat distribution tar ball
+  				2. Renames the apache-tomcat directory to a generic name
+  				3. Change mode on all tomcat scripts to be executable
+-->
+<project name="install_tomcat" default="all">
+  <target name="all">
+	<untar 
+		src="src/main/conf/dist/${project.artifactId}-${tomcat.version}.tar.gz" 
+		dest="${install.directory}"
+		compression="gzip"/>	
+	<move 
+		file="${install.directory}/${project.artifactId}-${tomcat.version}"
+		tofile="${install.directory}/${target.directory}"/>
+	<chmod dir="${install.directory}/${target.directory}/bin" perm="+x"
+		includes="**/*.sh"/>				
+  </target>
+</project>

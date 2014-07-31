@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!-- Custom metadata to add to output files -->
+	<customMetadata>
+	        <!-- specific to pipeline -->
+	        <metadata key="RAWFiles" val="SQL(FORMAT='$Filename'){SELECT FileLocation,Filename FROM [RawDatasetName] WHERE ProductName=
+	        <metadata key="InputFiles" val="SQL(FORMAT='$FileLocation/$Filename',SORT_BY='CAS.ProductReceivedTime'){SELECT FileLocation,Filename,CAS.ProductReceivedTime FROM MOD09GA WHERE DayOfYear='[DayOfYear]' AND Year='[Year]'}"/>
+                <metadata key="ProductionDateTime" val="[DATE.UTC]"/>
+                <metadata key="JobDir" val="[SNOWDS_HOME]/data/jobs/MODDRFS/[DATE_TO_MILLIS([ProductionDateTime],UTC_FORMAT,1970-01-01)]"/>
+     
+		<metadata key="SpecimenType" val="SQL(FORMAT='$SpecimenType'){SELECT SpecimenType FROM [RawDatasetName] WHERE CAS.ProductId='[FirstRawFileProdID]'}"/>
+
+     	
+     </customMetadata>

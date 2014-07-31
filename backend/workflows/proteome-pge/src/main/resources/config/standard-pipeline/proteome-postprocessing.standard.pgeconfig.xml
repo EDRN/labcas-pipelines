@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pgeConfig>
+
+        <!-- How to run the PGE -->
+        <exe dir="[JobDir]" shell="/bin/bash">
+          <cmd>cd [JobDir]</cmd>
+          
+          <!-- Make results directory in staging area -->
+          <cmd>mkdir -p [ResultsDir]</cmd>
+
+	  <!-- Zip up IDPicker agglomerative reports -->
+          <cmd>tar cf [IDPickerHTMLReportsTarBall] [IDPickerHTMLReportsPrefix]/</cmd>
+
+          <!-- Copy results to results dir -->
+          <cmd>cp [IDPickerHTMLReportsTarBall] TargetDB-reverse.fasta *.mzML *.pepXML *.idpXML [ResultsDir]</cmd>
+
+	</exe>
+
+	<!-- Files to ingest -->
+	<output>
+        <!-- one or more of these -->
+        <dir path="[ResultsDir]" createBeforeExe="false">
+            
+            <!-- one or more of these ** regExp or name can be used-->
+		<files regExp="TargetDB-reverse.fasta" metFileWriterClass="gov.nasa.jpl.edrn.proteome.workflows.pge.met.FilenameMetExtractorWriter" args="TargetDatabaseFile,[PGE_ROOT]/extractors/proteome.targetdb.extractor.config.xml"/>
+                <files regExp=".*\.mzML" metFileWriterClass="gov.nasa.jpl.edrn.proteome.workflows.pge.met.FilenameMetExtractorWriter" args="RawSpectraXML,[PGE_ROOT]/extractors/proteome.mzml.extractor.config.xml"/>
+                <files regExp=".*\.pepXML" metFileWriterClass="gov.nasa.jpl.edrn.proteome.workflows.pge.met.FilenameMetExtractorWriter" args="MyrimatchProduct,[PGE_ROOT]/extractors/proteome.pepxml.extractor.config.xml"/>	
+	<files regExp=".*\.idpXML" metFileWriterClass="gov.nasa.jpl.edrn.proteome.workflows.pge.met.FilenameMetExtractorWriter" args="IDPickerReport,[PGE_ROOT]/extractors/proteome.idpxml.extractor.config.xml"/>
+                <files regExp=".*\.tar" metFileWriterClass="gov.nasa.jpl.edrn.proteome.workflows.pge.met.FilenameMetExtractorWriter" args="IDPickerAgglomerativeReport,[PGE_ROOT]/extractors/proteome.idpickeragglomerative.extractor.config.xml"/>
+	</dir>
+    </output>
+
+        <!-- Custom metadata to add to output files -->
+        <customMetadata>
+                <metadata key="ResultsDir" val="/usr/local/proteome/data/job/[RunID]/results" workflowMet="true"/>                
+      		<metadata key="IDPickerHTMLReportsTarBall" val="[IDPickerHTMLReportsPrefix].tar"/>
+	</customMetadata>
+
+</pgeConfig>
+

@@ -1,0 +1,8 @@
+    <cas:workflow xmlns:cas="http://oodt.jpl.nasa.gov/1.0/cas"
+      name="ProteomeWinWorkflow"
+      id="urn:oodt:ProteomeWinWorkflow">
+
+      <tasks>
+        <task id="urn:oodt:ProteomeWin"/>
+      </tasks>
+    </cas:workflow>

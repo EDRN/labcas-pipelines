@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pgeConfig>
+
+        <!-- How to run the PGE -->
+        <exe dir="[JobDir]" shell="/bin/bash">
+          <cmd>cd [JobDir]</cmd>
+          <cmd>[PROTEOME_HOME]/pipeline-tools/tabblab/idpQonvert -dump -cpus 2 *.pepXML</cmd>
+        </exe>
+
+        <!-- Custom metadata to add to output files -->
+        <customMetadata>
+		<!-- temporarily added to PGE due to Windows workflow met bug -->
+        		<metadata key="IDPickerHTMLReportsPrefix" val="idpicker_html_reports" workflowMet="true"/>
+                <metadata key="InputProductForIDPickerHTMLReports" val="File1.idpXML,File2.idpXML" workflowMet="true"/>                
+      		<!-- end -->
+	</customMetadata>
+
+</pgeConfig>
+

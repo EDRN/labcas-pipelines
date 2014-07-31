@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!-- 
+  Copyright 2008 California Institute of Technology. ALL RIGHTS
+  RESERVED. U.S. Government Sponsorship acknowledged.
+  
+  Author: Rishi Verma 
+  
+  $Id$
+--> 
+
+<assembly>
+  <id></id>
+  <formats>
+    <format>tar.gz</format>
+    <format>zip</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <baseDirectory>proteome-pge</baseDirectory>
+
+  <includeSiteDirectory>false</includeSiteDirectory>
+  <fileSets>
+    <fileSet>
+      <directory>${basedir}</directory>
+      <outputDirectory>.</outputDirectory>
+      <includes>
+        <include>LICENSE.txt</include>
+        <include>CHANGES.txt</include>
+      </includes>
+    </fileSet>
+    <fileSet>
+      <directory>${basedir}/src/main/resources/bin-scripts</directory>
+      <outputDirectory>${target.directory}/bin-scripts</outputDirectory>
+      <includes/>
+      <fileMode>755</fileMode>
+    </fileSet>
+    <fileSet>
+      <directory>${basedir}/src/main/resources/extractors</directory>
+      <outputDirectory>${target.directory}/extractors</outputDirectory>
+      <includes/>
+      <fileMode>755</fileMode>
+    </fileSet>
+    <fileSet>
+      <directory>${basedir}/src/main/resources/output</directory>
+      <outputDirectory>${target.directory}/output</outputDirectory>
+      <includes/>
+      <fileMode>755</fileMode>
+    </fileSet>
+    <fileSet>
+      <directory>${basedir}/src/main/resources/config</directory>
+      <outputDirectory>${target.directory}/pge-configs</outputDirectory>
+    </fileSet>
+  </fileSets>
+</assembly>

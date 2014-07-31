@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  $Id$
+  
+  Author: rverma
+  Description: Performs the following actions:
+  				1. Deploys and extracts the pcs-core distribution tar ball
+  				2. Renames the versioned pcs-core directory to a generic name
+  				3. Deploys the customized pcs-core scripts
+  				4. Makes all pcs_core scripts executable
+-->
+<project name="install_pcs-core" default="all">
+  <target name="all">
+	<untar 
+		src="src/main/conf/dist/pcs-core-${oodt.version}.tar.gz" 
+		dest="${install.directory}"
+		compression="gzip"/>	
+	<move 
+		file="${install.directory}/${project.artifactId}-${oodt.version}"
+		tofile="${install.directory}/${target.directory}"/>
+    <copy todir="${install.directory}/${target.directory}/scripts">
+      <fileset dir="src/main/conf/bin"/>
+    </copy>
+	<chmod dir="${install.directory}/${target.directory}/scripts" perm="+x"
+		includes="**/*"/>    
+  </target>
+</project>

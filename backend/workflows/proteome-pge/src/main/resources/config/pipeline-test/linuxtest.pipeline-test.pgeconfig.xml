@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pgeConfig>
+   <!-- How to run the PGE -->
+   <exe dir="[JobDir]" shell="/bin/bash">
+        </exe>
+   <!-- Custom metadata to add to output files -->
+   <customMetadata>
+      <!-- helpful keys -->
+      <metadata key="LessThan" val="&lt;" workflowMet="true"/>
+      <metadata key="LessThanOrEqualTo" val="[LessThan]=" workflowMet="true"/>
+      <metadata key="GreaterThan" val="&gt;" workflowMet="true"/>
+      <metadata key="GreaterThanOrEqualTo" val="[GreaterThan]=" workflowMet="true"/>
+      <metadata key="Exclamation" val="!" workflowMet="true"/>
+      <metadata key="Ampersand" val="&amp;" workflowMet="true"/>
+      <metadata key="NotEqualTo" val="[Ampersand]=" workflowMet="true"/>
+      <metadata key="LogicalAnd" val="[Ampersand][Ampersand]" workflowMet="true"/>
+      <metadata key="CshPipeToStdOutAndError" val="[GreaterThan][Ampersand][Exclamation]" workflowMet="true"/>
+      <metadata key="PrimaryAnalysisDatasetName" val="GenericFile" workflowMet="true"/>
+      <metadata key="JobDir" val="[PGE_ROOT]/output/jobs/[RunID]" workflowMet="true"/>
+      <metadata key="CygwinJobDir" val="[PGE_ROOT_CYGWIN]/output/jobs/[RunID]" workflowMet="true"/>
+      <metadata key="LinuxWorkflowMetKey" val="LinuxWorkflowMetVal" workflowMet="true"/>
+   </customMetadata>
+</pgeConfig>

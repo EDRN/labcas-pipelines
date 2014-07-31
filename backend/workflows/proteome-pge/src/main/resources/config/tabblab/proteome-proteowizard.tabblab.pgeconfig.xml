@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pgeConfig>
+
+    <exe dir="[JobDir]" shell="/bin/bash">
+      <cmd>cd [JobDir]</cmd>
+      <cmd>[PROTEOME_HOME]/pipeline-tools/proteowizard-2.1.2763/pwiz-bin/msconvert [MSConvertOpts] [RAW]</cmd>
+    </exe>
+
+    <!-- Custom metadata to add to output files -->
+    <customMetadata>
+    
+		<metadata key="RAW" val="[JobDir]/*.RAW"/>
+		
+		<!-- msconvert metadata -->
+		<metadata key="MSConvertFilterOpt" val="--32 -z --filter 'peakPicking true [1,2]'" envReplace="false"/>
+		<metadata key="MSConvertOpts" val="-o [JobDir] [MSConvertFilterOpt]"/>
+  </customMetadata>
+
+</pgeConfig>

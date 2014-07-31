@@ -1,0 +1,12 @@
+    <cas:workflow xmlns:cas="http://oodt.jpl.nasa.gov/1.0/cas"
+      name="ProteomeWorkflow"
+      id="urn:oodt:ProteomeWorkflow">
+
+      <tasks>
+        <task id="urn:edrn:ProteomeDownloadInputFiles"/>
+	<task id="urn:edrn:ProteomeJobStartNotify"/>
+	<task id="urn:oodt:ProteomeWin"/>
+        <task id="urn:oodt:ProteomeLinux"/>
+        <task id="urn:edrn:ProteomeJobEndNotify"/>
+      </tasks>
+    </cas:workflow>

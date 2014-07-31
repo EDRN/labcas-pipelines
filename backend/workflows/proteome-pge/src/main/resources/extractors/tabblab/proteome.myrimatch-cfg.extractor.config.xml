@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <input>
+    
+    <group name="CommonMetadata">
+        <!--  can now use environment variable replacement in any of the values for 
+             scalars or vectors, just use CAS bracket style [ENV VAR NAME]
+         
+             Also can use vector to indicate multiple values for a particular met field.
+        -->
+        <scalar name="InstrumentDetails">N/A</scalar>
+        <scalar name="DataStage">N/A</scalar>
+        <scalar name="ProductDescription">Configuration file for MyriMatch</scalar>
+        <scalar name="ProductTitle">MyriMatch configuration file</scalar>
+        <scalar name="RecommendedSoftware">MyriMatch 2.0.85 (2011-3-11)</scalar>
+        <!-- RunID automatically added by PGE -->
+        <!-- InputProduct automatically added by PGE -->
+        <scalar name="ProductFunction">To configure MyriMatch runtime settings</scalar>
+        <!-- SpecimenType automatically added by PGE -->
+        <scalar name="MethodDetails">N/A</scalar>
+    </group>
+    
+</input>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  $Id$
+  
+  Author: rverma
+  Description: Deploys and extracts the proteome-pge distribution tar-ball on Linux
+   			   Note: the OS is detected automatically, to avoid installation on Windows.
+  deployment skeleton.
+-->
+<project name="install_proteome-pge-tar" default="all">
+  <target name="all">
+    <condition property="isUnix">
+      <os family="unix"/>
+    </condition>
+    <antcall target="install_on_linux"/>
+  </target>
+  <target name="install_on_linux" if="isUnix">
+    <echo>(Linux OS detected) Installing ${project.artifactId}-${project.version}.tar.gz</echo>
+    <untar src="target/${project.artifactId}-${project.version}.tar.gz" dest="${install.directory}" compression="gzip"/>
+  </target>
+</project>

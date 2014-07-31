@@ -1,0 +1,121 @@
+EDRN Proteomics Package Change Log
+See: http://oodt.jpl.nasa.gov/jira/browse/CA for JIRA system
+
+
+Release Notes - Early Detection of Cancer - Version Proteomics Pipeline 0.3.0 - 02/20/2013
+
+
+** Bug
+    * [CA-976] - Proteomics misc tasks and pge version are set to 0.0.1 in win resource manager
+    * [CA-975] - Proteomics pipeline backend and frontend reference 0.0.2 pipeline pom
+    * [CA-977] - Windows Proteomics Pipeline doesn't finish installing
+    * [CA-1069] - Fix wmonitor's use of HTML tables to be standards consistent
+    * [CA-1068] - Fix wmonitor webapp's wicket 'Page Expired' error
+
+** Improvement
+    * [CA-1058] - Update LabCAS FM policy for PrimaryAnalysisFile to ensure pipeline produced products are correctly cataloged
+	* [CA-1070] - Improve styling of wmonitor workflow renderings
+
+** New Feature
+    * [CA-1056] - New pipeline task to generate Processed dataset met
+    * [CA-1057] - Invoke LabCAS' SolrIndexerCrawlerAction to ensure Solr catalogs pipeline processed data sets
+	* [CA-1071] - Create new web-service for invoking workflow-manager via RESTful interface
+	* [CA-1073] - Create start and stop scripts for automatically starting/stopping all pipeline components
+	* [CA-1077] - Enable proteomics pipeline to generate a new virtual LabCAS 'processed' dataset
+	* [CA-1055] - Add start/stop scripts for proteomics pipeline services
+	* [CA-1072] - Ensure all pcs-core scripts are executable by default
+
+
+
+Release Notes - Early Detection of Cancer - Version Proteomics Pipeline 0.2.0 - 06/18/2012
+
+
+** Bug
+    * [CA-886] - Upgrade all proteome components to use 0.3 or 0.4-SNAPSHOT release of OODT
+    * [CA-892] - No logs directory in proteome-workflow and proteome-resmgr and proteome-* components
+    * [CA-894] - Upgrade LabCAS backend components to use 0.3 or 0.4-SNAPSHOT release of OODT
+    * [CA-895] - Inclusion of "run" and "logs" directory for all proteome modules
+    * [CA-897] - Missing ../../run directory in proteomics pipeline directory
+    * [CA-898] - Proteome Pipeline and LabCAS release process missing data creation step
+    * [CA-900] - Use Proteome Crawler
+    * [CA-901] - Proteomics pipeline guide does not identify the need to rename web-grid to grid
+    * [CA-902] - Met extraction shouldn't be baked into scripts
+    * [CA-903] - Proteomics resource manager node policy should use env var replacement
+    * [CA-904] - We shouldn't be using in place data transfer, and should instead be staging products
+    * [CA-905] - We need to ensure in the server logging.properties files that we block out extraneous HTTP messages
+    * [CA-906] - Workflow.properties includes hard code resmgr URL
+    * [CA-907] - PROTEOME_RESOURCE_HOME refers to a non-existent deploy directory
+    * [CA-908] - Missing deployment and installation instructions for WebGrid: doesn't mention to set up config.xml
+    * [CA-909] - Missing instruction to create job directory
+    * [CA-910] - Error running JobNotificationTask
+    * [CA-911] - Need to use full paths to the executables in the PGE configs
+    * [CA-912] - Both Proteomics Frontend webapps reference biomarker and should be env var parameterized
+    * [CA-913] - workflow-lifecycle.xml file for Proteome Workflow is incorrect
+
+** Improvement
+    * [CA-862] - Add ability for proteomics pipeline to obtain and use product metadata from input files
+    * [CA-863] - Integrate metadata model with pipeline and ensure generated products have necessary met
+    * [CA-889] - Proteomics Pipeline backend components need to use cas-install
+    * [CA-893] - LabCAS backend deployment instructions need to include directions on ingesting/bootstrapping with initial datasets
+    * [CA-923] - proteome-pge tabblab PGE configuration should reference all tools using full path
+    * [CA-936] - Bundle tomcat distribution with pipeline for easy installation
+
+** New Feature
+    * [CA-884] - Establishment of Proteomics VM infrastructure
+    * [CA-896] - Include pcs core in proteome pipeline deployment
+
+** Task
+    * [CA-861] - Finalize first-cut of proteomics metadata model
+    * [CA-869] - Refactor svn structure of proteomics pipeline to include LabCAS file-manager component
+    * [CA-878] - Add filemanager product web-application (fmprod) to deployment
+
+
+
+Release Notes - Early Detection of Cancer - Version ProteomicsPipeline 0.1.0 - 03/07/2012
+
+
+** New Feature
+    * [CA-866] - Develop initial prototype release of proteomics pipeline
+    * [CA-867] - Develop initial policy for proteomics pipeline & LabCAS
+
+
+Release Notes - Early Detection of Cancer - Version ProteomicsPipeline 0.2.0 - 05/14/2012
+
+** Bug
+    * [CA-886] - Upgrade all proteome components to use 0.3 or 0.4-SNAPSHOT release of OODT
+    * [CA-907] - PROTEOME_RESOURCE_HOME refers to a non-existent deploy directory
+    * [CA-906] - Workflow.properties includes hard code resmgr URL
+    * [CA-909] - Missing instruction to create job directory
+    * [CA-904] - We shouldn't be using in place data transfer, and should instead be staging products
+    * [CA-911] - Need to use full paths to the executables in the PGE configs
+    * [CA-897] - Missing ../../run directory in proteomics pipeline directory
+    * [CA-903] - Proteomics resource manager node policy should use env var replacement
+    * [CA-894] - Upgrade LabCAS backend components to use 0.3 or 0.4-SNAPSHOT release of OODT
+    * [CA-901] - Proteomics pipeline guide does not identify the need to rename web-grid to grid
+    * [CA-900] - Use Proteome Crawler
+    * [CA-902] - Met extraction shouldn't be baked into scripts
+    * [CA-912] - Both Proteomics Frontend webapps reference biomarker and should be env var parameterized
+    * [CA-913] - workflow-lifecycle.xml file for Proteome Workflow is incorrect
+    * [CA-898] - Proteome Pipeline and LabCAS release process missing data creation step
+    * [CA-908] - Missing deployment and installation instructions for WebGrid: doesn't mention to set up config.xml
+    * [CA-910] - Error running JobNotificationTask
+    * [CA-892] - No logs directory in proteome-workflow and proteome-resmgr and proteome-* components
+    * [CA-895] - Inclusion of "run" and "logs" directory for all proteome modules
+    * [CA-905] - We need to ensure in the server logging.properties files that we block out extraneous HTTP messages
+
+** Improvement
+    * [CA-889] - Proteomics Pipeline backend components need to use cas-install
+    * [CA-862] - Add ability for proteomics pipeline to obtain and use product metadata from input files
+    * [CA-863] - Integrate metadata model with pipeline and ensure generated products have necessary met
+    * [CA-893] - LabCAS backend deployment instructions need to include directions on ingesting/bootstrapping with initial datasets
+    * [CA-936] - Bundle tomcat distribution with pipeline for easy installation
+    
+** New Feature
+    * [CA-884] - Establishment of Proteomics VM infrastructure
+    * [CA-896] - Include pcs core in proteome pipeline deployment
+
+** Task
+    * [CA-861] - Finalize first-cut of proteomics metadata model
+    * [CA-878] - Add filemanager product web-application (fmprod) to deployment
+    * [CA-869] - Refactor svn structure of proteomics pipeline to include LabCAS file-manager component
+ 

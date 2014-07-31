@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  $Id$
+  
+  Author: rverma
+  Description: Performs the following actions:
+  				1. Deploys and extracts the cas-product war (web-application) to tomcat
+  				2. Deploys the context.xml configuration file for cas-product
+  				3. Replaces references to FILEMGR_URL within fmprod context.xml
+  				4. Replaces references to FMPROD_CFG_HOME within fmprod context.xml
+  				5. Deploys the fmprod rdfconf file  
+  				6. Deploys the fmprod rss conf file	
+  				7. Deploys the fmprod web.xml file
+  				8. Deploys the labcas-backend jar to the fmprod webapp's lib folder
+  				9. Deploys and extracts the fmbrowser war (web-application) to tomcat
+  				10. Deploys the context.xml configuration file for fmbrowser
+-->
+<project name="install_labcas-webapp" default="all">
+  <target name="all">
+	<unwar src="target/${project.artifactId}-${project.version}.war" dest="${install.directory}/${tomcat.target.directory}/webapps/wmservice"/>	
+	<replace
+		file="${install.directory}/${tomcat.target.directory}/webapps/fmprod/META-INF/context.xml"
+		token="[WM_URL]"
+		value="${env.LABCAS_WM_URL}"/>	
+	</target>
+</project>
