@@ -108,11 +108,12 @@
 
      <requiredMetFields>
         <metfield name="JobDir"/>
-	<metfield name="RawDatasetName"/>
+	      <metfield name="RawDatasetName"/>
         <metfield name="RAWFiles"/>
         <metfield name="DBFile"/>
         <metfield name="CntmsFile"/>
         <metfield name="MyriMatchCfgFile"/>
+        <metfield name="AssembleFileList"/>
      </requiredMetFields>
    </task>
 
@@ -389,22 +390,51 @@
 
      <conditions/>
 
+   <task id="urn:edrn:ProteomeFiltering2TabbLab" name="ProteomeFiltering2TabbLab"
+     class="gov.nasa.jpl.edrn.proteome.workflows.pge.LinuxPGETask">
+
+     <conditions/>
+
      <configuration>
         <property name="PGETask_Name" value="ProteomeFiltering2TabbLab"/>
-        <property name="PGETask_ConfigFilePath" value="[PGE_ROOT_CYGWIN]/pge-configs/tabblab/proteome-filtering-2.tabblab.pgeconfig.xml" envReplace="true"/>
+        <property name="PGETask_ConfigFilePath" value="[PGE_ROOT]/pge-configs/tabblab/proteome-filtering-2.tabblab.pgeconfig.xml" envReplace="true"/>
         <property name="PGETask_DumpMetadata" value="true"/>
                 <property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]" envReplace="true" />
                 <property name="PCS_FileManagerUrl"     value="[PROTEOME_FILEMGR_URL]" envReplace="true"/>
                 <property name="PCS_MetFileExtension" value="met"/>
                 <property name="PCS_ClientTransferServiceFactory" value="org.apache.oodt.cas.filemgr.datatransfer.LocalDataTransferFactory"/>
-<property name="PCS_ActionRepoFile" value="file:[PROTEOME_CRAWLER_HOME_CYGWINPATH]/policy/crawler-config.xml" envReplace="true"/>
-        <property name="QueueName" value="win-queue"/>
-        </configuration>
+    <property name="PCS_ActionRepoFile" value="file:[PROTEOME_CRAWLER_HOME]/policy/crawler-config.xml" envReplace="true"/>
+        <property name="QueueName" value="linux-queue"/>
+  </configuration>
 
         <requiredMetFields>
-		<metfield name="CygwinJobDir"/>
+          <metfield name="JobDir"/>
+          <metfield name="AssembleFileList"/>
         </requiredMetFields>
-   </task>
+   </task>  
+
+   <task id="urn:edrn:ProteomeFiltering3TabbLab" name="ProteomeFiltering3TabbLab"
+     class="gov.nasa.jpl.edrn.proteome.workflows.pge.LinuxPGETask">
+
+     <conditions/>
+
+     <configuration>
+        <property name="PGETask_Name" value="ProteomeFiltering3TabbLab"/>
+        <property name="PGETask_ConfigFilePath" value="[PGE_ROOT]/pge-configs/tabblab/proteome-filtering-3.tabblab.pgeconfig.xml" envReplace="true"/>
+        <property name="PGETask_DumpMetadata" value="true"/>
+                <property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]" envReplace="true" />
+                <property name="PCS_FileManagerUrl"     value="[PROTEOME_FILEMGR_URL]" envReplace="true"/>
+                <property name="PCS_MetFileExtension" value="met"/>
+                <property name="PCS_ClientTransferServiceFactory" value="org.apache.oodt.cas.filemgr.datatransfer.LocalDataTransferFactory"/>
+    <property name="PCS_ActionRepoFile" value="file:[PROTEOME_CRAWLER_HOME]/policy/crawler-config.xml" envReplace="true"/>
+        <property name="QueueName" value="linux-queue"/>
+  </configuration>
+
+        <requiredMetFields>
+          <metfield name="JobDir"/>
+          <metfield name="IDPAssembleOutputFile"/>
+        </requiredMetFields>
+   </task>     
 
  
 <task id="urn:edrn:ProteomePostprocessingTabbLab" name="ProteomePostprocessingTabbLab"

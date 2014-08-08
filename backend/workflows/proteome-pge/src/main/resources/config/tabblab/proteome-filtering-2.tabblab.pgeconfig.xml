@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pgeConfig>
 
-		<!-- NOTE: This PGE in configured to run on a Windows machine -->
-
         <!-- How to run the PGE -->
-        <exe dir="[CygwinJobDir]" shell="C:\cygwin\Cygwin.bat">
-          <cmd>[PROTEOME_HOME]/pipeline-tools/idpicker/idpReport.exe [CygwinJobDir]/[IDPickerHTMLReportsPrefix] [CygwinJobDir]/*.idpXML</cmd>
-          <cmd>mv [CygwinJobDir]/[IDPickerHTMLReportsPrefix]-* [CygwinJobDir]/[IDPickerHTMLReportsPrefix]/</cmd>
+        <exe dir="[JobDir]" shell="/bin/bash">
+          <cmd>cd [JobDir]</cmd>
+          <cmd>[PROTEOME_HOME]/pipeline-tools/tabblab/idpAssemble *-MM.idpDB -MergedOutputFilepath [IDPAssembleOutputFile] -MaxFDRScore 0.02 -MinDistinctPeptides 2 -MinSpectra 1 -MinAdditionalPeptides 1 -MaxProteinGroupsPerPeptide 10 -cpus 2 -AssignSourceHierarchy [AssembleFileList]</cmd>
         </exe>
 
         <!-- Custom metadata to add to output files -->
         <customMetadata>
-		<!-- temporarily moved to filtering-1 PGE due to windows workflow met bug 
-        		<metadata key="IDPickerHTMLReportsPrefix" val="idpicker_html_reports" workflowMet="true"/>
-                <metadata key="InputProductForIDPickerHTMLReports" val="File1.idpXML,File2.idpXML" workflowMet="true"/>
-        	-->
-	</customMetadata>
+        <!-- temporarily added to PGE due to Windows workflow met bug -->
+            <metadata key="IDPAssembleOutputFile" val="Assembly.idpDB" workflowMet="true"/>
+            <!-- end -->
+        </customMetadata>
 
 </pgeConfig>

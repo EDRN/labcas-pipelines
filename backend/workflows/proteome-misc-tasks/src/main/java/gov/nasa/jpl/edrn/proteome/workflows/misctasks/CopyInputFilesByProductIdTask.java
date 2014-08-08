@@ -123,6 +123,13 @@ public class CopyInputFilesByProductIdTask implements WorkflowTaskInstance, MetK
     	copyProduct(sourceMyrimatchCfgFile.getAbsolutePath(), destMyrimatchCfgFile.getAbsolutePath());
     	metadata.addMetadata(MYRIMATCH_FILE_NAME_MET_KEY, sourceMyrimatchCfgFile.getName());
 		
+	    // Obtain Assemble File List
+    	LOG.info("Copying "+ASSEMBLE_FILE_LIST_MET_KEY+" ["+metadata.getMetadata(ASSEMBLE_FILE_LIST_MET_KEY)+"]");
+    	File sourceAssembleListFile = new File(metadata.getMetadata(ASSEMBLE_FILE_LIST_MET_KEY));
+    	File destAssembleListFile = new File(jobDir + File.separator + sourceAssembleListFile.getName());
+    	copyProduct(sourceAssembleListFile.getAbsolutePath(), destAssembleListFile.getAbsolutePath());
+    	metadata.addMetadata(ASSEMBLE_FILE_LIST_MET_KEY, sourceAssembleListFile.getName());
+
 	}
 	
 	/**

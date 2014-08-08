@@ -4,13 +4,14 @@
         <!-- How to run the PGE -->
         <exe dir="[JobDir]" shell="/bin/bash">
           <cmd>cd [JobDir]</cmd>
-          <cmd>[PROTEOME_HOME]/pipeline-tools/tabblab/idpQonvert -dump -cpus 2 *.pepXML</cmd>
+          <cmd>[PROTEOME_HOME]/pipeline-tools/tabblab/idpQuery GeneGroup GeneId,PivotSpectraByGroup [IDPAssembleOutputFile]</cmd>
         </exe>
 
         <!-- Custom metadata to add to output files -->
-        <customMetadata>             
-      		<!-- end -->
-	       </customMetadata>
+        <customMetadata>
+            <!-- end -->
+    </customMetadata>
 
 </pgeConfig>
+
 
