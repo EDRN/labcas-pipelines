@@ -51,7 +51,7 @@ the License.
 		<dependency>
 		  <groupId>org.apache.oodt</groupId>
 		  <artifactId>oodt-webapp-components-wicketfix</artifactId>
-		  <version>0.6-SNAPSHOT</version> 
+		  <version>0.6</version> 
 		  <exclusions>
 		    <exclusion>
 		      <artifactId>cas-filemgr</artifactId>
