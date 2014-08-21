@@ -89,7 +89,10 @@ public class JobStartNotifyTask extends EmailNotifyTask implements WorkflowTaskI
 	    emailParams.put(MYRIMATCH_FILE_NAME_MET_KEY, 
 	    		metadata.getMetadata(MYRIMATCH_FILE_NAME_MET_KEY));
 
-		
+		// assembly file (for idpAssembly)
+	    emailParams.put(ASSEMBLE_FILE_LIST_MET_KEY,
+	    		metadata.getMetadata(ASSEMBLE_FILE_LIST_MET_KEY));
+	    		
 	    // Load e-mail template file
 	    VelocityEngine ve = new VelocityEngine();
         ve.setProperty(RuntimeConstants.RESOURCE_LOADER, "classpath");
