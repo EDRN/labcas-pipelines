@@ -83,6 +83,10 @@ public class JobEndNotifyTask extends EmailNotifyTask implements WorkflowTaskIns
 		// myrimatch config file
 	    emailParams.put(MYRIMATCH_FILE_NAME_MET_KEY, 
 	    		metadata.getMetadata(MYRIMATCH_FILE_NAME_MET_KEY));
+	    		
+	    	// assembly file (for idpAssembly)
+	    emailParams.put(ASSEMBLE_FILE_LIST_MET_KEY,
+	    		metadata.getMetadata(ASSEMBLE_FILE_LIST_MET_KEY));
 	    
 	    // Add e-mail job results information
 	    Map emailJobResults = new HashMap();
