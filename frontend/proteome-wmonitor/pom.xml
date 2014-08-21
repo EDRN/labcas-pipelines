@@ -50,7 +50,7 @@ the License.
 		</dependency>
 		<dependency>
 		  <groupId>org.apache.oodt</groupId>
-		  <artifactId>oodt-webapp-components-wicketfix</artifactId>
+		  <artifactId>oodt-webapp-components</artifactId>
 		  <version>0.6</version> 
 		  <exclusions>
 		    <exclusion>
