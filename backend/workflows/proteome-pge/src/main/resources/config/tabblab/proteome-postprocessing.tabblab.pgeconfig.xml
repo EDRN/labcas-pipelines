@@ -22,7 +22,7 @@
 				<files regExp="TargetDB-reverse.fasta" metFileWriterClass="gov.nasa.jpl.edrn.proteome.workflows.pge.met.FilenameMetExtractorWriter" args="[PGE_ROOT]/extractors/tabblab/proteome.targetdb.extractor.config.xml"/>
                 <files regExp=".*\.mzML" metFileWriterClass="gov.nasa.jpl.edrn.proteome.workflows.pge.met.FilenameMetExtractorWriter" args="[PGE_ROOT]/extractors/tabblab/proteome.mzml.extractor.config.xml"/>
                 <files regExp=".*\.pepXML" metFileWriterClass="gov.nasa.jpl.edrn.proteome.workflows.pge.met.FilenameMetExtractorWriter" args="[PGE_ROOT]/extractors/tabblab/proteome.pepxml.extractor.config.xml"/>	
-				<files regExp=".*\.idpXML" metFileWriterClass="gov.nasa.jpl.edrn.proteome.workflows.pge.met.FilenameMetExtractorWriter" args="[PGE_ROOT]/extractors/tabblab/proteome.idpxml.extractor.config.xml"/>
+		<files regExp=".*\.idpXML" metFileWriterClass="gov.nasa.jpl.edrn.proteome.workflows.pge.met.FilenameMetExtractorWriter" args="[PGE_ROOT]/extractors/tabblab/proteome.idpxml.extractor.config.xml"/>
                 <files regExp=".*\.tar" metFileWriterClass="gov.nasa.jpl.edrn.proteome.workflows.pge.met.FilenameMetExtractorWriter" args="[PGE_ROOT]/extractors/tabblab/proteome.idpickeragglomerative.extractor.config.xml"/>
 	</dir>
     </output>
