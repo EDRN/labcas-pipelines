@@ -13,6 +13,7 @@
         <task id="urn:edrn:ProteomeDBSearchTabbLab"/>
         <task id="urn:edrn:ProteomeFiltering1TabbLab"/>
         <task id="urn:edrn:ProteomeFiltering2TabbLab"/>
+        <task id="urn:edrn:ProteomeFiltering3TabbLab"/>
         <task id="urn:edrn:ProteomePostprocessingTabbLab"/>
         <task id="urn:edrn:ProteomeJobEndNotify"/>
       </tasks>
