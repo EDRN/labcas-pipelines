@@ -9,8 +9,8 @@
 
         <!-- Custom metadata to add to output files -->
         <customMetadata>
-            <!-- end -->
-    </customMetadata>
+            <metadata key="ReportsPrefix" val="reports" workflowMet="true"/>
+        </customMetadata>
 
 </pgeConfig>
 
