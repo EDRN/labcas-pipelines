@@ -387,11 +387,6 @@
 		<metfield name="JobDir"/>
         </requiredMetFields>
    </task>    
-  
-   <task id="urn:edrn:ProteomeFiltering2TabbLab" name="ProteomeFiltering2TabbLab"
-     class="gov.nasa.jpl.edrn.proteome.workflows.pge.WinPGETask">
-
-     <conditions/>
 
    <task id="urn:edrn:ProteomeFiltering2TabbLab" name="ProteomeFiltering2TabbLab"
      class="gov.nasa.jpl.edrn.proteome.workflows.pge.LinuxPGETask">
