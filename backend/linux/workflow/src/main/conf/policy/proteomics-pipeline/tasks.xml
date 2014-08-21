@@ -108,7 +108,7 @@
 
      <requiredMetFields>
         <metfield name="JobDir"/>
-	      <metfield name="RawDatasetName"/>
+	<metfield name="RawDatasetName"/>
         <metfield name="RAWFiles"/>
         <metfield name="DBFile"/>
         <metfield name="CntmsFile"/>
@@ -154,6 +154,7 @@
                 <metfield name="DatabaseFile"/>
                 <metfield name="ContaminantsFile"/>
                 <metfield name="MyrimatchConfigFile"/>
+                <metfield name="AssembleFileList"/>
                 <metfield name="UserEmail"/>
         </requiredMetFields>
 
@@ -174,6 +175,7 @@
                 <metfield name="DatabaseFile"/>
                 <metfield name="ContaminantsFile"/>
                 <metfield name="MyrimatchConfigFile"/>
+                <metfield name="AssembleFileList"/>
                 <metfield name="UserEmail"/>
         </requiredMetFields>
 
