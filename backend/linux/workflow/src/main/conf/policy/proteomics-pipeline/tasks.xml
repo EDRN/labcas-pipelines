@@ -460,7 +460,7 @@
 
         <requiredMetFields>
                 <metfield name="RunID"/>
-		<metfield name="IDPickerHTMLReportsPrefix"/>
+		<metfield name="ReportsPrefix"/>
 		<metfield name="JobDir"/>
         </requiredMetFields>
    </task>        
