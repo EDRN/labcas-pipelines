@@ -287,19 +287,19 @@
         <property name="PGETask_Name" value="ProteomePipelineConfigTabbLab"/>
         <property name="PGETask_ConfigFilePath" value="[PGE_ROOT]/pge-configs/tabblab/proteome-pipelineconfig.tabblab.pgeconfig.xml" envReplace="true"/>
         <property name="PGETask_DumpMetadata" value="true"/>
-                <property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]" envReplace="true" />
-                <property name="PCS_FileManagerUrl"     value="[PROTEOME_FILEMGR_URL]" envReplace="true"/>
-                <property name="PCS_MetFileExtension" value="met"/>
-                <property name="PCS_ClientTransferServiceFactory" value="org.apache.oodt.cas.filemgr.datatransfer.LocalDataTransferFactory"/>
-		<property name="PCS_ActionRepoFile" value="file:[PROTEOME_CRAWLER_HOME]/policy/crawler-config.xml" envReplace="true"/>
+        <property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]" envReplace="true" />
+        <property name="PCS_FileManagerUrl"     value="[PROTEOME_FILEMGR_URL]" envReplace="true"/>
+        <property name="PCS_MetFileExtension" value="met"/>
+        <property name="PCS_ClientTransferServiceFactory" value="org.apache.oodt.cas.filemgr.datatransfer.LocalDataTransferFactory"/>
+	<property name="PCS_ActionRepoFile" value="file:[PROTEOME_CRAWLER_HOME]/policy/crawler-config.xml" envReplace="true"/>
         <property name="QueueName" value="linux-queue"/>
-	</configuration>
+      </configuration>
 
         <requiredMetFields>
-                <metfield name="RunID"/>
-		<metfield name="RawDatasetName"/>
-		<metfield name="FirstRawFileProdID"/>
-		<metfield name="RAWFileNames"/>
+            <metfield name="RunID"/>
+            <metfield name="RawDatasetName"/>
+            <metfield name="FirstRawFileProdID"/>
+            <metfield name="RAWFileNames"/>
 	</requiredMetFields>
    </task>
    
@@ -312,13 +312,13 @@
         <property name="PGETask_Name" value="ProteomePreprocessingTabbLab"/>
         <property name="PGETask_ConfigFilePath" value="[PGE_ROOT_CYGWIN]/pge-configs/tabblab/proteome-preprocessing.tabblab.pgeconfig.xml" envReplace="true"/>
         <property name="PGETask_DumpMetadata" value="true"/>
-                <property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]" envReplace="true" />
-                <property name="PCS_FileManagerUrl"     value="[PROTEOME_FILEMGR_URL]" envReplace="true"/>
-                <property name="PCS_MetFileExtension" value="met"/>
-                <property name="PCS_ClientTransferServiceFactory" value="org.apache.oodt.cas.filemgr.datatransfer.LocalDataTransferFactory"/>
-<property name="PCS_ActionRepoFile" value="file:[PROTEOME_CRAWLER_HOME_CYGWINPATH]/policy/crawler-config.xml" envReplace="true"/>
+        <property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]" envReplace="true" />
+        <property name="PCS_FileManagerUrl"     value="[PROTEOME_FILEMGR_URL]" envReplace="true"/>
+        <property name="PCS_MetFileExtension" value="met"/>
+        <property name="PCS_ClientTransferServiceFactory" value="org.apache.oodt.cas.filemgr.datatransfer.LocalDataTransferFactory"/>
+	<property name="PCS_ActionRepoFile" value="file:[PROTEOME_CRAWLER_HOME_CYGWINPATH]/policy/crawler-config.xml" envReplace="true"/>
         <property name="QueueName" value="win-queue"/>
-	</configuration>
+     </configuration>
 
         <requiredMetFields>
 		<metfield name="CygwinJobDir"/>
@@ -334,13 +334,14 @@
         <property name="PGETask_Name" value="ProteowizardTabbLab"/>
         <property name="PGETask_ConfigFilePath" value="[PGE_ROOT]/pge-configs/tabblab/proteome-proteowizard.tabblab.pgeconfig.xml" envReplace="true"/>
         <property name="PGETask_DumpMetadata" value="true"/>
-                <property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]" envReplace="true" />
-                <property name="PCS_FileManagerUrl"     value="[PROTEOME_FILEMGR_URL]" envReplace="true"/>
-                <property name="PCS_MetFileExtension" value="met"/>
-                <property name="PCS_ClientTransferServiceFactory" value="org.apache.oodt.cas.filemgr.datatransfer.LocalDataTransferFactory"/>
-    <property name="PCS_ActionRepoFile" value="file:[PROTEOME_CRAWLER_HOME]/policy/crawler-config.xml" envReplace="true"/>
+        <property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]" envReplace="true" />
+        <property name="PCS_FileManagerUrl"     value="[PROTEOME_FILEMGR_URL]" envReplace="true"/>
+        <property name="PCS_MetFileExtension" value="met"/>
+        <property name="PCS_ClientTransferServiceFactory" value="org.apache.oodt.cas.filemgr.datatransfer.LocalDataTransferFactory"/>
+    	<property name="PCS_ActionRepoFile" value="file:[PROTEOME_CRAWLER_HOME]/policy/crawler-config.xml" envReplace="true"/>
         <property name="QueueName" value="linux-queue"/>
-  </configuration>   
+     </configuration>  
+   </task>
 
 
    <task id="urn:edrn:ProteomeDBSearchTabbLab" name="ProteomeDBSearchTabbLab"
