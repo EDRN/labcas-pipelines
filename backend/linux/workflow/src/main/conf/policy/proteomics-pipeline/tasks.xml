@@ -108,7 +108,7 @@
 
      <requiredMetFields>
         <metfield name="JobDir"/>
-	<metfield name="RawDatasetName"/>
+		<metfield name="RawDatasetName"/>
         <metfield name="RAWFiles"/>
         <metfield name="DBFile"/>
         <metfield name="CntmsFile"/>

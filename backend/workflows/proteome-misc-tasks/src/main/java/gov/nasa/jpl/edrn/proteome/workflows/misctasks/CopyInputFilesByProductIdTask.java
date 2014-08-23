@@ -79,6 +79,14 @@ public class CopyInputFilesByProductIdTask implements WorkflowTaskInstance, MetK
 			LOG.severe(e.toString());
 		}
 		
+    	// Check if files should be copied or linked
+    	Boolean copyFiles = true;
+    	if (metadata.getMetadata(COPY_FILES_MET_KEY) != null) {
+    		if (metadata.getMetadata(COPY_FILES_MET_KEY).length() > 0) {
+    			copyFiles = Boolean.parseBoolean(metadata.getMetadata(COPY_FILES_MET_KEY));
+    		}
+    	}
+		
 		// Obtain RAW files based on ProductId
 		List rawFileProductIds = metadata.getAllMetadata(RAW_FILES_MET_KEY);
 	    for (Iterator i = rawFileProductIds.iterator(); i.hasNext();) {
@@ -88,8 +96,8 @@ public class CopyInputFilesByProductIdTask implements WorkflowTaskInstance, MetK
 	    	Metadata rawProdMet = this.queryMetadataForProductId(rawFileProductIdString, fmClient);
 	    	String rawSourceFilePath = rawProdMet.getMetadata("FileLocation") + File.separator + 
 	    		rawProdMet.getMetadata("Filename");
-	    	String rawDestFilePath = jobDir + File.separator + rawProdMet.getMetadata("Filename");
-	    	copyProduct(rawSourceFilePath, rawDestFilePath);
+	    	String rawDestFilePath = jobDir + File.separator + rawProdMet.getMetadata("Filename");	
+	    	copyProduct(rawSourceFilePath, rawDestFilePath, copyFiles);
 	    	
 	    	// save filename for e-mail purposes
 	    	metadata.addMetadata(RAW_FILES_NAMES_MET_KEY, rawProdMet.getMetadata("Filename"));
@@ -105,7 +113,7 @@ public class CopyInputFilesByProductIdTask implements WorkflowTaskInstance, MetK
     	LOG.info("Copying "+DB_FILE_MET_KEY+" ["+metadata.getMetadata(DB_FILE_MET_KEY)+"]");
     	File sourceDBFile = new File(metadata.getMetadata(DB_FILE_MET_KEY));
     	File destDBFile = new File(jobDir + File.separator + sourceDBFile.getName());
-    	copyProduct(sourceDBFile.getAbsolutePath(), destDBFile.getAbsolutePath());
+    	copyProduct(sourceDBFile.getAbsolutePath(), destDBFile.getAbsolutePath(), copyFiles);
     	metadata.addMetadata(DB_FILE_NAME_MET_KEY, sourceDBFile.getName());
 	    
 	    
@@ -113,21 +121,21 @@ public class CopyInputFilesByProductIdTask implements WorkflowTaskInstance, MetK
     	LOG.info("Copying "+CNTMS_FILE_MET_KEY+" ["+metadata.getMetadata(CNTMS_FILE_MET_KEY)+"]");
     	File sourceCntmsFile = new File(metadata.getMetadata(CNTMS_FILE_MET_KEY));
     	File destCntmsFile = new File(jobDir + File.separator + sourceCntmsFile.getName());
-    	copyProduct(sourceCntmsFile.getAbsolutePath(), destCntmsFile.getAbsolutePath());
+    	copyProduct(sourceCntmsFile.getAbsolutePath(), destCntmsFile.getAbsolutePath(), copyFiles);
 		metadata.addMetadata(CNTMS_FILE_NAME_MET_KEY, sourceCntmsFile.getName());
 	
 	    // Obtain MyrimatchCfgFile
     	LOG.info("Copying "+MYRIMATCH_CONFIG_FILE_MET_KEY+" ["+metadata.getMetadata(MYRIMATCH_CONFIG_FILE_MET_KEY)+"]");
     	File sourceMyrimatchCfgFile = new File(metadata.getMetadata(MYRIMATCH_CONFIG_FILE_MET_KEY));
     	File destMyrimatchCfgFile = new File(jobDir + File.separator + sourceMyrimatchCfgFile.getName());
-    	copyProduct(sourceMyrimatchCfgFile.getAbsolutePath(), destMyrimatchCfgFile.getAbsolutePath());
+    	copyProduct(sourceMyrimatchCfgFile.getAbsolutePath(), destMyrimatchCfgFile.getAbsolutePath(), copyFiles);
     	metadata.addMetadata(MYRIMATCH_FILE_NAME_MET_KEY, sourceMyrimatchCfgFile.getName());
 		
 	    // Obtain Assemble File List
     	LOG.info("Copying "+ASSEMBLE_FILE_LIST_MET_KEY+" ["+metadata.getMetadata(ASSEMBLE_FILE_LIST_MET_KEY)+"]");
     	File sourceAssembleListFile = new File(metadata.getMetadata(ASSEMBLE_FILE_LIST_MET_KEY));
     	File destAssembleListFile = new File(jobDir + File.separator + sourceAssembleListFile.getName());
-    	copyProduct(sourceAssembleListFile.getAbsolutePath(), destAssembleListFile.getAbsolutePath());
+    	copyProduct(sourceAssembleListFile.getAbsolutePath(), destAssembleListFile.getAbsolutePath(), copyFiles);
     	metadata.addMetadata(ASSEMBLE_FILE_LIST_MET_KEY, sourceAssembleListFile.getName());
 
 	}
@@ -196,11 +204,16 @@ public class CopyInputFilesByProductIdTask implements WorkflowTaskInstance, MetK
 		return prodMet;
 	}
 	
-	protected void copyProduct(String sourcePath, String destPath) {
+	protected void copyProduct(String sourcePath, String destPath, Boolean copyFiles) {
 
     	try {
-			Runtime.getRuntime().exec("cp " + sourcePath + " " + destPath);
-			LOG.info("Successfully copied sourcePath ["+sourcePath+"] to destPath ["+destPath+"]");
+    		if (copyFiles) {
+    			Runtime.getRuntime().exec("cp " + sourcePath + " " + destPath);
+    			LOG.info("Successfully copied sourcePath ["+sourcePath+"] to destPath ["+destPath+"]");  			
+    		} else {
+    			Runtime.getRuntime().exec("ln -s " + sourcePath + " " + destPath);
+    			LOG.info("Successfully linked sourcePath ["+sourcePath+"] to destPath ["+destPath+"]");  			
+    		}
 		} catch (IOException e) {
 			LOG.warning("Unable to issue Runtime.exec to copy sourcePath ["+sourcePath+"] to destPath ["+destPath+"]");
 			LOG.warning(e.getMessage());
