@@ -385,7 +385,7 @@
 	 </configuration>
 
      <requiredMetFields>
-		<metfield name="ProductId"/>
+		<metfield name="JobDir"/>
 		<metfield name="ProductName"/>
      </requiredMetFields>
    
@@ -406,7 +406,7 @@
 	 </configuration>
 
      <requiredMetFields>
-		<metfield name="ProductId"/>
+		<metfield name="JobDir"/>
 		<metfield name="ProductName"/>
      </requiredMetFields>
    
@@ -427,7 +427,7 @@
 	 </configuration>
 
      <requiredMetFields>
-		<metfield name="ProductId"/>
+		<metfield name="JobDir"/>
 		<metfield name="ProductName"/>
      </requiredMetFields>
    

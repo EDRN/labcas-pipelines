@@ -2,7 +2,7 @@
 <pgeConfig>
 
         <!-- PGE instructions -->
-        <exe dir="[PGE_ROOT]/output/jobs/[ProductId]" shell="/bin/bash">
+        <exe dir="[JobDir]" shell="/bin/bash">
           	<cmd>ln -s [DATA_STAGING]/[ProductName].raw ./[ProductName].raw</cmd>
           	<cmd>ln -s [DATA_STAGING]/[ProductName].mzML ./[ProductName].mzML</cmd>
           	<cmd>ln -s [DATA_STAGING]/cystfluid.myrimatch.cfg ./cystfluid.myrimatch.cfg</cmd>
@@ -10,10 +10,6 @@
           	<cmd>ln -s [DATA_STAGING]/TargetDB-reverse.fasta ./TargetDB-reverse.fasta</cmd>
         </exe>
 
-        <!-- custom metadata -->
-        <customMetadata>    
-        	<metadata key="JobDir" val="[PGE_ROOT]/output/jobs/[ProductId]"/>                
-      	</customMetadata>
 
 </pgeConfig>
 

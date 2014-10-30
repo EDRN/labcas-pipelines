@@ -2,14 +2,9 @@
 <pgeConfig>
 
         <!-- PGE instructions -->
-        <exe dir="[PGE_ROOT]/output/jobs/[ProductId]" shell="/bin/bash">
+        <exe dir="[JobDir]" shell="/bin/bash">
           <cmd>cp [DATA_STAGING]/output/[ProductName]*.pepXML .</cmd>
         </exe>
-        
-        <!-- custom metadata -->
-        <customMetadata>    
-        	<metadata key="JobDir" val="[PGE_ROOT]/output/jobs/[ProductId]"/>                
-      	</customMetadata>
 
 </pgeConfig>
 
