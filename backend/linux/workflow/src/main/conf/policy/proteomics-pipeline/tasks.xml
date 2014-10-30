@@ -370,6 +370,69 @@
         </requiredMetFields>
    </task>  
    
+   <task id="urn:edrn:MyrimatchSetupTask" name="MyrimatchSetupTask" class="gov.nasa.jpl.edrn.proteome.workflows.pge.LinuxPGETask">
+
+     <conditions/>
+
+     <configuration>
+        <property name="PGETask_Name" value="MyrimatchSetupTask"/>
+        <property name="PGETask_ConfigFilePath" value="[PGE_ROOT]/pge-configs/tabblab/myrimatch.setup.pgeconfig.xml" envReplace="true"/>
+        <property name="PGETask_DumpMetadata" value="true"/>
+        <property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]" envReplace="true" />
+        <property name="PCS_FileManagerUrl"     value="[PROTEOME_FILEMGR_URL]" envReplace="true"/>
+        <property name="QueueName" value="linux-queue"/>
+        <property name="DATA_STAGING" value="/data/staging/20140506-Pancreatic-Cyst-Fluid" />
+	 </configuration>
+
+     <requiredMetFields>
+		<metfield name="ProductId"/>
+		<metfield name="ProductName"/>
+     </requiredMetFields>
+   
+   </task>  
+   
+   <task id="urn:edrn:MyrimatchFakeTask" name="MyrimatchFakeTask" class="gov.nasa.jpl.edrn.proteome.workflows.pge.LinuxPGETask">
+
+     <conditions/>
+
+     <configuration>
+        <property name="PGETask_Name" value="MyrimatchFakeTask"/>
+        <property name="PGETask_ConfigFilePath" value="[PGE_ROOT]/pge-configs/tabblab/myrimatch.fake.pgeconfig.xml" envReplace="true"/>
+        <property name="PGETask_DumpMetadata" value="true"/>
+        <property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]" envReplace="true" />
+        <property name="PCS_FileManagerUrl"     value="[PROTEOME_FILEMGR_URL]" envReplace="true"/>
+        <property name="QueueName" value="linux-queue"/>
+        <property name="DATA_STAGING" value="/data/staging/20140506-Pancreatic-Cyst-Fluid" />
+	 </configuration>
+
+     <requiredMetFields>
+		<metfield name="ProductId"/>
+		<metfield name="ProductName"/>
+     </requiredMetFields>
+   
+   </task>
+   
+   <task id="urn:edrn:MyrimatchFinalizeTask" name="MyrimatchFinalizeTask" class="gov.nasa.jpl.edrn.proteome.workflows.pge.LinuxPGETask">
+
+     <conditions/>
+
+     <configuration>
+        <property name="PGETask_Name" value="MyrimatchFinalizeTask"/>
+        <property name="PGETask_ConfigFilePath" value="[PGE_ROOT]/pge-configs/tabblab/myrimatch.finalize.pgeconfig.xml" envReplace="true"/>
+        <property name="PGETask_DumpMetadata" value="true"/>
+        <property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]" envReplace="true" />
+        <property name="PCS_FileManagerUrl"     value="[PROTEOME_FILEMGR_URL]" envReplace="true"/>
+        <property name="QueueName" value="linux-queue"/>
+        <property name="DATA_STAGING" value="/data/staging/20140506-Pancreatic-Cyst-Fluid" />
+	 </configuration>
+
+     <requiredMetFields>
+		<metfield name="ProductId"/>
+		<metfield name="ProductName"/>
+     </requiredMetFields>
+   
+   </task>  
+   
    <task id="urn:edrn:ProteomeFiltering1TabbLab" name="ProteomeFiltering1TabbLab"
      class="gov.nasa.jpl.edrn.proteome.workflows.pge.LinuxPGETask">
 

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pgeConfig>
+
+        <!-- PGE instructions -->
+        <exe dir="[PGE_ROOT]/output/jobs/[ProductId]" shell="/bin/bash">
+          <cmd>cp *.pepXML [DATA_STAGING]/.</cmd>
+        </exe>
+        
+        <!-- custom metadata -->
+        <customMetadata>    
+        	<metadata key="JobDir" val="[PGE_ROOT]/output/jobs/[ProductId]"/>                
+      	</customMetadata>
+
+</pgeConfig>
+
