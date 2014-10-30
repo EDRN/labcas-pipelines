@@ -1,0 +1,3 @@
+32=true
+zlib=true
+filter="peakPicking true [1,2]"
