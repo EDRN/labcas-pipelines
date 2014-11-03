@@ -43,7 +43,7 @@ def chooseNode():
             p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
             for line in p.stdout.readlines():
                 logging.debug( line )
-                if 'status=PGE EXEC' in line:
+                if 'status=PGE EXEC' in line or 'status=RSUBMIT' in line or 'status=QUEUED' in line:
                     idle = False # job already running
             # choose this node
             if idle:
