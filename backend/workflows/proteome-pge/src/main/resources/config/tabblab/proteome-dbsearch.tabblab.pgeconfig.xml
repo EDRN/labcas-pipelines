@@ -11,7 +11,8 @@
         <customMetadata>
         
                 <metadata key="MZML" val="[JobDir]/*.mzML"/>
-                <metadata key="TargetDB" val="[JobDir]/TargetDB-reverse.fasta"/>
+                <!-- <metadata key="TargetDB" val="[JobDir]/TargetDB-reverse.fasta"/> -->
+                <metadata key="TargetDB" val="[JobDir]/protein.fa"/>
                 <metadata key="MyrimatchCfg" val="[JobDir]/*.myrimatch.cfg"/>
                 
       </customMetadata>
