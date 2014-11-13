@@ -1,3 +1,7 @@
+'''
+Script to copy a given file from edrn-frontend to all edr-nodeXX nodes.
+'''
+
 import os
 
 # edrn-node0n
