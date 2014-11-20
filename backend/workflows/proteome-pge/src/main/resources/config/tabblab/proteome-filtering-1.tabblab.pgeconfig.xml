@@ -4,7 +4,7 @@
         <!-- How to run the PGE -->
         <exe dir="[JobDir]" shell="/bin/bash">
           <cmd>cd [JobDir]</cmd>
-          <cmd>[PROTEOME_HOME]/pipeline-tools/tabblab/idpQonvert -dump -cpus 2 *.pepXML</cmd>
+          <cmd>[PROTEOME_HOME]/pipeline-tools/tabblab/idpQonvert -DecoyPrefix "XXX_" -dump -cpus 2 *.pepXML</cmd>
         </exe>
 
         <!-- Custom metadata to add to output files -->
