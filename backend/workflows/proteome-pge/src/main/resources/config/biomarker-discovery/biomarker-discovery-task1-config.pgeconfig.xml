@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pgeConfig>
+        <!-- PGE instructions -->
+        <exe dir="[JobDir]" shell="/bin/bash">
+          <cmd>ls -l [LABCAS_HOME]</cmd>
+        </exe>
+</pgeConfig>
+

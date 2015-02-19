@@ -3,8 +3,8 @@
 	<tasks>
 		<task id="urn:edrn:CreateJobDir"/>
 		<task id="urn:edrn:MyrimatchSetupTask"/>
-		<task id="urn:edrn:ProteomeDBSearchTabbLab"/>
-		<!-- <task id="urn:edrn:MyrimatchFakeTask"/> -->
+		<!-- <task id="urn:edrn:ProteomeDBSearchTabbLab"/> -->
+		<task id="urn:edrn:MyrimatchFakeTask"/>
 		<task id="urn:edrn:MyrimatchFinalizeTask"/>
 	</tasks>
 

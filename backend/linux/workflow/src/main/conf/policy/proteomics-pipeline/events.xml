@@ -16,6 +16,10 @@
 -->
 <cas:workflowevents xmlns:cas="http://oodt.jpl.nasa.gov/1.0/cas">
 
+    <event name="biomarker-discovery">
+		<workflow id="urn:edrn:BiomarkerDiscoveryWorkflow"/>
+    </event>
+    
     <event name="myrimatch">
 		<workflow id="urn:edrn:MyrimatchWorkflow"/>
     </event>

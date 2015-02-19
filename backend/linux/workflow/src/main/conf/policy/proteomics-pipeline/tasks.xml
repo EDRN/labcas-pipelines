@@ -16,6 +16,28 @@
 -->
 <cas:tasks xmlns:cas="http://oodt.jpl.nasa.gov/1.0/cas">
 
+	<task id="urn:edrn:BiomarkerDiscoveryTask1" 
+	      name="BiomarkerDiscoveryTask1"
+		  class="org.apache.oodt.cas.pge.StdPGETaskInstance">
+
+	     <conditions/>
+	
+	     <configuration>
+	        <property name="PGETask_Name" value="BiomarkerDiscoveryTask1"/>
+	        <property name="PGETask_ConfigFilePath" value="[PGE_ROOT]/pge-configs/biomarker-discovery/biomarker-discovery-task1-config.pgeconfig.xml" envReplace="true"/>
+	        <property name="PGETask_DumpMetadata" value="true"/>
+	        <property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]" envReplace="true" />
+	        <property name="PCS_FileManagerUrl"     value="[PROTEOME_FILEMGR_URL]" envReplace="true"/>
+	        <property name="PCS_MetFileExtension" value="met"/>
+	        <property name="PCS_ClientTransferServiceFactory" value="org.apache.oodt.cas.filemgr.datatransfer.LocalDataTransferFactory"/>
+			<!-- <property name="PCS_ActionRepoFile" value="file:[LABCAS_HOME]/crawler/policy/crawler-config.xml" envReplace="true"/> -->
+			<property name="QueueName" value="linux-queue"/>
+		</configuration>
+	
+	    <requiredMetFields/>
+	    
+   </task>
+
 	<task id="urn:edrn:SolrIndexerConfigPge" name="SolrIndexerConfigPge"
      class="gov.nasa.jpl.edrn.proteome.workflows.pge.LinuxPGETask">
 
