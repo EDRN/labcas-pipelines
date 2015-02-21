@@ -1,0 +1,53 @@
+# Author: Joe Perez-Rogers
+# Contact: jperezrogers@gmail.com
+# Date: 2014-11-21
+# Title: qsub script to submit jobs to the sge queue
+#
+#!/bin/bash -l
+#
+# run this file using 'qsub job.sh'
+#
+# all lines starting with "#$" are SGE qsub commands
+
+# specify which shell to use
+#$ -S /bin/bash
+
+# run on the current working directory
+#$ -cwd
+
+# join standard output and error to a single file
+#PBS -j oe
+
+# send an email when the job begins and when it ends running
+#$ -m be
+
+# whom to send the email to
+##$ -M jperezr1@bu.edu
+#$ -M luca.cinquini@jpl.nasa.gov
+
+# assign a project to this job
+#$ -P pulmseq
+
+# Now let's keep track of some information just in case anything goes wrong
+
+echo "=========================================================="
+echo "Starting on       : $(date)"
+echo "Running on node   : $(hostname)"
+echo "Current directory : $(pwd)"
+echo "Current job ID    : $JOB_ID"
+echo "Current job name  : $JOB_NAME"
+echo "Task index number : $TASK_ID"
+echo "=========================================================="
+echo ""
+	
+mkdir $ARG3/results/concat
+mkdir $ARG3/results/summary
+
+#module load R/R-3.0.0_gnu-4.4.6
+	
+R --no-save < $ARG4/scripts/PostProcess.R --args $ARG1 $ARG2 $ARG3
+
+echo ""
+echo "=========================================================="
+echo "$JOB_ID finished on       : $(date)"
+echo "=========================================================="

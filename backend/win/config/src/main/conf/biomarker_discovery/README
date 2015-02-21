@@ -1,0 +1,34 @@
+# Author: Joe Perez-Rogers
+# Date: 2014-12-08
+# Contact: jperezrogers@gmail.com
+# Purpose: README file for running the biomarker discovery pipeline
+
+# Contents
+Folder: bin/ - contains user-made scripts that make processing the data throughout the pipeline easier
+Folder: data/ - contains an expression set object (.rds) which houses the phenotypic and gene expression data for your dataset
+Folder: scripts/ - contains all of the scripts required to run the pipeline on a SGE linux cluster
+	PipelineScript.R - this script is the actual pipeline that evaluates several biomarker models on a given cross-validation split of the data
+	Submit.qsub - this script submits a .qsub job (a single iteration of the PipelineScript.R script) to the cluster queue
+	PostProcess.R - this script looks for the files that resulted from the cross-validation runs of the pipeline script and concatenates the results
+	PostProcess.qsub - this script submits the PostProcess.R job and requires it to run after the completion of all cross-validation runs
+File: Submit.sh - a shell script to initiate and run the pipeline
+
+# Prerequisites
+The pipeline requires the following R packages to be installed:
+	CRAN: gdata, MASS, AUC, gplots, class, e1071, randomForest, glmnet
+	Bioconductor: affy, limma
+
+# Usage
+To run, edit the Submit.sh script. The user-defined parameters are as follows:
+	NCV - the number of cross-validation runs to carry out (default 100)
+	USERLIBS - user installed R functions (default "~/R_LIBS"). If none, leave as empty quotes ""
+	PREFIX - the output file prefix for this run
+	PROJECTDIR - the directory of the bin and data folders
+	OUTDIR - where do you want the output to go? (default PROJECTDIR)
+
+# Run commands
+The pipeline can be run one of two ways.
+	1) In cross-validation mode in which we submit multiple iterations of the pipeline using Submit.sh
+	$ sh Submit.sh
+	2) One iteration at a time directly from the PipelineScript.R file
+	$ R --no-save < PipelineScript.R --args iteration prefix projectdir userlibs
