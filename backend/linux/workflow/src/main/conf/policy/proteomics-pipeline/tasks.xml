@@ -31,10 +31,47 @@
 	        <property name="PCS_MetFileExtension" value="met"/>
 	        <property name="PCS_ClientTransferServiceFactory" value="org.apache.oodt.cas.filemgr.datatransfer.LocalDataTransferFactory"/>
 			<!-- <property name="PCS_ActionRepoFile" value="file:[LABCAS_HOME]/crawler/policy/crawler-config.xml" envReplace="true"/> -->
+			
 			<property name="QueueName" value="linux-queue"/>
+			
+			<!-- script arguments -->
+			<property name="prefix" value="JPL_NatMed_Gender_Classification"/>
+			<property name="projectDirectory" value="[PROTEOME_HOME]/pipeline-tools/biomarker_discovery" envReplace="true" />
+			
 		</configuration>
 	
-	    <requiredMetFields/>
+	    <requiredMetFields>
+	    	<metfield name="ncv"/>
+	    </requiredMetFields>
+	    
+   </task>
+   
+   <task id="urn:edrn:BiomarkerDiscoveryTask2" 
+	      name="BiomarkerDiscoveryTask2"
+		  class="org.apache.oodt.cas.pge.StdPGETaskInstance">
+
+	     <conditions/>
+	
+	     <configuration>
+	        <property name="PGETask_Name" value="BiomarkerDiscoveryTask2"/>
+	        <property name="PGETask_ConfigFilePath" value="[PGE_ROOT]/pge-configs/biomarker-discovery/biomarker-discovery-task2-config.pgeconfig.xml" envReplace="true"/>
+	        <property name="PGETask_DumpMetadata" value="true"/>
+	        <property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]" envReplace="true" />
+	        <property name="PCS_FileManagerUrl"     value="[PROTEOME_FILEMGR_URL]" envReplace="true"/>
+	        <property name="PCS_MetFileExtension" value="met"/>
+	        <property name="PCS_ClientTransferServiceFactory" value="org.apache.oodt.cas.filemgr.datatransfer.LocalDataTransferFactory"/>
+			
+			<property name="QueueName" value="linux-queue"/>
+			
+			<!-- script arguments -->
+			<property name="prefix" value="JPL_NatMed_Gender_Classification"/>
+			<property name="projectDirectory" value="[PROTEOME_HOME]/pipeline-tools/biomarker_discovery" envReplace="true" />
+			
+		</configuration>
+	
+	    <requiredMetFields>
+	    	<metfield name="ncv"/>
+	    </requiredMetFields>
 	    
    </task>
 

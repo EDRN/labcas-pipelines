@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pgeConfig>
         <!-- PGE instructions -->
+        <!-- example command: python Submit.py 2 JPL_NatMed_Gender_Classification /usr/local/edrn/proteome/pipeline-tools/biomarker_discovery -->
         <exe dir="[JobDir]" shell="/bin/bash">
-          <cmd>ls -l [LABCAS_HOME]</cmd>
+          <cmd>cd [projectDirectory]</cmd>
+          <cmd>python Submit.py [ncv] [prefix] [projectDirectory]</cmd>
         </exe>
 </pgeConfig>
-

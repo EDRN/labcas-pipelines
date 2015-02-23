@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pgeConfig>
+        <!-- PGE instructions -->
+        <exe dir="[JobDir]" shell="/bin/bash">
+          <cmd>cd [projectDirectory]</cmd>
+          <cmd>R --no-save &lt; ./scripts/PostProcess.R --args [ncv] [prefix] [projectDirectory]</cmd>
+        </exe>
+</pgeConfig>
