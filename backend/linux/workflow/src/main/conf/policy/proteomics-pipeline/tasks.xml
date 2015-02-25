@@ -37,7 +37,7 @@
 
                         <!-- script arguments -->
                         <property name="prefix" value="JPL_NatMed_Gender_Classification"/>
-                        <property name="projectDirectory" value="[LABCAS_STAGING_HOME]/biomarker_discovery" envReplace="true" />
+                        <property name="projectDirectory" value="[PROTEOME_STAGING_HOME]/biomarker_discovery" envReplace="true" />
 
                 </configuration>
 
@@ -68,7 +68,7 @@
 			
 			<!-- script arguments -->
 			<property name="prefix" value="JPL_NatMed_Gender_Classification"/>
-			<property name="projectDirectory" value="[PROTEOME_HOME]/pipeline-tools/biomarker_discovery" envReplace="true" />
+			<property name="projectDirectory" value="[PROTEOME_STAGING_HOME]/biomarker_discovery" envReplace="true" />
 			
 		</configuration>
 	
@@ -98,7 +98,7 @@
 
                 <!-- script arguments -->
                 <property name="prefix" value="JPL_NatMed_Gender_Classification"/>
-                <property name="projectDirectory" value="[LABCAS_STAGING_HOME]/biomarker_discovery" envReplace="true" />
+                <property name="projectDirectory" value="[PROTEOME_STAGING_HOME]/biomarker_discovery" envReplace="true" />
 
             </configuration>
 
