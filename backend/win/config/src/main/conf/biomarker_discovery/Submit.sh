@@ -10,16 +10,18 @@
 
 # set the number of cross-validation runs to initiate
 #NCV=20
-NCV=3
+NCV=$1
 
 # set the path of user-installed R packages (if none, leave as empty quotes "")
 USERLIBS=""
 
 # define the file prefix name
-PREFIX="JPL_NatMed_Gender_Classification"
+#PREFIX="JPL_NatMed_Gender_Classification"
+PREFIX=$2
 
 # define the project directory (this is where the bin & data files reside)
-PROJECTDIR="/usr/local/edrn/proteome/pipeline-tools/biomarker_discovery"
+#PROJECTDIR="/usr/local/edrn/proteome/pipeline-tools/biomarker_discovery"
+PROJECTDIR=$3
 
 # define the output directory for the results files
 OUTDIR=$PROJECTDIR
