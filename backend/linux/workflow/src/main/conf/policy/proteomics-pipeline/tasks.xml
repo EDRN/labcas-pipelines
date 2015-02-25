@@ -107,6 +107,38 @@
             </requiredMetFields>
 
    </task>
+   
+   <!-- task that runs the biomarker discovery post-processing R script -->
+   <task id="urn:edrn:BiomarkerDiscoveryTask3" 
+              name="BiomarkerDiscoveryTask3"
+              class="org.apache.oodt.cas.pge.StdPGETaskInstance">
+
+            <conditions>
+              	<condition id="urn:oodt:BiomarkerDiscoveryPostProcessCondition"/>
+         	</conditions>
+            
+            <configuration>
+                <property name="PGETask_Name" value="BiomarkerDiscoveryTask3"/>
+                <property name="PGETask_ConfigFilePath" value="[PGE_ROOT]/pge-configs/biomarker-discovery/biomarker-discovery-task3-config.pgeconfig.xml" envReplace="true"/>
+                <property name="PGETask_DumpMetadata" value="true"/>
+                <property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]" envReplace="true" />
+                <property name="PCS_FileManagerUrl"     value="[PROTEOME_FILEMGR_URL]" envReplace="true"/>
+                <property name="PCS_MetFileExtension" value="met"/>
+                <property name="PCS_ClientTransferServiceFactory" value="org.apache.oodt.cas.filemgr.datatransfer.LocalDataTransferFactory"/>
+
+                <property name="QueueName" value="linux-queue"/>
+
+                <!-- script arguments -->
+                <property name="prefix" value="JPL_NatMed_Gender_Classification"/>
+                <property name="projectDirectory" value="[PROTEOME_STAGING_HOME]/biomarker_discovery" envReplace="true" />
+
+            </configuration>
+
+            <requiredMetFields>
+                <metfield name="ncv"/>
+            </requiredMetFields>
+
+   </task>
 
 
 	<task id="urn:edrn:SolrIndexerConfigPge" name="SolrIndexerConfigPge"

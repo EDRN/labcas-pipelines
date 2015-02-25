@@ -25,4 +25,10 @@
     </condition>
     <condition id="urn:oodt:TimeoutCondition" name="Timeout Condition" class="org.apache.oodt.cas.workflow.examples.FalseCondition" timeout="30"/>
     <condition id="urn:oodt:OptionalCondition" name="Optional Condition" class="org.apache.oodt.cas.workflow.examples.FalseCondition" optional="true"/>
+	<condition id="urn:oodt:BiomarkerDiscoveryPostProcessCondition" name="Biomarker Discovery Post Process Condition" 
+	           class="gov.nasa.jpl.edrn.proteome.workflows.pge.BiomarkerDiscoveryPostProcessCondition">
+	    <configuration>
+            <property name="numSecs" value="5"/>
+        </configuration>
+	</condition>
 </cas:conditions>
