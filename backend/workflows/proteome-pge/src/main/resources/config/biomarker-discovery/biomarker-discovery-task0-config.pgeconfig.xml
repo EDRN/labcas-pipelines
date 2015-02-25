@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pgeConfig>
+        <!-- sh Submit.sh 3 "JPL_NatMed_Gender_Classification" "/data/staging/biomarker_discovery" -->
+        <exe dir="[JobDir]" shell="/bin/bash">
+          <cmd>cd [projectDirectory]</cmd>
+          <cmd>sh Submit.sh [ncv] [prefix] [projectDirectory]</cmd>
+        </exe>
+</pgeConfig>
