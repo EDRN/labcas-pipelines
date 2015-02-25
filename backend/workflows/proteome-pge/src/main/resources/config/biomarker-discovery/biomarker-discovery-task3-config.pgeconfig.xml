@@ -3,7 +3,6 @@
         <!-- PGE instructions -->
         <exe dir="[JobDir]" shell="/bin/bash">
           <cmd>cd [projectDirectory]</cmd>
-          <cmd>R --no-save &lt; ./scripts/PipelineScript.R --args [ncv] [prefix] [projectDirectory]</cmd>
-          <cmd>mv [prefix]*.txt results/cv/.</cmd>
+          <cmd>R --no-save &lt; ./scripts/PostProcess.R --args [ncv] [prefix] [projectDirectory]</cmd>
         </exe>
 </pgeConfig>

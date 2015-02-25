@@ -4,6 +4,6 @@
         <!-- example command: python Submit.py 2 JPL_NatMed_Gender_Classification /usr/local/edrn/proteome/pipeline-tools/biomarker_discovery -->
         <exe dir="[JobDir]" shell="/bin/bash">
           <cmd>cd [projectDirectory]</cmd>
-          <cmd>python Submit.py [ncv] [prefix] [projectDirectory]</cmd>
+          <cmd>python Submit1.py [ncv] [prefix] [projectDirectory]</cmd>
         </exe>
 </pgeConfig>
