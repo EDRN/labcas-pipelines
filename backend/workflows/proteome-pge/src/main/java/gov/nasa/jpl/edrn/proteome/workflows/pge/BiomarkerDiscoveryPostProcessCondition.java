@@ -20,13 +20,12 @@ public class BiomarkerDiscoveryPostProcessCondition implements WorkflowCondition
 		}
 		
 		// retrieve job-level metadata
-		String projectDirectory = metadata.getMetadata("projectDirectory");
-		String prefix = metadata.getMetadata("prefix");
 		int ncv = Integer.parseInt( metadata.getMetadata("ncv") );
 		
 		// retrieve condition configuration
-		int numSecs = Integer.parseInt( config.getProperty("numSecs") );
-		
+		String projectDirectory = config.getProperty("projectDirectory");
+		String prefix = config.getProperty("prefix");
+
 		// loop over expected output files
 		Long now = System.currentTimeMillis();
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
@@ -40,10 +39,7 @@ public class BiomarkerDiscoveryPostProcessCondition implements WorkflowCondition
 			
 			// check existence
 			if (!file.exists()) return false;
-			
-			// check last modification time
-			if (fileLastModified > (now - numSecs*1000)) return false;
-			
+						
 		}
 		
 		// all files exist

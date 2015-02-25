@@ -28,7 +28,8 @@
 	<condition id="urn:oodt:BiomarkerDiscoveryPostProcessCondition" name="Biomarker Discovery Post Process Condition" 
 	           class="gov.nasa.jpl.edrn.proteome.workflows.pge.BiomarkerDiscoveryPostProcessCondition">
 	    <configuration>
-            <property name="numSecs" value="5"/>
+            <property name="prefix" value="JPL_NatMed_Gender_Classification"/>
+            <property name="projectDirectory" value="[PROTEOME_STAGING_HOME]/biomarker_discovery" envReplace="true" />
         </configuration>
 	</condition>
 </cas:conditions>
