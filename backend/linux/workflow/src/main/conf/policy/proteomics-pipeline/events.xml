@@ -27,6 +27,7 @@
     <event name="biomarker-discovery-2">
        <workflow id="urn:edrn:BiomarkerDiscoveryWorkflow2"/>
     </event>
+    
     <event name="myrimatch">
 		<workflow id="urn:edrn:MyrimatchWorkflow"/>
     </event>
