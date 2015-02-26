@@ -21,7 +21,7 @@ public class FileExistenceCondition implements WorkflowConditionInstance {
 				
 		// retrieve condition configuration
 		String filepath = config.getProperty("filepath");
-		int mustBeOlderThanInSecs = Integer.parseInt(config.getProperty("mustBeOlderThanInSecs"), -1);
+		int mustBeOlderThanInSecs = Integer.parseInt(config.getProperty("mustBeOlderThanInSecs"));
 
 		// loop over expected output files
 		Long now = System.currentTimeMillis();

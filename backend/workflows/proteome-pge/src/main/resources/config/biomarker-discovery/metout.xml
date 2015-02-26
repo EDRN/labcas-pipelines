@@ -2,7 +2,9 @@
 <metadataList>
     
     <metadata key="JobId" value="[JobId]"/>
-    <metadata key="productType" value="BiomarkerDiscoverySummaryFile"/>
+    <metadata key="ProductType" value="BiomarkerDiscoverySummaryFile"/>
+    <metadata key="ProductName" value="[ProductName]"/>
+    <metadata key="ProductionDateTime" value="[ProductionDateTime]"/>
     <metadata key="SomeMetadataKey" value="SomeMetadataValue"/>
     
 </metadataList>

@@ -39,7 +39,7 @@
 	    <configuration>
             <property name="mustBeOlderThanInSecs" value="60"/>
             <property name="filepath" 
-                      value="[PROTEOME_STAGING_HOME]/biomarker_discovery/results/summary/[prefix]_summary.txt" envReplace="true" />
+                      value="[PROTEOME_STAGING_HOME]/biomarker_discovery/results/summary/JPL_NatMed_Gender_Classification_summary.txt" envReplace="true" />
         </configuration>
 	</condition>
 	
