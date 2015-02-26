@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadataList>
     
-    <!-- one or more of these -->
     <metadata key="JobId" value="[JobId]"/>
-    <metadata key="ProductName" value="[ProductName]"/>
-    <metadata key="ProductType" value="[ProductType]"/>
+    <metadata key="productType" value="BiomarkerDiscoverySummaryFile"/>
     <metadata key="SomeMetadataKey" value="SomeMetadataValue"/>
-    
     
 </metadataList>
