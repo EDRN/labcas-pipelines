@@ -37,7 +37,7 @@
 	<condition id="urn:oodt:BiomarkerDiscoverySummaryFileCondition" name="Biomarker Discovery Summary File Condition" 
 	           class="gov.nasa.jpl.edrn.proteome.workflows.pge.FileExistenceCondition">
 	    <configuration>
-            <property name="mustBeOlderThanInSecs" value="60"/>
+            <property name="mustBeOlderThanInSecs" value="10"/>
             <property name="filepath" 
                       value="[PROTEOME_STAGING_HOME]/biomarker_discovery/results/summary/JPL_NatMed_Gender_Classification_summary.txt" envReplace="true" />
         </configuration>

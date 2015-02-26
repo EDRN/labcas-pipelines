@@ -3,6 +3,7 @@
 	<tasks>
 		<task id="urn:edrn:BiomarkerDiscoveryTask1"/>
 		<task id="urn:edrn:BiomarkerDiscoveryTask3"/>
+		<task id="urn:edrn:BiomarkerDiscoveryTask4"/>
 	</tasks>
 
 </cas:workflow>
