@@ -546,7 +546,7 @@
 
      <requiredMetFields>
 		<metfield name="JobDir"/>
-		<metfield name="ProductName"/>
+		<!-- <metfield name="ProductName"/> -->
      </requiredMetFields>
    
    </task>  
