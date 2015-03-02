@@ -624,12 +624,13 @@
         <property name="PGETask_Name" value="ProteomeFiltering2TabbLab"/>
         <property name="PGETask_ConfigFilePath" value="[PGE_ROOT]/pge-configs/tabblab/proteome-filtering-2.tabblab.pgeconfig.xml" envReplace="true"/>
         <property name="PGETask_DumpMetadata" value="true"/>
-                <property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]" envReplace="true" />
-                <property name="PCS_FileManagerUrl"     value="[PROTEOME_FILEMGR_URL]" envReplace="true"/>
-                <property name="PCS_MetFileExtension" value="met"/>
-                <property name="PCS_ClientTransferServiceFactory" value="org.apache.oodt.cas.filemgr.datatransfer.LocalDataTransferFactory"/>
-    <property name="PCS_ActionRepoFile" value="file:[PROTEOME_CRAWLER_HOME]/policy/crawler-config.xml" envReplace="true"/>
+        <property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]" envReplace="true" />
+        <property name="PCS_FileManagerUrl"     value="[PROTEOME_FILEMGR_URL]" envReplace="true"/>
+        <property name="PCS_MetFileExtension" value="met"/>
+        <property name="PCS_ClientTransferServiceFactory" value="org.apache.oodt.cas.filemgr.datatransfer.LocalDataTransferFactory"/>
+   		<property name="PCS_ActionRepoFile" value="file:[PROTEOME_CRAWLER_HOME]/policy/crawler-config.xml" envReplace="true"/>
         <property name="QueueName" value="linux-queue"/>
+        <property name="DATA_STAGING" value="/data/staging/20140506-Pancreatic-Cyst-Fluid" />
   </configuration>
 
         <requiredMetFields>

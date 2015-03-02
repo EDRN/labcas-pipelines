@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pgeConfig>
 
-        <!-- PGE instructions -->
+        <!--
+        requires the following files:
+        ls -l /data/staging/20140506-Pancreatic-Cyst-Fluid/output/.
+		-rw-r--r-- 1 edrn staff 8098593 Mar  2 08:20 A1_frx01-MM.pepXML
+		-rw-r--r-- 1 edrn staff 8333306 Mar  2 11:49 A1_frx02-MM.pepXML
+        -->
         <exe dir="[JobDir]" shell="/bin/bash">
-          <cmd>cp [DATA_STAGING]/output/[ProductName]*.pepXML .</cmd>
+          <cmd>cp [DATA_STAGING]/output/A1_frx01-MM.pepXML .</cmd>
+          <cmd>cp [DATA_STAGING]/output/A1_frx02-MM.pepXML .</cmd>
         </exe>
 
 </pgeConfig>
