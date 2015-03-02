@@ -136,7 +136,7 @@ public class CopyInputFilesByProductIdTask implements WorkflowTaskInstance, MetK
     	File sourceAssembleListFile = new File(metadata.getMetadata(ASSEMBLE_FILE_LIST_MET_KEY));
     	File destAssembleListFile = new File(jobDir + File.separator + sourceAssembleListFile.getName());
     	copyProduct(sourceAssembleListFile.getAbsolutePath(), destAssembleListFile.getAbsolutePath(), copyFiles);
-    	metadata.addMetadata(ASSEMBLE_FILE_LIST_MET_KEY, sourceAssembleListFile.getName());
+    	//metadata.addMetadata(ASSEMBLE_FILE_LIST_MET_KEY, sourceAssembleListFile.getName());
 
 	}
 	
