@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pgeConfig>
+
+        <!-- PGE instructions -->
+        <exe dir="[JobDir]" shell="/bin/bash">
+	        <exe dir="[JobDir]" shell="/bin/bash">
+	          <cmd>cd [DATA_STAGING]</cmd>
+	          <cmd>python MyrimatchSubmit.py [ProductName]</cmd>
+	        </exe>
+        </exe>
+
+</pgeConfig>
+

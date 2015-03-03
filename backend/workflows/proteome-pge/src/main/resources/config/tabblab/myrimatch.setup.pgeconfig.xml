@@ -3,13 +3,14 @@
 
         <!-- PGE instructions -->
         <exe dir="[JobDir]" shell="/bin/bash">
-          	<!-- <cmd>ln -s [DATA_STAGING]/[ProductName].mzML ./[ProductName].mzML</cmd> -->
+          	<cmd>ln -s [DATA_STAGING]/[ProductName].mzML ./[ProductName].mzML</cmd>
           	<!-- when running on two fixed products -->
-          	<cmd>ln -s [DATA_STAGING]/A1_frx01.mzML ./A1_frx01.mzML</cmd>
-            <cmd>ln -s [DATA_STAGING]/A1_frx02.mzML ./A1_frx02.mzML</cmd>
+          	<!-- <cmd>ln -s [DATA_STAGING]/A1_frx01.mzML ./A1_frx01.mzML</cmd> -->
+            <!-- <cmd>ln -s [DATA_STAGING]/A1_frx02.mzML ./A1_frx02.mzML</cmd> -->
           	<cmd>ln -s [DATA_STAGING]/protein.fa ./protein.fa</cmd>
           	<cmd>ln -s [DATA_STAGING]/TargetDB.fasta ./TargetDB.fasta</cmd>
           	<cmd>ln -s [DATA_STAGING]/TargetDB-reverse.fasta ./TargetDB-reverse.fasta</cmd>
+          	<cmd>ln -s [DATA_STAGING]/cystfluid.myrimatch.cfg ./cystfluid.myrimatch.cfg</cmd>
         </exe>
 
 

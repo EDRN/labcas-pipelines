@@ -551,6 +551,27 @@
    
    </task>  
    
+   <task id="urn:edrn:MyrimatchSubmitTask" name="MyrimatchSubmitTask" class="gov.nasa.jpl.edrn.proteome.workflows.pge.LinuxPGETask">
+
+     <conditions/>
+
+     <configuration>
+        <property name="PGETask_Name" value="MyrimatchSubmitTask"/>
+        <property name="PGETask_ConfigFilePath" value="[PGE_ROOT]/pge-configs/tabblab/myrimatch.submit.pgeconfig.xml" envReplace="true"/>
+        <property name="PGETask_DumpMetadata" value="true"/>
+        <property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]" envReplace="true" />
+        <property name="PCS_FileManagerUrl"     value="[PROTEOME_FILEMGR_URL]" envReplace="true"/>
+        <property name="QueueName" value="linux-queue"/>
+        <property name="DATA_STAGING" value="/data/staging/20140506-Pancreatic-Cyst-Fluid" />
+	 </configuration>
+
+     <requiredMetFields>
+		<metfield name="JobDir"/>
+		<metfield name="ProductName"/>
+     </requiredMetFields>
+   
+   </task>  
+   
    <task id="urn:edrn:MyrimatchFakeTask" name="MyrimatchFakeTask" class="gov.nasa.jpl.edrn.proteome.workflows.pge.LinuxPGETask">
 
      <conditions/>
