@@ -5,9 +5,9 @@
         <exe dir="[JobDir]" shell="/bin/bash">
 	        <exe dir="[JobDir]" shell="/bin/bash">
 	          <cmd>cd [DATA_STAGING]</cmd>
-	          <cmd>python MyrimatchSubmit.py [ProductName]</cmd>
+	          <cmd>python MyrimatchSubmit.py [RAWFiles]</cmd>
 	        </exe>
         </exe>
-
+		
 </pgeConfig>
 

@@ -567,7 +567,7 @@
 
      <requiredMetFields>
 		<metfield name="JobDir"/>
-		<metfield name="ProductName"/>
+		<metfield name="RAWFiles"/>
      </requiredMetFields>
    
    </task>  
