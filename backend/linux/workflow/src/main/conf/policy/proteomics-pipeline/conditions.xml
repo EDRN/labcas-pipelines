@@ -34,6 +34,15 @@
         </configuration>
 	</condition>
 	
+	<condition id="urn:oodt:ProteomeFilteringCondition" name="Proteome Filtering Condition" 
+	           class="gov.nasa.jpl.edrn.proteome.workflows.pge.ProteomeFilteringCondition">
+	           
+	    <configuration>
+            <property name="outputDirectory" value="[DATA_STAGING]" envReplace="true" />
+        </configuration>
+        
+	</condition>
+	
 	<condition id="urn:oodt:BiomarkerDiscoverySummaryFileCondition" name="Biomarker Discovery Summary File Condition" 
 	           class="gov.nasa.jpl.edrn.proteome.workflows.pge.FileExistenceCondition">
 	    <configuration>

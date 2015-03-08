@@ -294,9 +294,6 @@
         <metfield name="MyriMatchCfgFile"/>
         <metfield name="UserEmail"/>
         <metfield name="RAWFiles"/>
-        <metfield name="RAWFiles"/>
-        <metfield name="RAWFiles"/>
-        <metfield name="RAWFiles"/>
      </requiredMetFields>
    </task>
    
@@ -617,7 +614,9 @@
    <task id="urn:edrn:ProteomeFiltering1TabbLab" name="ProteomeFiltering1TabbLab"
      class="gov.nasa.jpl.edrn.proteome.workflows.pge.LinuxPGETask">
 
-     <conditions/>
+     <conditions>
+     	<condition id="urn:oodt:ProteomeFilteringCondition"/>
+     </conditions>
 
      <configuration>
         <property name="PGETask_Name" value="ProteomeFiltering1TabbLab"/>
@@ -629,11 +628,13 @@
                 <property name="PCS_ClientTransferServiceFactory" value="org.apache.oodt.cas.filemgr.datatransfer.LocalDataTransferFactory"/>
 		<property name="PCS_ActionRepoFile" value="file:[PROTEOME_CRAWLER_HOME]/policy/crawler-config.xml" envReplace="true"/>
         <property name="QueueName" value="linux-queue"/>
+        <property name="DATA_STAGING" value="/data/staging/20140506-Pancreatic-Cyst-Fluid" />
 	</configuration>
 
-        <requiredMetFields>
+    <requiredMetFields>
 		<metfield name="JobDir"/>
-        </requiredMetFields>
+    </requiredMetFields>
+        
    </task>    
 
    <task id="urn:edrn:ProteomeFiltering2TabbLab" name="ProteomeFiltering2TabbLab"
