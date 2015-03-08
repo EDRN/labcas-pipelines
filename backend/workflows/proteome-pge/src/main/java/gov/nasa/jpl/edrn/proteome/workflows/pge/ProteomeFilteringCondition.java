@@ -26,14 +26,14 @@ public class ProteomeFilteringCondition implements WorkflowConditionInstance {
 				
 		// output directory == DATA_STAGING
 		String outputDirectory = config.getProperty("outputDirectory");
-		LOG.info("Searcging outputDirectory="+outputDirectory + " for .pepXML files");
+		LOG.info("Searching outputDirectory: "+outputDirectory + " for .pepXML files");
 
 		// loop over expected outpput files from Myrimatch task
 		List<String> rawFileNames = metadata.getAllMetadata("RAWFileNames");
 		for (String rawFileName : rawFileNames) {
-			String outputFileName = outputDirectory + rawFileName.replace(".raw", "-MM.pepXML"); 
+			String outputFileName = rawFileName.replace(".raw", "-MM.pepXML"); 
 			File outputFile = new File(outputDirectory, outputFileName);
-			LOG.info("Checking for outputFile"+outputFile.getAbsolutePath());
+			LOG.info("Checking for outputFile: "+outputFile.getAbsolutePath());
 			if (!outputFile.exists()) return false;
 		}
 		
