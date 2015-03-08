@@ -13,11 +13,11 @@
         <task id="urn:edrn:ProteowizardTabbLab"/> -->
         <!-- <task id="urn:edrn:MyrimatchSetupTask"/> -->
         
-        <task id="urn:edrn:MyrimatchSubmitTask"/>
+        <!-- <task id="urn:edrn:MyrimatchSubmitTask"/> -->
         <!-- <task id="urn:edrn:ProteomeDBSearchTabbLab"/> -->
         <!-- <task id="urn:edrn:MyrimatchFakeTask"/> -->
         
-        <!-- <task id="urn:edrn:ProteomeFiltering1TabbLab"/> -->
+        <task id="urn:edrn:ProteomeFiltering1TabbLab"/>
         <!-- <task id="urn:edrn:ProteomeFiltering2TabbLab"/> -->
         <!-- <task id="urn:edrn:ProteomeFiltering3TabbLab"/> -->
         <!-- <task id="urn:edrn:ProteomePostprocessingTabbLab"/> -->

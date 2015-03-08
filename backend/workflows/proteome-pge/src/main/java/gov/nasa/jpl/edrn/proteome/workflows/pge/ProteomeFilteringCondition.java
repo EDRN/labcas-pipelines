@@ -23,6 +23,10 @@ public class ProteomeFilteringCondition implements WorkflowConditionInstance {
 		for (String rawFile : rawFiles) {
 			LOG.info("Raw file="+rawFile);
 		}
+		List<String> rawFileNames = metadata.getAllMetadata("RAWFileNames");
+		for (String rawFileName : rawFileNames) {
+			LOG.info("Raw file name="+rawFileName);
+		}
 		
 		// retrieve condition configuration
 		String outputDirectory = config.getProperty("outputDirectory");

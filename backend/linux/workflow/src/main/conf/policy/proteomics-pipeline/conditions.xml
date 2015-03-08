@@ -38,7 +38,7 @@
 	           class="gov.nasa.jpl.edrn.proteome.workflows.pge.ProteomeFilteringCondition">
 	           
 	    <configuration>
-            <property name="outputDirectory" value="[DATA_STAGING]" envReplace="true" />
+            <property name="outputDirectory" value="/data/staging/20140506-Pancreatic-Cyst-Fluid" />
         </configuration>
         
 	</condition>
