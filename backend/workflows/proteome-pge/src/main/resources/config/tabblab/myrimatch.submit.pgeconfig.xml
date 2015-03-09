@@ -4,8 +4,9 @@
         <!-- PGE instructions -->
         <exe dir="[JobDir]" shell="/bin/bash">
 	        <exe dir="[JobDir]" shell="/bin/bash">
-	          <cmd>ln -s ./protein.fa [DATA_STAGING]/. </cmd>
-	          <cmd>ln -s ./cystfluid.myrimatch.cfg [DATA_STAGING]/. </cmd>
+	          <cmd>cd [JobDir]</cmd>
+	          <cmd>ln -s ./protein.fa [DATA_STAGING]/protein.fa </cmd>
+	          <cmd>ln -s ./cystfluid.myrimatch.cfg [DATA_STAGING]/cystfluid.myrimatch.cfg</cmd>
 	          <cmd>python [PGE_ROOT]/pge-configs/tabblab/MyrimatchSubmit.py [RAWFiles]</cmd>
 	        </exe>
         </exe>
