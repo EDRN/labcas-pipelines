@@ -7,7 +7,7 @@
 	          <cmd>cd [DATA_STAGING]</cmd>
 	          <cmd>cp [JobDir]/protein.fa ./protein.fa</cmd>
 	          <cmd>cp [JobDir]/cystfluid.myrimatch.cfg ./cystfluid.myrimatch.cfg</cmd>
-	          <cmd>python [PGE_ROOT]/pge-configs/tabblab/MyrimatchSubmit.py [RAWFiles]</cmd>
+	          <cmd>python [PGE_ROOT]/pge-configs/tabblab/MyrimatchSubmit.py [RAWFileNames]</cmd>
 	        </exe>
         </exe>
 		

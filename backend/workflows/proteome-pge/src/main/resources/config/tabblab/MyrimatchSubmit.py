@@ -141,12 +141,12 @@ if __name__ == '__main__':
     productNamesDict = querySolr()
     
     # list of requested products, or all products if none is specified
-    requestedProductIds = []
+    requestedProductNames = []
     if len(sys.argv) == 2:
-           requestedProductIds = [x.strip() for x in sys.argv[1].split(",")]
+           requestedProductNames = [x.strip().replace('.raw','') for x in sys.argv[1].split(",")]
     else:
-        requestedProductIds = productNamesDict.keys()
-    print 'Requested product ids: %s' % requestedProductIds
+        requestedProductNames = productNamesDict.values()
+    print 'Requested product names: %s' % requestedProductNames
 
     
     # loop over products
@@ -154,7 +154,7 @@ if __name__ == '__main__':
       
       # must either specify one or more products,
       # or specify no products to process all
-      if productId in requestedProductIds:
+      if productName in requestedProductNames:
         
         # do not process any product more than once
         if not productName in submittedProductNames:
