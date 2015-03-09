@@ -1,11 +1,20 @@
 <cas:workflow xmlns:cas="http://oodt.jpl.nasa.gov/1.0/cas" name="MyrimatchWorkflow" id="urn:edrn:MyrimatchWorkflow">
 
 	<tasks>
-		<task id="urn:edrn:CreateJobDir"/>
+		
+		<!-- Myrimatch tasks 1-2 copy the Myrimatch input files to the job directory -->
+		<task id="urn:edrn:MyrimatchCreateJobDir"/>
 		<task id="urn:edrn:MyrimatchSetupTask"/>
+		
+		<!-- Myrimatch task 3a == Proteome task 8a -->
 		<task id="urn:edrn:ProteomeDBSearchTabbLab"/>
+		
+		<!-- Myrimatch task 3b -->
 		<!-- <task id="urn:edrn:MyrimatchFakeTask"/> -->
+		
+		<!-- Myrimatch task 4 copies the Myrimatch output files to the shared staging directory -->
 		<task id="urn:edrn:MyrimatchFinalizeTask"/>
+		
 	</tasks>
 
 </cas:workflow>

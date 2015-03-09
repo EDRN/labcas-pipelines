@@ -368,73 +368,100 @@
 
 	</task>
 	
-	
-	<task id="urn:edrn:SolrIndexerConfigPge" name="SolrIndexerConfigPge"
-		class="gov.nasa.jpl.edrn.proteome.workflows.pge.LinuxPGETask">
-
-		<conditions />
-
+	<!-- Myrimatch Pipeline task 1 -->
+	<task id="urn:edrn:MyrimatchCreateJobDir" name="Create Job Dir Task"
+		class="gov.nasa.jpl.edrn.proteome.workflows.misctasks.SetupPipelineTask">
 		<configuration>
-			<property name="PGETask_Name" value="SolrIndexerConfigPge" />
-			<property name="PGETask_ConfigFilePath"
-				value="[PGE_ROOT]/pge-configs/pipeline-test/solrindexer-config.pgeconfig.xml"
+			<property name="JobContainerDir" value="[PGE_ROOT]/output/jobs"
 				envReplace="true" />
-			<property name="PGETask_DumpMetadata" value="true" />
 			<property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]"
 				envReplace="true" />
-			<property name="PCS_FileManagerUrl" value="[PROTEOME_FILEMGR_URL]"
-				envReplace="true" />
-			<property name="PCS_MetFileExtension" value="met" />
-			<property name="PCS_ClientTransferServiceFactory"
-				value="org.apache.oodt.cas.filemgr.datatransfer.LocalDataTransferFactory" />
-			<property name="PCS_ActionRepoFile"
-				value="file:[LABCAS_HOME]/crawler/policy/crawler-config.xml"
-				envReplace="true" />
+
 			<property name="QueueName" value="linux-queue" />
 		</configuration>
 
 		<requiredMetFields />
 	</task>
 	
-	
-	<task id="urn:edrn:ProteomePostprocessingStandard" name="ProteomePostprocessingStandard"
+	<!-- Myrimatch Pipeline task 2 -->
+	<task id="urn:edrn:MyrimatchSetupTask" name="MyrimatchSetupTask"
 		class="gov.nasa.jpl.edrn.proteome.workflows.pge.LinuxPGETask">
-
 		<conditions />
-
 		<configuration>
-			<property name="PGETask_Name" value="ProteomePostprocessingStandard" />
+			<property name="PGETask_Name" value="MyrimatchSetupTask" />
 			<property name="PGETask_ConfigFilePath"
-				value="[PGE_ROOT]/pge-configs/standard-pipeline/proteome-postprocessing.standard.pgeconfig.xml"
+				value="[PGE_ROOT]/pge-configs/tabblab/myrimatch.setup.pgeconfig.xml"
 				envReplace="true" />
 			<property name="PGETask_DumpMetadata" value="true" />
 			<property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]"
 				envReplace="true" />
 			<property name="PCS_FileManagerUrl" value="[PROTEOME_FILEMGR_URL]"
 				envReplace="true" />
-			<property name="PCS_MetFileExtension" value="met" />
-			<property name="PCS_ClientTransferServiceFactory"
-				value="org.apache.oodt.cas.filemgr.datatransfer.LocalDataTransferFactory" />
-			<property name="PCS_ActionRepoFile"
-				value="file:[PROTEOME_CRAWLER_HOME]/policy/crawler-config.xml"
-				envReplace="true" />
 			<property name="QueueName" value="linux-queue" />
+			<property name="DATA_STAGING"
+				value="/data/staging/20140506-Pancreatic-Cyst-Fluid" />
 		</configuration>
-
 		<requiredMetFields>
-			<metfield name="RunID" />
+			<metfield name="JobDir" />
+			<!-- <metfield name="ProductName"/> -->
 		</requiredMetFields>
 	</task>
 	
+	<!-- Myrimatch Pipeline task 3a == Protoeome task 8a -->
 	
-
-	<!-- standalone task that runs the whole biomarker discovery pipeline through 
-		qsub and R scripts -->
+	<!-- Myrimatch Pipeline task 3b -->
+	<task id="urn:edrn:MyrimatchFakeTask" name="MyrimatchFakeTask"
+		class="gov.nasa.jpl.edrn.proteome.workflows.pge.LinuxPGETask">
+		<conditions />
+		<configuration>
+			<property name="PGETask_Name" value="MyrimatchFakeTask" />
+			<property name="PGETask_ConfigFilePath"
+				value="[PGE_ROOT]/pge-configs/tabblab/myrimatch.fake.pgeconfig.xml"
+				envReplace="true" />
+			<property name="PGETask_DumpMetadata" value="true" />
+			<property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]"
+				envReplace="true" />
+			<property name="PCS_FileManagerUrl" value="[PROTEOME_FILEMGR_URL]"
+				envReplace="true" />
+			<property name="QueueName" value="linux-queue" />
+			<property name="DATA_STAGING"
+				value="/data/staging/20140506-Pancreatic-Cyst-Fluid" />
+		</configuration>
+		<requiredMetFields>
+			<metfield name="JobDir" />
+			<metfield name="ProductName" />
+		</requiredMetFields>
+	</task>
+	
+	<!-- Myrimatch Pipeline task 4 -->
+	<task id="urn:edrn:MyrimatchFinalizeTask" name="MyrimatchFinalizeTask"
+		class="gov.nasa.jpl.edrn.proteome.workflows.pge.LinuxPGETask">
+		<conditions />
+		<configuration>
+			<property name="PGETask_Name" value="MyrimatchFinalizeTask" />
+			<property name="PGETask_ConfigFilePath"
+				value="[PGE_ROOT]/pge-configs/tabblab/myrimatch.finalize.pgeconfig.xml"
+				envReplace="true" />
+			<property name="PGETask_DumpMetadata" value="true" />
+			<property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]"
+				envReplace="true" />
+			<property name="PCS_FileManagerUrl" value="[PROTEOME_FILEMGR_URL]"
+				envReplace="true" />
+			<property name="QueueName" value="linux-queue" />
+			<property name="DATA_STAGING"
+				value="/data/staging/20140506-Pancreatic-Cyst-Fluid" />
+		</configuration>
+		<requiredMetFields>
+			<metfield name="JobDir" />
+			<metfield name="ProductName" />
+		</requiredMetFields>
+	</task>
+	
+	<!-- Biomarker Discovery Qsub pipeline task 0 -->
+	<!-- standalone task that runs the whole biomarker discovery pipeline through qsub and R scripts -->
 	<task id="urn:edrn:BiomarkerDiscoveryTask0" name="BiomarkerDiscoveryTask0"
 		class="org.apache.oodt.cas.pge.StdPGETaskInstance">
-
 		<conditions />
-
 		<configuration>
 			<property name="PGETask_Name" value="BiomarkerDiscoveryTask0" />
 			<property name="PGETask_ConfigFilePath"
@@ -451,143 +478,24 @@
 			<property name="PCS_ActionRepoFile"
 				value="file:[LABCAS_HOME]/crawler/policy/crawler-config.xml"
 				envReplace="true" />
-
 			<property name="QueueName" value="linux-queue" />
-
 			<!-- script arguments -->
 			<property name="prefix" value="JPL_NatMed_Gender_Classification" />
 			<property name="projectDirectory" value="[PROTEOME_STAGING_HOME]/biomarker_discovery"
 				envReplace="true" />
-
 		</configuration>
-
 		<requiredMetFields>
 			<metfield name="ncv" />
 		</requiredMetFields>
-
 	</task>
-
-	<!-- task that runs a python script that submits sub-workflows to multiple 
-		nodes -->
-	<task id="urn:edrn:BiomarkerDiscoveryTask1" name="BiomarkerDiscoveryTask1"
-		class="org.apache.oodt.cas.pge.StdPGETaskInstance">
-
-		<conditions />
-
-		<configuration>
-			<property name="PGETask_Name" value="BiomarkerDiscoveryTask1" />
-			<property name="PGETask_ConfigFilePath"
-				value="[PGE_ROOT]/pge-configs/biomarker-discovery/biomarker-discovery-task1-config.pgeconfig.xml"
-				envReplace="true" />
-			<property name="PGETask_DumpMetadata" value="true" />
-			<property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]"
-				envReplace="true" />
-			<property name="PCS_FileManagerUrl" value="[PROTEOME_FILEMGR_URL]"
-				envReplace="true" />
-			<property name="PCS_MetFileExtension" value="met" />
-			<property name="PCS_ClientTransferServiceFactory"
-				value="org.apache.oodt.cas.filemgr.datatransfer.LocalDataTransferFactory" />
-			<property name="PCS_ActionRepoFile"
-				value="file:[LABCAS_HOME]/crawler/policy/crawler-config.xml"
-				envReplace="true" />
-			<!-- <property name="PCS_ActionsIds" value="Unique"/> -->
-
-			<property name="QueueName" value="linux-queue" />
-
-			<!-- script arguments -->
-			<property name="prefix" value="JPL_NatMed_Gender_Classification" />
-			<property name="projectDirectory" value="[PROTEOME_STAGING_HOME]/biomarker_discovery"
-				envReplace="true" />
-
-		</configuration>
-
-		<requiredMetFields>
-			<metfield name="ncv" />
-		</requiredMetFields>
-
-	</task>
-
-	<!-- task that runs a single iteration of the biomarker discovery pipeline 
-		R script -->
-	<task id="urn:edrn:BiomarkerDiscoveryTask2" name="BiomarkerDiscoveryTask2"
-		class="org.apache.oodt.cas.pge.StdPGETaskInstance">
-
-		<conditions />
-
-		<configuration>
-			<property name="PGETask_Name" value="BiomarkerDiscoveryTask2" />
-			<property name="PGETask_ConfigFilePath"
-				value="[PGE_ROOT]/pge-configs/biomarker-discovery/biomarker-discovery-task2-config.pgeconfig.xml"
-				envReplace="true" />
-			<property name="PGETask_DumpMetadata" value="true" />
-			<property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]"
-				envReplace="true" />
-			<property name="PCS_FileManagerUrl" value="[PROTEOME_FILEMGR_URL]"
-				envReplace="true" />
-			<property name="PCS_MetFileExtension" value="met" />
-			<property name="PCS_ClientTransferServiceFactory"
-				value="org.apache.oodt.cas.filemgr.datatransfer.LocalDataTransferFactory" />
-
-			<property name="QueueName" value="linux-queue" />
-
-			<!-- script arguments -->
-			<property name="prefix" value="JPL_NatMed_Gender_Classification" />
-			<property name="projectDirectory" value="[PROTEOME_STAGING_HOME]/biomarker_discovery"
-				envReplace="true" />
-
-		</configuration>
-
-		<requiredMetFields>
-			<metfield name="ncv" />
-		</requiredMetFields>
-
-	</task>
-
-	<!-- task that runs the biomarker discovery post-processing R script -->
-	<task id="urn:edrn:BiomarkerDiscoveryTask3" name="BiomarkerDiscoveryTask3"
-		class="org.apache.oodt.cas.pge.StdPGETaskInstance">
-
-		<conditions>
-			<condition id="urn:oodt:BiomarkerDiscoveryPostProcessCondition" />
-		</conditions>
-
-		<configuration>
-			<property name="PGETask_Name" value="BiomarkerDiscoveryTask3" />
-			<property name="PGETask_ConfigFilePath"
-				value="[PGE_ROOT]/pge-configs/biomarker-discovery/biomarker-discovery-task3-config.pgeconfig.xml"
-				envReplace="true" />
-			<property name="PGETask_DumpMetadata" value="true" />
-			<property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]"
-				envReplace="true" />
-			<property name="PCS_FileManagerUrl" value="[PROTEOME_FILEMGR_URL]"
-				envReplace="true" />
-			<property name="PCS_MetFileExtension" value="met" />
-			<property name="PCS_ClientTransferServiceFactory"
-				value="org.apache.oodt.cas.filemgr.datatransfer.LocalDataTransferFactory" />
-
-			<property name="QueueName" value="linux-queue" />
-
-			<!-- script arguments -->
-			<property name="prefix" value="JPL_NatMed_Gender_Classification" />
-			<property name="projectDirectory" value="[PROTEOME_STAGING_HOME]/biomarker_discovery"
-				envReplace="true" />
-
-		</configuration>
-
-		<requiredMetFields>
-			<metfield name="ncv" />
-		</requiredMetFields>
-
-	</task>
-
-	<!-- task that published the biomarker discovery summary file -->
+	
+	<!-- Biomarker Discovery Qsub pipeline task 4 -->
+	<!-- task that publishes the biomarker discovery summary file -->
 	<task id="urn:edrn:BiomarkerDiscoveryTask4" name="BiomarkerDiscoveryTask4"
 		class="org.apache.oodt.cas.pge.StdPGETaskInstance">
-
 		<conditions>
 			<condition id="urn:oodt:BiomarkerDiscoverySummaryFileCondition" />
 		</conditions>
-
 		<configuration>
 			<property name="PGETask_Name" value="BiomarkerDiscoveryTask4" />
 			<property name="PGETask_ConfigFilePath"
@@ -605,34 +513,26 @@
 				value="file:[LABCAS_HOME]/crawler/policy/crawler-config.xml"
 				envReplace="true" />
 			<!-- <property name="PCS_ActionsIds" value="Unique"/> -->
-
 			<property name="QueueName" value="linux-queue" />
-
 			<!-- script arguments -->
 			<property name="prefix" value="JPL_NatMed_Gender_Classification" />
 			<property name="projectDirectory" value="[PROTEOME_STAGING_HOME]/biomarker_discovery"
 				envReplace="true" />
-
 		</configuration>
-
 		<requiredMetFields>
 			<metfield name="ncv" />
 		</requiredMetFields>
-
 	</task>
 
-
-
-
-	<task id="urn:edrn:SolrIndexerTestPge" name="SolrIndexerTestPge"
-		class="gov.nasa.jpl.edrn.proteome.workflows.pge.LinuxPGETask">
-
+	<!-- Biomarker Discovery no-Qsub pipeline task 1 -->
+	<!-- task that runs a python script that submits sub-workflows to multiple nodes -->
+	<task id="urn:edrn:BiomarkerDiscoveryTask1" name="BiomarkerDiscoveryTask1"
+		class="org.apache.oodt.cas.pge.StdPGETaskInstance">
 		<conditions />
-
 		<configuration>
-			<property name="PGETask_Name" value="SolrIndexerTestPge" />
+			<property name="PGETask_Name" value="BiomarkerDiscoveryTask1" />
 			<property name="PGETask_ConfigFilePath"
-				value="[PGE_ROOT]/pge-configs/pipeline-test/solrindexer-test.pgeconfig.xml"
+				value="[PGE_ROOT]/pge-configs/biomarker-discovery/biomarker-discovery-task1-config.pgeconfig.xml"
 				envReplace="true" />
 			<property name="PGETask_DumpMetadata" value="true" />
 			<property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]"
@@ -645,84 +545,27 @@
 			<property name="PCS_ActionRepoFile"
 				value="file:[LABCAS_HOME]/crawler/policy/crawler-config.xml"
 				envReplace="true" />
+			<!-- <property name="PCS_ActionsIds" value="Unique"/> -->
 			<property name="QueueName" value="linux-queue" />
-			<property name="PCS_ActionsIds" value="SolrIndexerCrawlerAction" />
+			<!-- script arguments -->
+			<property name="prefix" value="JPL_NatMed_Gender_Classification" />
+			<property name="projectDirectory" value="[PROTEOME_STAGING_HOME]/biomarker_discovery"
+				envReplace="true" />
 		</configuration>
-
-		<requiredMetFields />
-	</task>
-
-
-
-	<task id="urn:edrn:SolrIndexerTask" name="SolrIndexerTask"
-		class="gov.nasa.jpl.edrn.proteome.workflows.pge.SolrIndexerTask">
-		<conditions />
-		<configuration>
-			<property name="JobContainerDir" value="[PGE_ROOT]/output/jobs"
-				envReplace="true" />
-			<property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]"
-				envReplace="true" />
-
-			<property name="QueueName" value="linux-queue" />
-		</configuration>
-		<requiredMetFields />
-	</task>
-
-
-
-
-
-	<task id="urn:edrn:ProteomeDownloadInputFiles" name="Proteome Download Input Files"
-		class="gov.nasa.jpl.edrn.proteome.workflows.misctasks.DownloadInputFilesTask">
-		<configuration>
-			<property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]"
-				envReplace="true" />
-			<property name="FileManagerURL" value="[PROTEOME_FILEMGR_URL]"
-				envReplace="true" />
-
-			<property name="QueueName" value="linux-queue" />
-		</configuration>
-
 		<requiredMetFields>
-			<metfield name="RawDatasetName" />
-			<metfield name="RAWFiles" />
-			<metfield name="DBFile" />
-			<metfield name="CntmsFile" />
-			<metfield name="MyriMatchCfgFile" />
-			<metfield name="UserEmail" />
-			<metfield name="RAWFiles" />
+			<metfield name="ncv" />
 		</requiredMetFields>
 	</task>
 
-
-
-
-
-
-	<!-- Pipeline Test PGE Config -->
-	<task id="urn:edrn:CreateJobDir" name="Create Job Dir Task"
-		class="gov.nasa.jpl.edrn.proteome.workflows.misctasks.SetupPipelineTask">
-		<configuration>
-			<property name="JobContainerDir" value="[PGE_ROOT]/output/jobs"
-				envReplace="true" />
-			<property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]"
-				envReplace="true" />
-
-			<property name="QueueName" value="linux-queue" />
-		</configuration>
-
-		<requiredMetFields />
-	</task>
-
-	<task id="urn:edrn:LinuxTest" name="LinuxTest"
-		class="gov.nasa.jpl.edrn.proteome.workflows.pge.LinuxPGETask">
-
+	<!-- Biomarker Discovery no-Qsub pipeline task 1 -->
+	<!-- task that runs a single iteration of the biomarker discovery pipeline R script -->
+	<task id="urn:edrn:BiomarkerDiscoveryTask2" name="BiomarkerDiscoveryTask2"
+		class="org.apache.oodt.cas.pge.StdPGETaskInstance">
 		<conditions />
-
 		<configuration>
-			<property name="PGETask_Name" value="LinuxTest" />
+			<property name="PGETask_Name" value="BiomarkerDiscoveryTask2" />
 			<property name="PGETask_ConfigFilePath"
-				value="[PGE_ROOT]/pge-configs/pipeline-test/linuxtest.pipeline-test.pgeconfig.xml"
+				value="[PGE_ROOT]/pge-configs/biomarker-discovery/biomarker-discovery-task2-config.pgeconfig.xml"
 				envReplace="true" />
 			<property name="PGETask_DumpMetadata" value="true" />
 			<property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]"
@@ -732,455 +575,46 @@
 			<property name="PCS_MetFileExtension" value="met" />
 			<property name="PCS_ClientTransferServiceFactory"
 				value="org.apache.oodt.cas.filemgr.datatransfer.LocalDataTransferFactory" />
-			<property name="PCS_ActionRepoFile"
-				value="file:[PROTEOME_CRAWLER_HOME]/policy/crawler-config.xml"
-				envReplace="true" />
 			<property name="QueueName" value="linux-queue" />
+			<!-- script arguments -->
+			<property name="prefix" value="JPL_NatMed_Gender_Classification" />
+			<property name="projectDirectory" value="[PROTEOME_STAGING_HOME]/biomarker_discovery"
+				envReplace="true" />
 		</configuration>
-
 		<requiredMetFields>
-			<metfield name="RunID" />
+			<metfield name="ncv" />
 		</requiredMetFields>
 	</task>
 
-	<task id="urn:edrn:WinTest" name="WinTest"
-		class="gov.nasa.jpl.edrn.proteome.workflows.pge.WinPGETask">
-
-		<conditions />
-
-		<configuration>
-			<property name="PGETask_Name" value="WinTest" />
-			<property name="PGETask_ConfigFilePath"
-				value="[PGE_ROOT_CYGWIN]/pge-configs/pipeline-test/wintest.pipeline-test.pgeconfig.xml"
-				envReplace="true" />
-			<property name="PGETask_DumpMetadata" value="true" />
-			<property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]"
-				envReplace="true" />
-			<property name="PCS_FileManagerUrl" value="[PROTEOME_FILEMGR_URL]"
-				envReplace="true" />
-			<property name="PCS_MetFileExtension" value="met" />
-			<property name="PCS_ClientTransferServiceFactory"
-				value="org.apache.oodt.cas.filemgr.datatransfer.LocalDataTransferFactory" />
-			<property name="PCS_ActionRepoFile"
-				value="file:[PROTEOME_CRAWLER_HOME_CYGWINPATH]/policy/crawler-config.xml"
-				envReplace="true" />
-			<property name="QueueName" value="win-queue" />
-		</configuration>
-
-		<requiredMetFields>
-			<metfield name="CygwinJobDir" />
-		</requiredMetFields>
-	</task>
-
-	<task id="urn:edrn:PipelineWinMetTest" name="PipelineWinMetTest"
-		class="gov.nasa.jpl.edrn.proteome.workflows.pge.PipelineWinMetTest">
-
-		<conditions />
-
-		<configuration>
-			<property name="JobContainerDir" value="[PGE_ROOT]/output/jobs"
-				envReplace="true" />
-			<property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]"
-				envReplace="true" />
-
-			<property name="QueueName" value="win-queue" />
-		</configuration>
-
-		<requiredMetFields />
-
-	</task>
-
-	<task id="urn:edrn:FilemgrCrawlerTest" name="FilemgrCrawlerTest"
-		class="gov.nasa.jpl.edrn.proteome.workflows.pge.LinuxPGETask">
-
-		<conditions />
-
-		<configuration>
-			<property name="PGETask_Name" value="FilemgrCrawlerTest" />
-			<property name="PGETask_ConfigFilePath"
-				value="[PGE_ROOT]/pge-configs/pipeline-test/filemgrcrawlertest.pipeline-test.pgeconfig.xml"
-				envReplace="true" />
-			<property name="PGETask_DumpMetadata" value="true" />
-			<property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]"
-				envReplace="true" />
-			<property name="PCS_FileManagerUrl" value="[PROTEOME_FILEMGR_URL]"
-				envReplace="true" />
-			<property name="PCS_MetFileExtension" value="met" />
-			<property name="PCS_ClientTransferServiceFactory"
-				value="org.apache.oodt.cas.filemgr.datatransfer.LocalDataTransferFactory" />
-			<property name="PCS_ActionRepoFile"
-				value="file:[PROTEOME_CRAWLER_HOME]/policy/crawler-config.xml"
-				envReplace="true" />
-			<property name="QueueName" value="linux-queue" />
-		</configuration>
-
-		<requiredMetFields>
-			<metfield name="JobDir" />
-		</requiredMetFields>
-	</task>
-	<!-- done -->
-
-	<!-- TabbLab PGE Config -->
-
-
-
-
-
-
-
-
-	<task id="urn:edrn:MyrimatchSetupTask" name="MyrimatchSetupTask"
-		class="gov.nasa.jpl.edrn.proteome.workflows.pge.LinuxPGETask">
-
-		<conditions />
-
-		<configuration>
-			<property name="PGETask_Name" value="MyrimatchSetupTask" />
-			<property name="PGETask_ConfigFilePath"
-				value="[PGE_ROOT]/pge-configs/tabblab/myrimatch.setup.pgeconfig.xml"
-				envReplace="true" />
-			<property name="PGETask_DumpMetadata" value="true" />
-			<property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]"
-				envReplace="true" />
-			<property name="PCS_FileManagerUrl" value="[PROTEOME_FILEMGR_URL]"
-				envReplace="true" />
-			<property name="QueueName" value="linux-queue" />
-			<property name="DATA_STAGING"
-				value="/data/staging/20140506-Pancreatic-Cyst-Fluid" />
-		</configuration>
-
-		<requiredMetFields>
-			<metfield name="JobDir" />
-			<!-- <metfield name="ProductName"/> -->
-		</requiredMetFields>
-
-	</task>
-
-
-
-	<task id="urn:edrn:MyrimatchFakeTask" name="MyrimatchFakeTask"
-		class="gov.nasa.jpl.edrn.proteome.workflows.pge.LinuxPGETask">
-
-		<conditions />
-
-		<configuration>
-			<property name="PGETask_Name" value="MyrimatchFakeTask" />
-			<property name="PGETask_ConfigFilePath"
-				value="[PGE_ROOT]/pge-configs/tabblab/myrimatch.fake.pgeconfig.xml"
-				envReplace="true" />
-			<property name="PGETask_DumpMetadata" value="true" />
-			<property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]"
-				envReplace="true" />
-			<property name="PCS_FileManagerUrl" value="[PROTEOME_FILEMGR_URL]"
-				envReplace="true" />
-			<property name="QueueName" value="linux-queue" />
-			<property name="DATA_STAGING"
-				value="/data/staging/20140506-Pancreatic-Cyst-Fluid" />
-		</configuration>
-
-		<requiredMetFields>
-			<metfield name="JobDir" />
-			<metfield name="ProductName" />
-		</requiredMetFields>
-
-	</task>
-
-	<task id="urn:edrn:MyrimatchFinalizeTask" name="MyrimatchFinalizeTask"
-		class="gov.nasa.jpl.edrn.proteome.workflows.pge.LinuxPGETask">
-
-		<conditions />
-
-		<configuration>
-			<property name="PGETask_Name" value="MyrimatchFinalizeTask" />
-			<property name="PGETask_ConfigFilePath"
-				value="[PGE_ROOT]/pge-configs/tabblab/myrimatch.finalize.pgeconfig.xml"
-				envReplace="true" />
-			<property name="PGETask_DumpMetadata" value="true" />
-			<property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]"
-				envReplace="true" />
-			<property name="PCS_FileManagerUrl" value="[PROTEOME_FILEMGR_URL]"
-				envReplace="true" />
-			<property name="QueueName" value="linux-queue" />
-			<property name="DATA_STAGING"
-				value="/data/staging/20140506-Pancreatic-Cyst-Fluid" />
-		</configuration>
-
-		<requiredMetFields>
-			<metfield name="JobDir" />
-			<metfield name="ProductName" />
-		</requiredMetFields>
-
-	</task>
-
-
-
-	<!-- done -->
-
-
-	<task id="urn:edrn:ProteomePipelineConfigStandard" name="ProteomePipelineConfigStandard"
-		class="gov.nasa.jpl.edrn.proteome.workflows.pge.LinuxPGETask">
-
-		<conditions />
-
-		<configuration>
-			<property name="PGETask_Name" value="ProteomePipelineConfigStandard" />
-			<property name="PGETask_ConfigFilePath"
-				value="[PGE_ROOT]/pge-configs/standard-pipeline/proteome-pipelineconfig.standard.pgeconfig.xml"
-				envReplace="true" />
-			<property name="PGETask_DumpMetadata" value="true" />
-			<property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]"
-				envReplace="true" />
-			<property name="PCS_FileManagerUrl" value="[PROTEOME_FILEMGR_URL]"
-				envReplace="true" />
-			<property name="PCS_MetFileExtension" value="met" />
-			<property name="PCS_ClientTransferServiceFactory"
-				value="org.apache.oodt.cas.filemgr.datatransfer.LocalDataTransferFactory" />
-			<property name="PCS_ActionRepoFile"
-				value="file:[PROTEOME_CRAWLER_HOME]/policy/crawler-config.xml"
-				envReplace="true" />
-			<property name="QueueName" value="linux-queue" />
-		</configuration>
-
-		<requiredMetFields>
-			<metfield name="RunID" />
-		</requiredMetFields>
-	</task>
-
-	<task id="urn:edrn:ProteomePreprocessingStandard" name="ProteomePreprocessingStandard"
-		class="gov.nasa.jpl.edrn.proteome.workflows.pge.WinPGETask">
-
-		<conditions />
-
-		<configuration>
-			<property name="PGETask_Name" value="ProteomePreprocessingStandard" />
-			<property name="PGETask_ConfigFilePath"
-				value="[PGE_ROOT_CYGWIN]/pge-configs/standard-pipeline/proteome-preprocessing.standard.pgeconfig.xml"
-				envReplace="true" />
-			<property name="PGETask_DumpMetadata" value="true" />
-			<property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]"
-				envReplace="true" />
-			<property name="PCS_FileManagerUrl" value="[PROTEOME_FILEMGR_URL]"
-				envReplace="true" />
-			<property name="PCS_MetFileExtension" value="met" />
-			<property name="PCS_ClientTransferServiceFactory"
-				value="org.apache.oodt.cas.filemgr.datatransfer.LocalDataTransferFactory" />
-			<property name="PCS_ActionRepoFile"
-				value="file:[PROTEOME_CRAWLER_HOME_CYGWINPATH]/policy/crawler-config.xml"
-				envReplace="true" />
-			<property name="QueueName" value="win-queue" />
-		</configuration>
-
-		<requiredMetFields>
-			<metfield name="RunID" />
-		</requiredMetFields>
-	</task>
-
-	<task id="urn:edrn:ProteomeDBSearchStandard" name="ProteomeDBSearchStandard"
-		class="gov.nasa.jpl.edrn.proteome.workflows.pge.LinuxPGETask">
-
-		<conditions />
-
-		<configuration>
-			<property name="PGETask_Name" value="ProteomeDBSearchStandard" />
-			<property name="PGETask_ConfigFilePath"
-				value="[PGE_ROOT]/pge-configs/standard-pipeline/proteome-dbsearch.standard.pgeconfig.xml"
-				envReplace="true" />
-			<property name="PGETask_DumpMetadata" value="true" />
-			<property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]"
-				envReplace="true" />
-			<property name="PCS_FileManagerUrl" value="[PROTEOME_FILEMGR_URL]"
-				envReplace="true" />
-			<property name="PCS_MetFileExtension" value="met" />
-			<property name="PCS_ClientTransferServiceFactory"
-				value="org.apache.oodt.cas.filemgr.datatransfer.LocalDataTransferFactory" />
-			<property name="PCS_ActionRepoFile"
-				value="file:[PROTEOME_CRAWLER_HOME]/policy/crawler-config.xml"
-				envReplace="true" />
-			<property name="QueueName" value="linux-queue" />
-		</configuration>
-
-		<requiredMetFields>
-			<metfield name="RunID" />
-		</requiredMetFields>
-	</task>
-
-	<task id="urn:edrn:ProteomeFiltering1Standard" name="ProteomeFiltering1Standard"
-		class="gov.nasa.jpl.edrn.proteome.workflows.pge.LinuxPGETask">
-
-		<conditions />
-
-		<configuration>
-			<property name="PGETask_Name" value="ProteomeFiltering1Standard" />
-			<property name="PGETask_ConfigFilePath"
-				value="[PGE_ROOT]/pge-configs/standard-pipeline/proteome-filtering-1.standard.pgeconfig.xml"
-				envReplace="true" />
-			<property name="PGETask_DumpMetadata" value="true" />
-			<property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]"
-				envReplace="true" />
-			<property name="PCS_FileManagerUrl" value="[PROTEOME_FILEMGR_URL]"
-				envReplace="true" />
-			<property name="PCS_MetFileExtension" value="met" />
-			<property name="PCS_ClientTransferServiceFactory"
-				value="org.apache.oodt.cas.filemgr.datatransfer.LocalDataTransferFactory" />
-			<property name="PCS_ActionRepoFile"
-				value="file:[PROTEOME_CRAWLER_HOME]/policy/crawler-config.xml"
-				envReplace="true" />
-			<property name="QueueName" value="linux-queue" />
-		</configuration>
-
-		<requiredMetFields>
-			<metfield name="RunID" />
-		</requiredMetFields>
-	</task>
-
-	<task id="urn:edrn:ProteomeFiltering2Standard" name="ProteomeFiltering2Standard"
-		class="gov.nasa.jpl.edrn.proteome.workflows.pge.WinPGETask">
-
-		<conditions />
-
-		<configuration>
-			<property name="PGETask_Name" value="ProteomeFiltering2Standard" />
-			<property name="PGETask_ConfigFilePath"
-				value="[PGE_ROOT_CYGWIN]/pge-configs/standard-pipeline/proteome-filtering-2.standard.pgeconfig.xml"
-				envReplace="true" />
-			<property name="PGETask_DumpMetadata" value="true" />
-			<property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]"
-				envReplace="true" />
-			<property name="PCS_FileManagerUrl" value="[PROTEOME_FILEMGR_URL]"
-				envReplace="true" />
-			<property name="PCS_MetFileExtension" value="met" />
-			<property name="PCS_ClientTransferServiceFactory"
-				value="org.apache.oodt.cas.filemgr.datatransfer.LocalDataTransferFactory" />
-			<property name="PCS_ActionRepoFile"
-				value="file:[PROTEOME_CRAWLER_HOME_CYGWINPATH]/policy/crawler-config.xml"
-				envReplace="true" />
-			<property name="QueueName" value="win-queue" />
-		</configuration>
-
-		<requiredMetFields>
-			<metfield name="RunID" />
-		</requiredMetFields>
-	</task>
-
-
-
-
-
-	<task id="urn:oodt:HelloWorld" name="Hello World"
-		class="org.apache.oodt.cas.workflow.examples.HelloWorld">
+    <!-- Biomarker Discovery no-Qsub pipeline task 3 -->
+	<!-- task that runs the biomarker discovery post-processing R script -->
+	<task id="urn:edrn:BiomarkerDiscoveryTask3" name="BiomarkerDiscoveryTask3"
+		class="org.apache.oodt.cas.pge.StdPGETaskInstance">
 		<conditions>
-			<condition id="urn:oodt:TrueCondition" />
+			<condition id="urn:oodt:BiomarkerDiscoveryPostProcessCondition" />
 		</conditions>
 		<configuration>
-			<property name="Person" value="Chris" />
-		</configuration>
-	</task>
-	<task id="urn:oodt:GoodbyeWorld" name="Goodbye World"
-		class="org.apache.oodt.cas.workflow.examples.GoodbyeWorld">
-		<conditions>
-			<condition id="urn:oodt:TrueCondition" />
-		</conditions>
-		<configuration>
-			<property name="Person" value="Chris" />
-		</configuration>
-	</task>
-	<task id="urn:oodt:YoureStuck" name="You're Stuck"
-		class="org.apache.oodt.cas.workflow.examples.GoodbyeWorld">
-		<conditions>
-			<condition id="urn:oodt:FalseCondition" />
-		</conditions>
-		<configuration>
-			<property name="Person" value="Chris" />
-		</configuration>
-	</task>
-	<task id="urn:oodt:IntensiveTask" name="Processor Intensive Task"
-		class="org.apache.oodt.cas.workflow.examples.LongTask">
-		<conditions />
-		<configuration />
-	</task>
-	<task id="urn:oodt:IntensiveTaskWithWait" name="Intensive Waiter"
-		class="org.apache.oodt.cas.workflow.examples.LongTask">
-		<conditions>
-			<condition id="urn:oodt:LongCondition" />
-		</conditions>
-		<configuration />
-	</task>
-	<task id="urn:oodt:PropReplaceTask" name="PRTask"
-		class="org.apache.oodt.cas.workflow.examples.LongTask">
-		<conditions />
-		<configuration>
-			<property name="PathToReplace" value="[HOME]/my/path"
+			<property name="PGETask_Name" value="BiomarkerDiscoveryTask3" />
+			<property name="PGETask_ConfigFilePath"
+				value="[PGE_ROOT]/pge-configs/biomarker-discovery/biomarker-discovery-task3-config.pgeconfig.xml"
 				envReplace="true" />
-			<property name="DontReplaceMe" value="[HOME]/my/path"
-				envReplace="false" />
-			<property name="DontReplaceMeNoSpec" value="[HOME]/my/path" />
+			<property name="PGETask_DumpMetadata" value="true" />
+			<property name="PCS_WorkflowManagerUrl" value="[PROTEOME_WORKFLOW_URL]"
+				envReplace="true" />
+			<property name="PCS_FileManagerUrl" value="[PROTEOME_FILEMGR_URL]"
+				envReplace="true" />
+			<property name="PCS_MetFileExtension" value="met" />
+			<property name="PCS_ClientTransferServiceFactory"
+				value="org.apache.oodt.cas.filemgr.datatransfer.LocalDataTransferFactory" />
+			<property name="QueueName" value="linux-queue" />
+			<!-- script arguments -->
+			<property name="prefix" value="JPL_NatMed_Gender_Classification" />
+			<property name="projectDirectory" value="[PROTEOME_STAGING_HOME]/biomarker_discovery"
+				envReplace="true" />
 		</configuration>
-	</task>
-	<task id="urn:oodt:NumIncrementTask" name="Num Increment Task"
-		class="org.apache.oodt.cas.workflow.examples.NumIncrementTask">
-		<conditions />
-		<configuration />
-	</task>
-	<task id="urn:oodt:RandomStatusUpdateTask" name="Random Status Update"
-		class="org.apache.oodt.cas.workflow.examples.RandomStatusUpdateTask">
-		<conditions />
-		<configuration />
-	</task>
-	<task id="urn:oodt:TestMultiConditionTask" name="Test Multi Condition"
-		class="org.apache.oodt.cas.workflow.examples.HelloWorld">
-		<conditions>
-			<condition id="urn:oodt:TrueCondition" />
-			<condition id="urn:oodt:FalseCondition" />
-		</conditions>
-		<configuration>
-			<property name="Person" value="Chris" />
-		</configuration>
-	</task>
-	<task id="urn:oodt:TestReqMetFieldsTask" name="Test Met Fields"
-		class="org.apache.oodt.cas.workflow.examples.LongTask">
-		<conditions />
-		<configuration />
 		<requiredMetFields>
-			<metfield name="numSeconds" />
+			<metfield name="ncv" />
 		</requiredMetFields>
-	</task>
-	<task id="urn:oodt:ExternalScriptTask" name="External Script Task"
-		class="org.apache.oodt.cas.workflow.examples.ExternScriptTaskInstance">
-		<conditions />
-		<configuration>
-			<property name="ShellType" value="/bin/sh" /> <!-- or /bin/tcsh if you have tcsh shell envionment; or /usr/bin/ if you 
-				have a compiled program -->
-			<property name="PathToScript" value="/usr/local/sampleScript.sh" /> <!-- This should include the file name as well -->
-		</configuration>
-	</task>
-	<task id="urn:oodt:mailTask" name="Ingest e-Mail"
-		class="org.apache.oodt.cas.workflow.examples.MailTask">
-		<conditions />
-		<configuration>
-			<property name="user.name" value="Costin" />
-			<property name="msg.subject" value="Ingest Notification" />
-			<property name="mail.to" value="chris.mattmann@jpl.nasa.gov" />
-			<property name="mail.from" value="oodt@jpl.nasa.gov" />
-		</configuration>
-	</task>
-	<task id="urn:oodt:TestTimeoutTask" name="Test Timeout"
-		class="org.apache.oodt.cas.workflow.examples.LongTask">
-		<conditions>
-			<condition id="urn:oodt:TimeoutCondition" />
-		</conditions>
-		<configuration />
-		<requiredMetFields>
-			<metfield name="numSeconds" />
-		</requiredMetFields>
-	</task>
-	<task id="urn:oodt:OptionalTask" name="Optional Task"
-		class="org.apache.oodt.cas.workflow.examples.LongTask">
-		<conditions>
-			<condition id="urn:oodt:OptionalCondition" />
-		</conditions>
-		<configuration />
-		<requiredMetFields>
-			<metfield name="numSeconds" />
-		</requiredMetFields>
-	</task>
+	</task>	
+	
 </cas:tasks>
