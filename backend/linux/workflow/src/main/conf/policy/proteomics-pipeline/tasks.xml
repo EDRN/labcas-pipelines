@@ -45,6 +45,7 @@
 			<metfield name="CntmsFile" />
 			<metfield name="MyriMatchCfgFile" />
 			<metfield name="AssembleFileList" />
+			<metfield name="ProteinFile" />
 		</requiredMetFields>
 	</task>
 	

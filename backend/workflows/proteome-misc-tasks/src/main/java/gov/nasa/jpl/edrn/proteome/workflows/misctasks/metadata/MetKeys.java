@@ -17,6 +17,7 @@ public interface MetKeys {
     public static final String RESULTS_DIR_OFSN_MET_KEY = "ResultsDirOFSN";
     public static final String IDPICKER_RESULT_OFSN_MEY_KEY = "IDPickerReportOFSN";
     public static final String ASSEMBLE_FILE_LIST_MET_KEY = "AssembleFileList";
+    public static final String PROTEIN_FILE_MET_KEY = "ProteinFile";
     public static final String COPY_FILES_MET_KEY = "CopyFiles";
     
     public static final String JOB_DIR_MET_KEY = "JobDir";

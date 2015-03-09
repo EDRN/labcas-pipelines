@@ -6,14 +6,12 @@
           <cmd>cd [JobDir]</cmd>
           <cmd>[PROTEOME_HOME]/pipeline-tools/tabblab/idpAssemble *-MM.idpDB -MergedOutputFilepath [IDPAssembleOutputFile] -MaxFDRScore 0.02 -MinDistinctPeptides 2 -MinSpectra 1 -MinAdditionalPeptides 1 -MaxProteinGroupsPerPeptide 10 -cpus 6 -AssignSourceHierarchy [AssembleFileList]</cmd>
        	  <!-- FIXME: swap in place wrong with correct Assembly.idpDB -->
-          <cmd>cp [DATA_STAGING]/output/Assembly.idpDB-correct ./Assembly.idpDB</cmd>
+          <cmd>cp [PROTEOME_HOME]/pipeline-tools/tabblab/Assembly.idpDB-correct ./Assembly.idpDB</cmd>
         </exe>
 
         <!-- Custom metadata to add to output files -->
         <customMetadata>
-        <!-- temporarily added to PGE due to Windows workflow met bug -->
             <metadata key="IDPAssembleOutputFile" val="Assembly.idpDB" workflowMet="true"/>
-            <!-- end -->
         </customMetadata>
 
 </pgeConfig>

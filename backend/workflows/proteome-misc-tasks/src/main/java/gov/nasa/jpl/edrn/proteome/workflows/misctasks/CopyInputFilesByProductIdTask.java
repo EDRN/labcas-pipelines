@@ -137,6 +137,13 @@ public class CopyInputFilesByProductIdTask implements WorkflowTaskInstance, MetK
     	File destAssembleListFile = new File(jobDir + File.separator + sourceAssembleListFile.getName());
     	copyProduct(sourceAssembleListFile.getAbsolutePath(), destAssembleListFile.getAbsolutePath(), copyFiles);
     	//metadata.addMetadata(ASSEMBLE_FILE_LIST_MET_KEY, sourceAssembleListFile.getName());
+    	
+    	// Obtain Protein file
+    	LOG.info("Copying "+PROTEIN_FILE_MET_KEY+" ["+metadata.getMetadata(PROTEIN_FILE_MET_KEY)+"]");
+    	File sourceProteinFile = new File(metadata.getMetadata(PROTEIN_FILE_MET_KEY));
+    	File destProteinFile = new File(jobDir + File.separator + sourceProteinFile.getName());
+    	copyProduct(sourceProteinFile.getAbsolutePath(), destProteinFile.getAbsolutePath(), copyFiles);
+    	metadata.addMetadata(PROTEIN_FILE_MET_KEY, sourceMyrimatchCfgFile.getName());
 
 	}
 	
