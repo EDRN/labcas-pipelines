@@ -4,7 +4,7 @@
         <!-- PGE instructions -->
         <exe dir="[JobDir]" shell="/bin/bash">
 	        <exe dir="[JobDir]" shell="/bin/bash">
-	          <cmd>cd [DATA_STAGING]</cmd>
+	          <cmd>cd [PGE_ROOT]/pge-configs/tabblab</cmd>
 	          <cmd>python MyrimatchSubmit.py [RAWFiles]</cmd>
 	        </exe>
         </exe>
