@@ -64,7 +64,7 @@ public class AddDatasetMetadata implements WorkflowTaskInstance, MetKeys, Config
 			try {
 				rawProdMet = fmClient.getMetadata(rawProd);
 			} catch (CatalogException e) {
-				LOG.severe("Unable to obtain metadata for "+RAW_FILES_MET_KEY+" file ["+rawFileProductIdString+"]");
+				LOG.severe("Unable to obtain metadata for "+RAW_FILES_MET_KEY+" file ["+rawFileProductNameString+"]");
 				LOG.severe(e.toString());
 				
 				LOG.warning("Stopping "+AddDatasetMetadata.class.getName());
