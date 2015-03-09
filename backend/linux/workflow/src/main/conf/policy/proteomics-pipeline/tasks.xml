@@ -49,7 +49,7 @@
 	</task>
 	
 	<!-- Proteome Task 3 -->
-	<task id="urn:edrn:AddDatasetMetTask" name="AddDatasetMetTask"
+	<task id="urn:edrn:ProteomeAddDatasetMetTask" name="ProteomeAddDatasetMetTask"
 		class="gov.nasa.jpl.edrn.proteome.workflows.misctasks.AddDatasetMetadata">
 		<conditions />
 		<configuration>
@@ -170,7 +170,9 @@
 	<!-- Proteome Task 8a -->
 	<task id="urn:edrn:ProteomeDBSearchTabbLab" name="ProteomeDBSearchTabbLab"
 		class="gov.nasa.jpl.edrn.proteome.workflows.pge.LinuxPGETask">
-		<conditions />
+		<conditions>
+			<condition id="urn:oodt:ProteomeMyrimatchCondition" />
+		</conditions>
 		<configuration>
 			<property name="PGETask_Name" value="ProteomeDBSearchTabbLab" />
 			<property name="PGETask_ConfigFilePath"
@@ -197,7 +199,9 @@
 	<!-- Proteome Task 8b -->
 	<task id="urn:edrn:ProteomeMyrimatchSubmitTask" name="ProteomeMyrimatchSubmitTask"
 		class="gov.nasa.jpl.edrn.proteome.workflows.pge.LinuxPGETask">
-		<conditions />
+		<conditions>
+			<condition id="urn:oodt:ProteomeMzMLExistenceCondition" />
+		</conditions>
 		<configuration>
 			<property name="PGETask_Name" value="MyrimatchSubmitTask" />
 			<property name="PGETask_ConfigFilePath"
@@ -221,11 +225,9 @@
 	<!-- Proteome Task 9 -->
 	<task id="urn:edrn:ProteomeFiltering1TabbLab" name="ProteomeFiltering1TabbLab"
 		class="gov.nasa.jpl.edrn.proteome.workflows.pge.LinuxPGETask">
-
 		<conditions>
-			<condition id="urn:oodt:ProteomeFilteringCondition" />
+			<condition id="urn:oodt:ProteomePepXMLExistenceCondition" />
 		</conditions>
-
 		<configuration>
 			<property name="PGETask_Name" value="ProteomeFiltering1TabbLab" />
 			<property name="PGETask_ConfigFilePath"

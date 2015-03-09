@@ -7,7 +7,7 @@
       	<!-- Proteome Linux tasks 1-5 -->
         <task id="urn:edrn:ProteomeSetupPipelineTask"/>
         <task id="urn:edrn:ProteomeCopyInputFilesByProductIdTask"/>
-        <task id="urn:edrn:AddDatasetMetTask"/>
+        <task id="urn:edrn:ProteomeAddDatasetMetTask"/>
         <task id="urn:edrn:ProteomeJobStartNotify"/>
         <task id="urn:edrn:ProteomePipelineConfigTabbLab"/>
         

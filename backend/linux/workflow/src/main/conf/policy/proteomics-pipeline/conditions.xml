@@ -15,7 +15,43 @@
   limitations under the License.
 -->
 <cas:conditions xmlns:cas="http://oodt.jpl.nasa.gov/1.0/cas">
-    <condition id="urn:oodt:TrueCondition" name="True Condition" class="org.apache.oodt.cas.workflow.examples.TrueCondition"/>
+	
+
+	<!-- conditions for Proteomics pipeline -->
+	<condition id="urn:oodt:ProteomeMzMLExistenceCondition" name="Proteome MzML Files Existence Condition" 
+	           class="gov.nasa.jpl.edrn.proteome.workflows.pge.ProteomeIntermediateProductExistenceCondition">	           
+	    <configuration>
+            <property name="outputDirectory" value="/data/staging/20140506-Pancreatic-Cyst-Fluid/" />
+            <property name="suffix" value=".mzML" />
+        </configuration>
+	</condition>
+	<condition id="urn:oodt:ProteomePepXMLExistenceCondition" name="Proteome pepXML Files Existence Condition" 
+	           class="gov.nasa.jpl.edrn.proteome.workflows.pge.ProteomeIntermediateProductExistenceCondition">	           
+	    <configuration>
+            <property name="outputDirectory" value="/data/staging/20140506-Pancreatic-Cyst-Fluid/" />
+            <property name="suffix" value="-MM.pepXML" />
+        </configuration>
+	</condition>
+	
+	<!-- conditions for Biomarker Discovery pipeline -->
+	<condition id="urn:oodt:BiomarkerDiscoveryPostProcessCondition" name="Biomarker Discovery Post Process Condition" 
+	           class="gov.nasa.jpl.edrn.proteome.workflows.pge.BiomarkerDiscoveryPostProcessCondition">
+	    <configuration>
+            <property name="prefix" value="JPL_NatMed_Gender_Classification"/>
+            <property name="projectDirectory" value="[PROTEOME_STAGING_HOME]/biomarker_discovery" envReplace="true" />
+        </configuration>
+	</condition>
+	<condition id="urn:oodt:BiomarkerDiscoverySummaryFileCondition" name="Biomarker Discovery Summary File Condition" 
+	           class="gov.nasa.jpl.edrn.proteome.workflows.pge.FileExistenceCondition">
+	    <configuration>
+            <property name="mustBeOlderThanInSecs" value="10"/>
+            <property name="filepath" 
+                      value="[PROTEOME_STAGING_HOME]/biomarker_discovery/results/summary/JPL_NatMed_Gender_Classification_summary.txt" envReplace="true" />
+        </configuration>
+	</condition>
+
+	<!-- Example conditions -->	
+	<condition id="urn:oodt:TrueCondition" name="True Condition" class="org.apache.oodt.cas.workflow.examples.TrueCondition"/>
     <condition id="urn:oodt:FalseCondition" name="False Condition" class="org.apache.oodt.cas.workflow.examples.FalseCondition"/>
     <condition id="urn:oodt:LongCondition" name="Long Condition" class="org.apache.oodt.cas.workflow.examples.LongCondition"/>
     <condition id="urn:oodt:CheckForMetadataKeys" name="Metadata Key Check" class="org.apache.oodt.cas.workflow.examples.CheckForMetadataKeys">
@@ -26,30 +62,5 @@
     <condition id="urn:oodt:TimeoutCondition" name="Timeout Condition" class="org.apache.oodt.cas.workflow.examples.FalseCondition" timeout="30"/>
     <condition id="urn:oodt:OptionalCondition" name="Optional Condition" class="org.apache.oodt.cas.workflow.examples.FalseCondition" optional="true"/>
 	
-	<condition id="urn:oodt:BiomarkerDiscoveryPostProcessCondition" name="Biomarker Discovery Post Process Condition" 
-	           class="gov.nasa.jpl.edrn.proteome.workflows.pge.BiomarkerDiscoveryPostProcessCondition">
-	    <configuration>
-            <property name="prefix" value="JPL_NatMed_Gender_Classification"/>
-            <property name="projectDirectory" value="[PROTEOME_STAGING_HOME]/biomarker_discovery" envReplace="true" />
-        </configuration>
-	</condition>
-	
-	<condition id="urn:oodt:ProteomeFilteringCondition" name="Proteome Filtering Condition" 
-	           class="gov.nasa.jpl.edrn.proteome.workflows.pge.ProteomeFilteringCondition">
-	           
-	    <configuration>
-            <property name="outputDirectory" value="/data/staging/20140506-Pancreatic-Cyst-Fluid/" />
-        </configuration>
-        
-	</condition>
-	
-	<condition id="urn:oodt:BiomarkerDiscoverySummaryFileCondition" name="Biomarker Discovery Summary File Condition" 
-	           class="gov.nasa.jpl.edrn.proteome.workflows.pge.FileExistenceCondition">
-	    <configuration>
-            <property name="mustBeOlderThanInSecs" value="10"/>
-            <property name="filepath" 
-                      value="[PROTEOME_STAGING_HOME]/biomarker_discovery/results/summary/JPL_NatMed_Gender_Classification_summary.txt" envReplace="true" />
-        </configuration>
-	</condition>
 	
 </cas:conditions>
