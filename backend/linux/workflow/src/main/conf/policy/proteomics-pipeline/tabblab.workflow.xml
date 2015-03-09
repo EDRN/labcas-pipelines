@@ -3,24 +3,32 @@
       id="urn:edrn:TabbLabWorkflow">
 
       <tasks>
+      
+      	<!-- Proteome Linux tasks 1-5 -->
         <task id="urn:edrn:ProteomeSetupPipelineTask"/>
         <task id="urn:edrn:ProteomeCopyInputFilesByProductIdTask"/>
         <task id="urn:edrn:AddDatasetMetTask"/>
         <task id="urn:edrn:ProteomeJobStartNotify"/>
         <task id="urn:edrn:ProteomePipelineConfigTabbLab"/>
         
+        <!-- Proteome Windows tasks 6-7  -->
         <!-- <task id="urn:edrn:ProteomePreprocessingTabbLab"/>
         <task id="urn:edrn:ProteowizardTabbLab"/> -->
-        <!-- <task id="urn:edrn:MyrimatchSetupTask"/> -->
         
-        <!-- <task id="urn:edrn:MyrimatchSubmitTask"/> -->
+        <!-- Proteome Linux task 8a (Myrimatch) running sequentially on all files -->
         <!-- <task id="urn:edrn:ProteomeDBSearchTabbLab"/> -->
-        <!-- <task id="urn:edrn:MyrimatchFakeTask"/> -->
         
+        <!-- Proteome Linux task 8b alternative: 
+             submits Myrmatch workflow on all nodes -->
+        <task id="urn:edrn:ProteomeMyrimatchSubmitTask"/>
+        
+		<!-- Proteome Linux tasks 9-13 -->        
         <task id="urn:edrn:ProteomeFiltering1TabbLab"/>
-        <!-- <task id="urn:edrn:ProteomeFiltering2TabbLab"/> -->
-        <!-- <task id="urn:edrn:ProteomeFiltering3TabbLab"/> -->
-        <!-- <task id="urn:edrn:ProteomePostprocessingTabbLab"/> -->
-        <!-- <task id="urn:edrn:ProteomeJobEndNotify"/> -->
+        <task id="urn:edrn:ProteomeFiltering2TabbLab"/>
+        <task id="urn:edrn:ProteomeFiltering3TabbLab"/>
+        <task id="urn:edrn:ProteomePostprocessingTabbLab"/>
+        <task id="urn:edrn:ProteomeJobEndNotify"/>
+        
       </tasks>
+      
     </cas:workflow>
