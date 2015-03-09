@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
@@ -227,6 +228,8 @@ public class CopyInputFilesByProductIdTask implements WorkflowTaskInstance, MetK
 			LOG.severe("Unable to obtain ProductType for ProductName ["+produtTypeName+"]");
 			LOG.severe(e.toString());			
 		}
+		
+		Collections.sort( productNames );
 		
 		return productNames;
 		
