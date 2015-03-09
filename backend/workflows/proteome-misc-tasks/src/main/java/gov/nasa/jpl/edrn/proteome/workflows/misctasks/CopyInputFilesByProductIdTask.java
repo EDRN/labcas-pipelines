@@ -9,7 +9,6 @@ package gov.nasa.jpl.edrn.proteome.workflows.misctasks;
 import gov.nasa.jpl.edrn.proteome.workflows.misctasks.metadata.ConfigKeys;
 import gov.nasa.jpl.edrn.proteome.workflows.misctasks.metadata.MetKeys;
 
-
 // Java imports
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -18,34 +17,22 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Enumeration;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.UUID;
-import java.util.Vector;
 import java.util.logging.Logger;
 
-
-// OODT imports
-import org.apache.oodt.cas.filemgr.metadata.CoreMetKeys;
 import org.apache.oodt.cas.filemgr.structs.Product;
 import org.apache.oodt.cas.filemgr.structs.ProductType;
-import org.apache.oodt.cas.filemgr.structs.Query;
-import org.apache.oodt.cas.filemgr.structs.QueryCriteria;
-import org.apache.oodt.cas.filemgr.structs.TermQueryCriteria;
 import org.apache.oodt.cas.filemgr.structs.exceptions.CatalogException;
 import org.apache.oodt.cas.filemgr.structs.exceptions.ConnectionException;
-import org.apache.oodt.cas.filemgr.structs.exceptions.QueryFormulationException;
 import org.apache.oodt.cas.filemgr.structs.exceptions.RepositoryManagerException;
-import org.apache.oodt.cas.filemgr.structs.query.ComplexQuery;
-import org.apache.oodt.cas.filemgr.structs.query.QueryResult;
 import org.apache.oodt.cas.filemgr.system.XmlRpcFileManagerClient;
-import org.apache.oodt.cas.filemgr.util.SqlParser;
 import org.apache.oodt.cas.metadata.Metadata;
 import org.apache.oodt.cas.workflow.structs.WorkflowTaskConfiguration;
 import org.apache.oodt.cas.workflow.structs.WorkflowTaskInstance;
 import org.apache.oodt.cas.workflow.structs.exceptions.WorkflowTaskInstanceException;
-import org.apache.oodt.product.handlers.ofsn.util.OFSNUtils;
+// OODT imports
 
 
 /**
@@ -223,11 +210,14 @@ public class CopyInputFilesByProductIdTask implements WorkflowTaskInstance, MetK
 		
 		LOG.info("Examining ProductTypeName ["+produtTypeName+"]");
 		
-		List productNames = null;
+		List<String> productNames = new ArrayList<String>();
 		try {
 			
 			ProductType pt = fmClient.getProductTypeByName(produtTypeName);
-			productNames = fmClient.getProductsByProductType(pt);
+			List<Product> products = fmClient.getProductsByProductType(pt);
+			for (Product p : products) {
+				productNames.add(p.getProductName());
+			}
 			
 		} catch(CatalogException e) {
 			LOG.severe("Unable to obtain ProductType for ProductName ["+produtTypeName+"]");
