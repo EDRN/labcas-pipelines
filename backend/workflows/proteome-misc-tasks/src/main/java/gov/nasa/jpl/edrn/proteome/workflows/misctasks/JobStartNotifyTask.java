@@ -67,14 +67,14 @@ public class JobStartNotifyTask extends EmailNotifyTask implements WorkflowTaskI
 	    emailParams.put(RUNID_MET_KEY, metadata.getMetadata(RUNID_MET_KEY));   
     	
 	    // raw files
-	    List rawFiles = metadata.getAllMetadata(RAW_FILES_NAMES_MET_KEY);
+	    List rawFiles = metadata.getAllMetadata(RAW_FILE_NAMES_MET_KEY);
     	StringBuilder rawFilesStrBldr = new StringBuilder();
 	    for (Iterator i = rawFiles.iterator(); i.hasNext();) {
 	    	String rawFileName = (String) i.next();
 	    	rawFilesStrBldr.append(rawFileName);
 			rawFilesStrBldr.append("<br/>");    	
 	    }    
-	    emailParams.put(RAW_FILES_NAMES_MET_KEY, rawFilesStrBldr.toString());
+	    emailParams.put(RAW_FILE_NAMES_MET_KEY, rawFilesStrBldr.toString());
 	    
 	    // db file
 	    emailParams.put(DB_FILE_NAME_MET_KEY, 

@@ -32,7 +32,7 @@ public interface MetKeys {
     public static final String ACCESS_GRANTED_TO="AccessGrantedTo";
     
     // pure workflow met
-    public static final String RAW_FILES_NAMES_MET_KEY = "RAWFileNames";
+    public static final String RAW_FILE_NAMES_MET_KEY = "RAWFileNames";
     public static final String DB_FILE_NAME_MET_KEY = "DatabaseFile";
     public static final String CNTMS_FILE_NAME_MET_KEY = "ContaminantsFile";
     public static final String MYRIMATCH_FILE_NAME_MET_KEY = "MyrimatchConfigFile";

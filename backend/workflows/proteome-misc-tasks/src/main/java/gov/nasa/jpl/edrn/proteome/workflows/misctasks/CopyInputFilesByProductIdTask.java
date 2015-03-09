@@ -88,7 +88,7 @@ public class CopyInputFilesByProductIdTask implements WorkflowTaskInstance, MetK
     	}
 		
 		// Obtain RAW files based on ProductId
-		List rawFileProductNames = metadata.getAllMetadata(RAW_FILES_NAMES_MET_KEY);
+		List rawFileProductNames = metadata.getAllMetadata(RAW_FILE_NAMES_MET_KEY);
 	    for (Iterator i = rawFileProductNames.iterator(); i.hasNext();) {
 	    	String rawFileProductNameString = (String) i.next();
 	    	LOG.info("Examining RAW ProductName ["+rawFileProductNameString+"]");
