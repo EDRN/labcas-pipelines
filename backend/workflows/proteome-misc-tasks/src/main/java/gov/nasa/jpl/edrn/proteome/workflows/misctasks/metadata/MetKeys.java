@@ -36,7 +36,7 @@ public interface MetKeys {
     public static final String DB_FILE_NAME_MET_KEY = "DatabaseFile";
     public static final String CNTMS_FILE_NAME_MET_KEY = "ContaminantsFile";
     public static final String MYRIMATCH_FILE_NAME_MET_KEY = "MyrimatchConfigFile";
-    public static final String FIRST_RAW_FILE_PRODUCT_ID_MET_KEY = "FirstRawFileProdID";
+    public static final String FIRST_RAW_FILE_PRODUCT_NAME_MET_KEY = "FirstRawFileProdName";
     public static final String RESULTS_PRODUCT_MET_KEY = "ResultsProduct";
     
 }

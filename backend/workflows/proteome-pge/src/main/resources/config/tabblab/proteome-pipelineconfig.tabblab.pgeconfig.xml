@@ -13,7 +13,7 @@
                 <metadata key="JobDir" val="[PGE_ROOT]/output/jobs/[RunID]" workflowMet="true"/>
 				<metadata key="CygwinJobDir" val="[PGE_ROOT_CYGWIN]/output/jobs/[RunID]" workflowMet="true"/>   
                 <metadata key="URLBasePath" val ="[PROTEOME_TOMCAT_URL]/grid/prod?q=OFSN=/job" workflowMet="true"/>
-                <metadata key="SpecimenType" val="SQL(FORMAT='$SpecimenType'){SELECT SpecimenType FROM [RawDatasetName] WHERE CAS.ProductId='[FirstRawFileProdID]'}" workflowMet="true"/>
+                <metadata key="SpecimenType" val="SQL(FORMAT='$SpecimenType'){SELECT SpecimenType FROM [RawDatasetName] WHERE CAS.ProductName='[FirstRawFileProdName]'}" workflowMet="true"/>
                 <metadata key="InputProduct" val="[RAWFileNames]" workflowMet="true"/>
                 
       </customMetadata>

@@ -109,7 +109,7 @@
 		<requiredMetFields>
 			<metfield name="RunID" />
 			<metfield name="RawDatasetName" />
-			<metfield name="FirstRawFileProdID" />
+			<metfield name="FirstRawFileProdName" />
 			<metfield name="RAWFileNames" />
 		</requiredMetFields>
 	</task>

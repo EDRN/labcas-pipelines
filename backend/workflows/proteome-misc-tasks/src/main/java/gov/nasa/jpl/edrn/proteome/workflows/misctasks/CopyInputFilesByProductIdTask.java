@@ -103,8 +103,8 @@ public class CopyInputFilesByProductIdTask implements WorkflowTaskInstance, MetK
 	    	//metadata.addMetadata(RAW_FILES_NAMES_MET_KEY, rawProdMet.getMetadata("Filename"));
 	    	
 	    	// save first RAW file product ID for extracting common met
-	    	if (!metadata.containsKey(FIRST_RAW_FILE_PRODUCT_ID_MET_KEY)) {
-	    		metadata.addMetadata(FIRST_RAW_FILE_PRODUCT_ID_MET_KEY, rawFileProductNameString);
+	    	if (!metadata.containsKey(FIRST_RAW_FILE_PRODUCT_NAME_MET_KEY)) {
+	    		metadata.addMetadata(FIRST_RAW_FILE_PRODUCT_NAME_MET_KEY, rawFileProductNameString);
 	    	}
 	    }
 		
