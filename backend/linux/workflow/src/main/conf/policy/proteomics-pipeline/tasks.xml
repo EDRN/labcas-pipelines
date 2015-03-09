@@ -40,7 +40,7 @@
 		<requiredMetFields>
 			<metfield name="JobDir" />
 			<metfield name="RawDatasetName" />
-			<metfield name="RAWFiles" />
+			<metfield name="RAWFilesNames" />
 			<metfield name="DBFile" />
 			<metfield name="CntmsFile" />
 			<metfield name="MyriMatchCfgFile" />
@@ -219,7 +219,7 @@
 		</configuration>
 		<requiredMetFields>
 			<metfield name="JobDir" />
-			<metfield name="RAWFiles" />
+			<metfield name="RAWFilesNames" />
 		</requiredMetFields>
 	</task>
 	

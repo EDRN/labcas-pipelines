@@ -3,7 +3,7 @@
 --metaData \
 --key RawDatasetName 20140506-Pancreatic-Cyst-Fluid \
 --key PrimaryAnalysisDatasetName 0140506-Pancreatic-Cyst-Fluid-Processed \
---key RAWFiles f3f8255c-e270-4303-a69d-1d01b0c98f50 e3e8eebb-e885-4cd5-b79e-5ebdf32eeafa cb5f925f-5d19-4bcd-971a-6c40875bcbaf \
+--key RAWFilesNames A1_frx01.raw A1_frx02.raw A1_frx03.raw \
 --key DBFile /usr/local/edrn/proteome/pipeline-tools/tabblab/protein.db.fasta \
 --key CntmsFile /usr/local/edrn/proteome/pipeline-tools/tabblab/Cntms.fasta \
 --key MyriMatchCfgFile /usr/local/edrn/proteome/pipeline-tools/tabblab/cystfluid.myrimatch.cfg \

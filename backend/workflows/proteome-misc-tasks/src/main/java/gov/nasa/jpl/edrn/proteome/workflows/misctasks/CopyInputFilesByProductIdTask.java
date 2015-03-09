@@ -88,23 +88,23 @@ public class CopyInputFilesByProductIdTask implements WorkflowTaskInstance, MetK
     	}
 		
 		// Obtain RAW files based on ProductId
-		List rawFileProductIds = metadata.getAllMetadata(RAW_FILES_MET_KEY);
-	    for (Iterator i = rawFileProductIds.iterator(); i.hasNext();) {
-	    	String rawFileProductIdString = (String) i.next();
-	    	LOG.info("Examining RAW ProductId ["+rawFileProductIdString+"]");
+		List rawFileProductNames = metadata.getAllMetadata(RAW_FILES_NAMES_MET_KEY);
+	    for (Iterator i = rawFileProductNames.iterator(); i.hasNext();) {
+	    	String rawFileProductNameString = (String) i.next();
+	    	LOG.info("Examining RAW ProductName ["+rawFileProductNameString+"]");
 
-	    	Metadata rawProdMet = this.queryMetadataForProductId(rawFileProductIdString, fmClient);
+	    	Metadata rawProdMet = this.queryMetadataForProduct(rawFileProductNameString, fmClient);
 	    	String rawSourceFilePath = rawProdMet.getMetadata("FileLocation") + File.separator + 
 	    		rawProdMet.getMetadata("Filename");
 	    	String rawDestFilePath = jobDir + File.separator + rawProdMet.getMetadata("Filename");	
 	    	copyProduct(rawSourceFilePath, rawDestFilePath, copyFiles);
 	    	
 	    	// save filename for e-mail purposes
-	    	metadata.addMetadata(RAW_FILES_NAMES_MET_KEY, rawProdMet.getMetadata("Filename"));
+	    	//metadata.addMetadata(RAW_FILES_NAMES_MET_KEY, rawProdMet.getMetadata("Filename"));
 	    	
 	    	// save first RAW file product ID for extracting common met
 	    	if (!metadata.containsKey(FIRST_RAW_FILE_PRODUCT_ID_MET_KEY)) {
-	    		metadata.addMetadata(FIRST_RAW_FILE_PRODUCT_ID_MET_KEY, rawFileProductIdString);
+	    		metadata.addMetadata(FIRST_RAW_FILE_PRODUCT_ID_MET_KEY, rawFileProductNameString);
 	    	}
 	    }
 		
@@ -183,17 +183,17 @@ public class CopyInputFilesByProductIdTask implements WorkflowTaskInstance, MetK
 		buffInStream.close();	
 	}
 	
-	protected Metadata queryMetadataForProductId(String productId, XmlRpcFileManagerClient fmClient) {
+	protected Metadata queryMetadataForProduct(String productName, XmlRpcFileManagerClient fmClient) {
 		Metadata prodMet = new Metadata();
 		
-		LOG.info("Examining ProductId ["+productId+"]");
+		LOG.info("Examining ProductName ["+productName+"]");
     	
     	Product prod = null;
 		try {
-			prod = fmClient.getProductById(productId);
+			prod = fmClient.getProductByName(productName);
 		} catch (CatalogException e) {
-			LOG.severe("Unable to issue filemanager prod query for ProductId [" + 
-					productId+"]");
+			LOG.severe("Unable to issue filemanager prod query for ProductName [" + 
+					productName+"]");
 			LOG.severe(e.toString());
 		
 			return prodMet;
@@ -202,7 +202,7 @@ public class CopyInputFilesByProductIdTask implements WorkflowTaskInstance, MetK
 		try {
 			prodMet = fmClient.getMetadata(prod);
 		} catch (CatalogException e) {
-			LOG.severe("Unable to obtain metadata ProductId ["+productId+"]");
+			LOG.severe("Unable to obtain metadata for Product ["+prod+"]");
 			LOG.severe(e.toString());
 			
 			return prodMet;
