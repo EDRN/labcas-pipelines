@@ -8,20 +8,10 @@
 
         <!-- Custom metadata to add to output files -->
         <customMetadata>
-                <!-- helpful keys -->
-                <metadata key="LessThan" val="&#x3C;" workflowMet="true"/>
-                <metadata key="LessThanOrEqualTo" val="[LessThan]=" workflowMet="true"/>
-                <metadata key="GreaterThan" val="&#x3E;" workflowMet="true"/>
-                <metadata key="GreaterThanOrEqualTo" val="[GreaterThan]=" workflowMet="true"/>
-                <metadata key="Exclamation" val="&#33;" workflowMet="true"/>
-                <metadata key="Ampersand" val="&#38;" workflowMet="true"/>
-                <metadata key="NotEqualTo" val="[Ampersand]=" workflowMet="true"/>
-                <metadata key="LogicalAnd" val="[Ampersand][Ampersand]" workflowMet="true"/>
-                <metadata key="CshPipeToStdOutAndError" val="[GreaterThan][Ampersand][Exclamation]" workflowMet="true"/>
                
                <!-- Pipeline met -->
                 <metadata key="JobDir" val="[PGE_ROOT]/output/jobs/[RunID]" workflowMet="true"/>
-		<metadata key="CygwinJobDir" val="[PGE_ROOT_CYGWIN]/output/jobs/[RunID]" workflowMet="true"/>   
+				<metadata key="CygwinJobDir" val="[PGE_ROOT_CYGWIN]/output/jobs/[RunID]" workflowMet="true"/>   
                 <metadata key="URLBasePath" val ="[PROTEOME_TOMCAT_URL]/grid/prod?q=OFSN=/job" workflowMet="true"/>
                 <metadata key="SpecimenType" val="SQL(FORMAT='$SpecimenType'){SELECT SpecimenType FROM [RawDatasetName] WHERE CAS.ProductId='[FirstRawFileProdID]'}" workflowMet="true"/>
                 <metadata key="InputProduct" val="[RAWFileNames]" workflowMet="true"/>
