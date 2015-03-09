@@ -4,26 +4,24 @@
         <!-- How to run the PGE -->
         <exe dir="[JobDir]" shell="/bin/bash">
           <cmd>cd [JobDir]</cmd>
-	  <cmd>mkdir -p [ResultsDir]</cmd>
 	  
           <!-- Zip up all results and intermediate files -->
           <cmd>tar cf [ResultsProduct] *.tsv *.cfg *.fasta *.txt *.pepXML *.idpDB</cmd>
 
-	  <cmd>mv [ResultsProduct] [ResultsDir]</cmd>
+	  	  <cmd>mv [ResultsProduct] [DATA_STAGING]</cmd>
 	</exe>
 
 	<!-- Files to ingest -->
 	<output>
         <!-- one or more of these -->
-        <dir path="[ResultsDir]" createBeforeExe="false">
+        <dir path="[DATA_STAGING]" createBeforeExe="false">
             <!-- one or more of these ** regExp or name can be used-->
 	    <files regExp=".*\.tar" metFileWriterClass="gov.nasa.jpl.edrn.proteome.workflows.pge.met.FilenameMetExtractorWriter" args="[PGE_ROOT]/extractors/tabblab/proteome.idpickeragglomerative.extractor.config.xml"/>
 	</dir>
     </output>
 
         <!-- Custom metadata to add to output files -->
-        <customMetadata>
-                <metadata key="ResultsDir" val="[PROTEOME_HOME]/data/job/[RunID]/results" workflowMet="true"/>                
+        <customMetadata>            
       		<metadata key="ResultsProduct" val="results.tar" workflowMet="true"/>
 	</customMetadata>
 

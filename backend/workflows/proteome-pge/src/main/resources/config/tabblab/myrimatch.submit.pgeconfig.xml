@@ -5,8 +5,8 @@
         <exe dir="[JobDir]" shell="/bin/bash">
 	        <exe dir="[JobDir]" shell="/bin/bash">
 	          <cmd>cd [DATA_STAGING]</cmd>
-	          <cmd>ln -s [JobDir]/protein.fa ./protein.fa</cmd>
-	          <cmd>ln -s [JobDir]/cystfluid.myrimatch.cfg ./cystfluid.myrimatch.cfg</cmd>
+	          <cmd>cp [JobDir]/protein.fa ./protein.fa</cmd>
+	          <cmd>cp [JobDir]/cystfluid.myrimatch.cfg ./cystfluid.myrimatch.cfg</cmd>
 	          <cmd>python [PGE_ROOT]/pge-configs/tabblab/MyrimatchSubmit.py [RAWFiles]</cmd>
 	        </exe>
         </exe>
