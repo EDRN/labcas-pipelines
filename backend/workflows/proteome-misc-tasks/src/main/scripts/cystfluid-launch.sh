@@ -7,6 +7,6 @@
 --key DBFile /usr/local/edrn/proteome/pipeline-tools/tabblab/protein.db.fasta \
 --key CntmsFile /usr/local/edrn/proteome/pipeline-tools/tabblab/Cntms.fasta \
 --key MyriMatchCfgFile /usr/local/edrn/proteome/pipeline-tools/tabblab/cystfluid.myrimatch.cfg \
---key AssembleFileList /usr/local/edrn/proteome/pipeline-tools/tabblab/cystfluid/Assembly.txt \
+--key AssembleFileList /usr/local/edrn/proteome/pipeline-tools/tabblab/Assembly.txt \
 --key ProteinFile /usr/local/edrn/proteome/pipeline-tools/tabblab/protein.fa \
 --key CopyFiles false --key UserEmail luca.cinquini@jpl.nasa.gov
