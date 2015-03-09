@@ -4,6 +4,7 @@
         <!-- How to run the PGE -->
         <exe dir="[JobDir]" shell="/bin/bash">
           <cmd>cd [JobDir]</cmd>
+          <cmd>cp [DATA_STAGING]/protein.fa .</cmd>
           <cmd>[PROTEOME_HOME]/pipeline-tools/tabblab/idpQonvert -EmbedGeneMetadata "1" -EmbedOnly "1"  -DecoyPrefix "XXX_" -dump -cpus 1 *.pepXML</cmd>
         </exe>
 

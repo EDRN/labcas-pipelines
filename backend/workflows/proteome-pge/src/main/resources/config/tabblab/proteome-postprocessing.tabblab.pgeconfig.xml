@@ -7,7 +7,7 @@
 	  <cmd>mkdir -p [ResultsDir]</cmd>
 	  
           <!-- Zip up all results and intermediate files -->
-          <cmd>tar cf [ResultsProduct] *.csv *.myrimatch.cfg *.db.fasta *.cntms.fasta TargetDB-reverse.fasta *.mzML *.pepXML *.idpDB</cmd>
+          <cmd>tar cf [ResultsProduct] *.tsv *.cfg *.fasta *.txt *.pepXML *.idpDB</cmd>
 
 	  <cmd>mv [ResultsProduct] [ResultsDir]</cmd>
 	</exe>
