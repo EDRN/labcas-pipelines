@@ -78,11 +78,12 @@ public class CopyInputFilesByProductIdTask implements WorkflowTaskInstance, MetK
     	}
 		
 		// Obtain RAW files based on ProductName or ProductType
-    	List rawFileProductNames = null;
+    	List<String> rawFileProductNames = null;
     	if (metadata.getMetadata(RAW_FILE_NAMES_MET_KEY)!=null) {
     		rawFileProductNames = metadata.getAllMetadata(RAW_FILE_NAMES_MET_KEY);
     	} else {
     		rawFileProductNames = this.queryProductNamesForProductType(PRODUCT_TYPE_NAME, fmClient);
+    		metadata.addMetadata(RAW_FILE_NAMES_MET_KEY, rawFileProductNames);
     	}
 	    for (Iterator i = rawFileProductNames.iterator(); i.hasNext();) {
 	    	String rawFileProductNameString = (String) i.next();
@@ -206,7 +207,7 @@ public class CopyInputFilesByProductIdTask implements WorkflowTaskInstance, MetK
 		return prodMet;
 	}
 	
-	protected List queryProductNamesForProductType(String produtTypeName, XmlRpcFileManagerClient fmClient) {
+	protected List<String> queryProductNamesForProductType(String produtTypeName, XmlRpcFileManagerClient fmClient) {
 		
 		LOG.info("Examining ProductTypeName ["+produtTypeName+"]");
 		
