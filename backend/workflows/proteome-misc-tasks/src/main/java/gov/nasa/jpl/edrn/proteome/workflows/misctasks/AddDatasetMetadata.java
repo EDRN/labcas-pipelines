@@ -43,15 +43,15 @@ public class AddDatasetMetadata implements WorkflowTaskInstance, MetKeys, Config
 			LOG.severe(e.toString());
 		}
 		
-		List rawFileProductIds = met.getAllMetadata(RAW_FILES_MET_KEY);
-		if (!rawFileProductIds.isEmpty()) {
+		List rawFileProductNames = met.getAllMetadata(RAW_FILE_NAMES_MET_KEY);
+		if (!rawFileProductNames.isEmpty()) {
 			
-	    	String rawFileProductIdString = (String) rawFileProductIds.get(0); // any prod is OK
-	    	LOG.info("Examining RAW ProductId ["+rawFileProductIdString+"]");
+	    	String rawFileProductNameString = (String) rawFileProductNames.get(0); // any prod is OK
+	    	LOG.info("Examining RAW ProductName ["+rawFileProductNameString+"]");
 	    	
 	    	Product rawProd = null;
 			try {
-				rawProd = fmClient.getProductById(rawFileProductIdString);
+				rawProd = fmClient.getProductByName(rawFileProductNameString);
 			} catch (CatalogException e) {
 				LOG.severe("Unable to issue filemanager "+RAW_FILES_MET_KEY+" prod query");
 				LOG.severe(e.toString());
