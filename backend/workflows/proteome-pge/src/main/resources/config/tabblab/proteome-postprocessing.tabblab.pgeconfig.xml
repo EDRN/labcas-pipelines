@@ -8,7 +8,7 @@
           <!-- Zip up all results and intermediate files -->
           <cmd>tar cf [ResultsProduct] *.tsv *.cfg *.fasta *.txt *.pepXML *.idpDB</cmd>
 
-	  	  <cmd>mv [ResultsProduct] [DATA_STAGING]</cmd>
+	  	  <cmd>mv [ResultsProduct] [DATA_STAGING]/.</cmd>
 	</exe>
 
 	<!-- Files to ingest -->

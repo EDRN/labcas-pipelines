@@ -9,6 +9,7 @@ package gov.nasa.jpl.edrn.proteome.workflows.misctasks;
 import gov.nasa.jpl.edrn.proteome.workflows.misctasks.metadata.ConfigKeys;
 import gov.nasa.jpl.edrn.proteome.workflows.misctasks.metadata.MetKeys;
 
+
 // Java imports
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -24,6 +25,7 @@ import java.util.UUID;
 import java.util.Vector;
 import java.util.logging.Logger;
 
+
 // OODT imports
 import org.apache.oodt.cas.filemgr.metadata.CoreMetKeys;
 import org.apache.oodt.cas.filemgr.structs.Product;
@@ -34,6 +36,7 @@ import org.apache.oodt.cas.filemgr.structs.TermQueryCriteria;
 import org.apache.oodt.cas.filemgr.structs.exceptions.CatalogException;
 import org.apache.oodt.cas.filemgr.structs.exceptions.ConnectionException;
 import org.apache.oodt.cas.filemgr.structs.exceptions.QueryFormulationException;
+import org.apache.oodt.cas.filemgr.structs.exceptions.RepositoryManagerException;
 import org.apache.oodt.cas.filemgr.structs.query.ComplexQuery;
 import org.apache.oodt.cas.filemgr.structs.query.QueryResult;
 import org.apache.oodt.cas.filemgr.system.XmlRpcFileManagerClient;
@@ -87,8 +90,13 @@ public class CopyInputFilesByProductIdTask implements WorkflowTaskInstance, MetK
     		}
     	}
 		
-		// Obtain RAW files based on ProductId
-		List rawFileProductNames = metadata.getAllMetadata(RAW_FILE_NAMES_MET_KEY);
+		// Obtain RAW files based on ProductName or ProductType
+    	List rawFileProductNames = null;
+    	if (metadata.getMetadata(RAW_FILE_NAMES_MET_KEY)!=null) {
+    		rawFileProductNames = metadata.getAllMetadata(RAW_FILE_NAMES_MET_KEY);
+    	} else {
+    		rawFileProductNames = this.queryProductNamesForProductType(PRODUCT_TYPE_NAME, fmClient);
+    	}
 	    for (Iterator i = rawFileProductNames.iterator(); i.hasNext();) {
 	    	String rawFileProductNameString = (String) i.next();
 	    	LOG.info("Examining RAW ProductName ["+rawFileProductNameString+"]");
@@ -209,6 +217,28 @@ public class CopyInputFilesByProductIdTask implements WorkflowTaskInstance, MetK
 		}
     	
 		return prodMet;
+	}
+	
+	protected List queryProductNamesForProductType(String produtTypeName, XmlRpcFileManagerClient fmClient) {
+		
+		LOG.info("Examining ProductTypeName ["+produtTypeName+"]");
+		
+		List productNames = null;
+		try {
+			
+			ProductType pt = fmClient.getProductTypeByName(produtTypeName);
+			productNames = fmClient.getProductsByProductType(pt);
+			
+		} catch(CatalogException e) {
+			LOG.severe("Unable to obtain ProductType for ProductName ["+produtTypeName+"]");
+			LOG.severe(e.toString());
+		} catch(RepositoryManagerException e) {
+			LOG.severe("Unable to obtain ProductType for ProductName ["+produtTypeName+"]");
+			LOG.severe(e.toString());			
+		}
+		
+		return productNames;
+		
 	}
 	
 	protected void copyProduct(String sourcePath, String destPath, Boolean copyFiles) {

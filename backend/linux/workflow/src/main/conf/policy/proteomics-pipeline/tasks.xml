@@ -342,6 +342,8 @@
 				envReplace="true" />
 			<property name="PCS_ActionsIds" value="SolrIndexerCrawlerAction" />
 			<property name="QueueName" value="linux-queue" />
+			<property name="DATA_STAGING"
+				value="/data/staging/20140506-Pancreatic-Cyst-Fluid" />
 		</configuration>
 		<requiredMetFields>
 			<metfield name="RunID" />
