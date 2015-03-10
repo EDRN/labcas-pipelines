@@ -19,7 +19,7 @@ SOLR_QUERY = 'CAS.ProductTypeName:20140506-Pancreatic-Cyst-Fluid'
 PROTEOME_WORKFLOW_HOME = '/usr/local/edrn/proteome/proteome-workflow-linux' 
 
 # edrn-node0n
-NUM_NODES = 18
+NUM_NODES = 8
 PROTEOME_WORKFLOW_URLS = [ 'http://edrn-node%s:9001' % format(i,'02d') for i in range(1,NUM_NODES+1) ]
 
 # other parameters
